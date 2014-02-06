@@ -1,0 +1,91 @@
+.audio-player {
+	width: 150px;
+	float: right;
+	margin: 30px;
+}
+
+.audio-tag {
+	font-family: 'Raleway', Helvetica, Arial, Sans-Serif;
+	font-size: 14px;
+	margin-bottom: 5px;
+	color: #666;
+	padding-left: 20px;
+	text-transform: uppercase;
+	background: url('headphones.png') no-repeat scroll top left;
+}
+
+.audio-headline {
+	font-family: 'Roboto Slab', Georgia, Times, Serif;
+	font-size: 20px !important;
+	line-height: 1.3em;
+	margin-top: 0 !important;
+	margin-bottom: 10px !important;
+}
+.audio-readout {
+	font-size: 14px;
+}
+
+.audio-progress {
+	height: 8px;
+	background: #efefef;
+	width: 100%;
+	margin-bottom: 10px;
+	cursor:pointer;
+}
+
+.audio-current-progress {
+	height: 8px;
+	background: #aaa;
+}
+
+.play-button, .pause-button, .replay-button {
+	width: 15px;
+	height: 15px;
+	display: inline-block;
+	cursor: pointer;
+	opacity: 0.6;
+}
+
+.play-button:hover, .pause-button:hover, .replay-button:hover {
+	opacity: 1;
+}
+
+.play-button {
+	background: url('play.png') no-repeat scroll center center;
+}
+
+.pause-button {
+	background: url('pause.png') no-repeat scroll center center;
+}
+
+.replay-button {
+	background: url('replay.png') no-repeat scroll center center;
+}
+
+.audio-time {
+	float: right;
+	font-size: 14px;
+	color: #666;
+	position: relative;
+	top: 2px;
+}
+
+@media only screen and (max-width : 500px) {
+	
+	.audio-player {
+		width: 100%;
+		float: none;
+		margin: 30px 0;
+	}
+
+	.audio-img {
+		margin: 0 10px 10px 0;
+		float: left;
+	}
+	
+	.audio-progress {
+		clear:both;
+		margin-top: 10px;
+	}
+	
+}

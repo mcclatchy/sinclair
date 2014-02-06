@@ -1,0 +1,73 @@
+/*       _  __  ___    __              _ __ 
+ )\/) /_) ) ) )_     )_) \_)    )   /_) / 
+(  ( / / /_/ (__    /__)  /    (__ / / /_ 
+
+I am @LazaroGamio. I make stuff for @MiamiHerald.
+*/
+
+body {
+	margin: 0;
+	padding: 0;	
+}
+
+#wrapper {
+	width: 300px !important;
+	height: 510px !important;
+	text-align: center;
+	margin: 0 auto;
+}
+
+#slider {
+	width: 230px;
+	height: 200px;
+	margin: 20px auto;
+	position: relative;
+}
+
+#slider img {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+#text h3 {
+	padding: 0;
+	margin: 0 0 5px 0;
+	font-family: 'Raleway', Helvetica, Arial, Sans-Serif;
+	font-size: 13px;
+	text-transform: uppercase;
+	color: #666;
+}
+
+#text h1 {
+	display: inline-block;
+	font-size: 36px;
+	padding: 0 0 10px 0;
+	margin: 0 0 10px 0;
+	border-bottom: 2px solid #a00 ;
+	font-family: 'Roboto Slab', Georgia, Times, Serif;
+	line-height: 1em;
+	text-transform: uppercase;
+}
+
+#text h1 a {
+	color: #333;
+	text-decoration: none;
+}
+
+#text p {
+	font-size: 14px;
+	padding: 0px 20px;
+	margin: 0 0 10px 0;
+	font-family: 'Roboto Slab', Georgia, Times, Serif;
+	line-height: 1.6em;
+}
+
+.refer {
+	color: #333;
+}
+
+.refer:hover {
+	color: #000;
+}
