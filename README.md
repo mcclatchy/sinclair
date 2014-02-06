@@ -1,4 +1,4 @@
-##Sinclair
+#Sinclair
 
 Sinclair aims to create an easy-to-use, multi-media, responsively designed template for online news packages. Based on Javascript with heavy use of CSS, Sinclair allows multimedia objects to be incorporated on a paragraph-by-paragraph basis with text.
 
@@ -8,8 +8,8 @@ The Miami Herald has made significant use of Sinclair. The first use of Sinclair
 
 For more information, refer to the documentation file in the main folder, sinclair-docs.htm.
 
-#On the origins of the name
+#Origins of the name
 
 The fine folks at the Chicago Tribune's news apps team named (one of their apps after Ida Tarbell)[http://tarbell.tribapps.com/], a muckraking journalist. It would be easy and wrong to assume this app is named after Upton Sinclair, author of "The Jungle."
 
-(The Miami Herald explored the long, strange history of the name Peter B. Sinclair)[http://www.miamiherald.com/2013/06/04/3431537/peter-b-sinclair-the-miami-herald.html] in a way that must be fully read to be appreciated.
+[The Miami Herald explored the long, strange history of the name Peter B. Sinclair](http://www.miamiherald.com/2013/06/04/3431537/peter-b-sinclair-the-miami-herald.html) in a way that must be fully read to be appreciated.
