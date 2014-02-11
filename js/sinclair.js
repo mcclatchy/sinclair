@@ -99,8 +99,7 @@ $.fn.loadContent = function(input) {
 		});
 	}
 	
-		target.load(input.heraldUrl + ' #storyBodyContent p', function (response, status, xhr) {
-			target.children(input.childExpected).eq(0).remove(); // KILL MOBILE FEATURE HACK
+		target.load(input.scrapeResource, function (response, status, xhr) {
 			if ( status === "error" ) {
 				console.log( "Sorry but there was an error loading the live version: " + xhr.status + " " + xhr.statusText );
 				console.log( "Loading fallback version at: " + input.fallback );
