@@ -39,9 +39,9 @@ Content is loaded by invoking a method on a container in which to load content. 
 	});
 
 #####Options
-*`scrapeResource` the element on the page you're trying to scrape
-*`fallback` location of the fallback html you will load if the scrape fails
-*`def` the aforementioned deferred object to resolve when load has occurred.
+* `scrapeResource` the element on the page you're trying to scrape
+* `fallback` location of the fallback html you will load if the scrape fails
+* `def` the aforementioned deferred object to resolve when load has occurred.
 
 Almost all elements will have a `blockType` option, which will define whether they float left, right, or take up the width of the story well.
 
@@ -55,10 +55,10 @@ Almost all elements will have a `blockType` option, which will define whether th
 	});
 
 #####Options
-*`blockType` layout size and position. Accepts `wide`,`right` or `left`
-*`url` location of the image
-*`credit` text that will appear in the credit field
-*`cutline` the caption for the photo
+* `blockType` layout size and position. Accepts `wide`,`right` or `left`
+* `url` location of the image
+* `credit` text that will appear in the credit field
+* `cutline` the caption for the photo
 
 ###Blockquote
 
@@ -70,10 +70,10 @@ Almost all elements will have a `blockType` option, which will define whether th
 	});
 	
 #####Options
-*`blockType` layout size and position. Accepts `wide`,`right` or `left`
-*`quote` the text for the quote
-*`attrib` who said the quote; can contain HTML
-*`citeSrc` source for the quote (optional)
+* `blockType` layout size and position. Accepts `wide`,`right` or `left`
+* `quote` the text for the quote
+* `attrib` who said the quote; can contain HTML
+* `citeSrc` source for the quote (optional)
 	
 ###Video
 
@@ -86,8 +86,8 @@ Almost all elements will have a `blockType` option, which will define whether th
 	});
 	
 #####Options
-*`blockType` layout size and position. Accepts `wide`,`right` or `left`
-*`videoID` ID of youtube video
-*`videoTitle` name of video
-*`videoCaption` small description for video
-*`ratio` video width / height; for making sure the video retains aspect ratio
+* `blockType` layout size and position. Accepts `wide`,`right` or `left`
+* `videoID` ID of youtube video
+* `videoTitle` name of video
+* `videoCaption` small description for video
+* `ratio` video width / height; for making sure the video retains aspect ratio
