@@ -108,65 +108,9 @@ a:hover {
 	width: 48%;
 }
 
-/*COMMENT*/
+/*FOLIO*/
 
-.comment-box {
-	width: 300px;
-	margin: 15px 0px 15px 15px;
-	padding: 20px;
-	font-size: 14px;
-}
-
-.comment-box p {
-	margin-bottom: 0px !important;
-}
-
-/*ADS*/
-
-.square-ad {
-	float: right;
-	margin: 15px 5% 15px 40px;
-	padding: 20px;
-	border: 1px solid #ccc;
-}
-
-.square-ad span {
-	text-align: center;
-	display: block;
-	font-family: 'Raleway', Helvetica, Arial, Sans-Serif;
-	text-transform: uppercase;
-	color: #666;
-	font-size: 10px;
-	margin-bottom: 4px;
-	font-weight: 900;
-	position: relative;
-	top: -6px;
-}
-
-/*PULLOUT QUOTE*/
-
-.pullout-quote {
-	font-family: Georgia, Times, Serif;
-	font-style: italic;
-	font-size: 32px;
-	line-height: 1.6em;
-}
-
-.attrib-line {
-	display: block;
-	font-family: 'Raleway', Helvetica, Arial, Sans-Serif;
-	font-style: normal;
-	font-size: 14px;
-	font-weight: 900;
-	text-transform: uppercase;
-	line-height: 18px;
-	color: #aaa;
-	margin-top: 10px;
-}
-
-/*BEGIN TEMPLATING UTILITY*/
-
-#floatingFolio {
+#floating-folio {
 	width: 98%;
 	position: fixed;
 	top: 0%;
@@ -181,29 +125,25 @@ a:hover {
 	box-shadow:         0px 6px 2px rgba(0,0,0,0.2);
 }
 
-#folioTitle {
-	position: relative;
-	top: -6px;
-}
+#folio-title {position: relative; top: -6px}
+#folio-info { height: 100% }
 
-#staticFolio {
-	padding: 20px 0;
-}
-
-#staticFolio > .logoB {
-	position: relative;
-	top: 4px;
-}
-
-#folioInfo {
-	height: 100%;
-}
-
-#staticFolio > .logoB, #staticFolio > .logoW, #floatingFolio > .logoB, #floatingFolio > .logoW {
+#floating-folio > .logoB, #floating-folio > .logoW {
 	float: left;
 	margin-right: 10px;
 	padding-right: 10px;
 }
+
+.perc-holder {
+	width: 102%;
+	position: absolute;
+	top: 0%;
+	left: -1%;
+	height: 3px;
+	background: #fff;
+}
+
+#tracker { height: 100%; background: #a00; width: 0px; }
 
 .logoB {
 	display: block;
@@ -227,21 +167,6 @@ a:hover {
 	width: 167px;
 	height: 30px;
 	background-size: 167px 30px;
-}
-
-.perc_holder {
-	width: 102%;
-	position: absolute;
-	top: 0%;
-	left: -1%;
-	height: 3px;
-	background: #fff;
-}
-
-#tracker {
-	height: 100%;
-	background: #a00;
-	width: 0px;
 }
 
 /*SOCIAL TOOLS*/
@@ -367,11 +292,7 @@ a:hover {
 .footer-list a {
 	color: #666;
 	text-decoration: none;
-	text-transform: uppercase;
 	padding: 0 10px;
-	font-family: 'Raleway', Helvetica, Arial, Sans-Serif;
-	font-size: 13px;
-	font-weight: 900;
 }
 
 .footer-list a:hover {
@@ -398,79 +319,24 @@ a:hover {
 		margin-bottom: 20px;
 	}
 	
-	#footerAd {
-		display: none;
-	}
-	
-	.double-wide {
-		width: 100% !important;
-	}
-	
-	.photo-array img {
-		width: 100%;
-	}
-
-	.square-ad {
-		padding-left: 0;
-		padding-right: 0;
-		border-right: none;
-		border-left: none;
-		width: 120%;
-		position: relative;
-		left: 8% !important;
-		text-align: center;
-	}
-	
-	.asset-content {
-		width: 100% !important;
-	}
-	
 }
 
 @media only screen and (max-width : 700px) {
 /* Styles */	
 
-	#story-holder p {
-		padding: 0 4% 0 4%;
-	}
-	
+	#article-wrapper {padding: 0 5%}
 	.align-right {text-align: left}
 	
-	.square-ad {
-		padding-left: 0;
-		padding-right: 0;
-		border-right: none;
-		border-left: none;
-		width: 120%;
-		position: relative;
-		left: 8% !important;
-		text-align: center;
-	}
 }
 
 
 @media only screen and (max-width : 600px) {
 	/*RESET BLOCK ASSETS*/
-	.block-item {margin: 40px auto !important; float: none !important;}
+	.block-item {margin: 40px auto !important; float: none !important; max-width: 100%}
 	/*REDRAW TYPE*/
 	.large {font-size: 20px}
 	.xlarge {font-size: 30px}
 	.huge {font-size: 40px}
-
-#footerAd {
-	display: none;
-}
-
-#footer p {
-	font-size: 12px;
-	color: #ccc;
-	line-height: 1.4em;
-}
-
-#footer-info a {
-	display: block;
-	margin-bottom: 10px;
-}
 
 .logoB {
 	background: transparent url('http://www.miamiherald.com/static/media/projects/libraries/images/h_b.png') no-repeat scroll center;

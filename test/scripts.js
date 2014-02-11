@@ -13,9 +13,34 @@ $('#article-wrapper').loadContent({
 // BEGIN LAYOUT CODE BLOCK
 
 $.when($load).then(function() {
-	
-	console.log('done pulling in content')
-	
+
+	$('#splash').folio({
+	'pageTitle' : 'The Sinclair Project demo page',
+	'folioTitle' : 'Sinclair Demo',
+	'shortUrl' : 'https://github.com/mcclatchy/sinclair',
+	'flat' : true,
+	'tracker' : true
+	});
+
+	$('body').simpleFooter([
+	{
+		'name' : 'Terms of Service',
+		'url' : 'http://www.miamiherald.com/terms_of_service'
+	},
+	{
+		'name' : 'Privacy Policy',
+		'url' : 'http://www.miamiherald.com/privacy_policy'
+	},
+	{
+		'name' : 'Copyright',
+		'url' : 'http://www.miamiherald.com/copyright'
+	},
+	{
+		'name' : 'Contact us',
+		'url' : 'http://www.miamiherald.com/contact-us'
+	}
+	]);
+
 	// DEFINE YOUR PARAGRAPHS
 	
 	$story = $('#article-wrapper p')
@@ -54,5 +79,9 @@ $.when($load).then(function() {
 		'url' : 'http://www.miamiherald.com',
 		'gotext' : 'Go do something'
 	});
+	
+	initAds();
+	
+	$story.eq(5).ad('<div id="div-gpt-ad-106911552261722130-3"><script type="text/javascript">googletag.cmd.push(function() { googletag.display("div-gpt-ad-106911552261722130-3"); });</script></div>')
 
 });

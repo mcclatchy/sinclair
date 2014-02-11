@@ -8,7 +8,7 @@ The Miami Herald has made significant use of Sinclair. The first use of Sinclair
 
 For more information, refer to the documentation file in the main folder, sinclair-docs.htm.
 
-##Origins of the name
+#####Origins of the name
 
 The fine folks at the Chicago Tribune's news apps team named [one of their apps after Ida Tarbell](http://tarbell.tribapps.com/), a muckraking journalist. It would be easy and wrong to assume this app is named after Upton Sinclair, author of "The Jungle."
 
@@ -41,7 +41,48 @@ Content is loaded by invoking a method on a container in which to load content. 
 #####Options
 * `scrapeResource` the element on the page you're trying to scrape
 * `fallback` location of the fallback html you will load if the scrape fails
-* `def` the aforementioned deferred object to resolve when load has occurred.
+* `def` the aforementioned deferred object to resolve when load has occurred
+
+###Adding a Folio
+
+This method should be invoked on a header-like element near the beginning of the page.
+
+	$('#splash').folio({
+	'pageTitle' : 'The Sinclair Project demo page',
+	'folioTitle' : 'Sinclair Demo',
+	'shortUrl' : 'https://github.com/mcclatchy/sinclair',
+	'flat' : true,
+	'tracker' : true
+	})
+	
+#####Options
+
+* `pageTitle` text used to build a custom tweet in the share tools. It is the long name of the page
+* `folioTitle` text used next to the logo in the folio. It is the short name of the page
+* `shortUrl` shortened url build to concatenate the custom tweet with `pageTitle`
+* `flat` *boolean* if `true`, folio is fixed to top of page; if `false`, folio slides down after user scrolls past element upon which the method was invoked
+* `tracker` builds progress bar fixed to top of folio
+
+###Adding a simple footer
+
+This method adds a simple footer based on an array of name-url objects
+
+	$('body').simpleFooter([
+	{
+		'name' : 'Terms of Service',
+		'url' : 'http://www.miamiherald.com/terms_of_service'
+	},
+	{
+		'name' : 'Privacy Policy',
+		'url' : 'http://www.miamiherald.com/privacy_policy'
+	},
+	{
+		'name' : 'Copyright',
+		'url' : 'http://www.miamiherald.com/copyright'
+	}
+	]);
+
+##Basic Elements
 
 Almost all elements will have a `blockType` option, which will define whether they float left, right, or take up the width of the story well.
 
@@ -108,3 +149,11 @@ Almost all elements will have a `blockType` option, which will define whether th
 * `videoTitle` name of video
 * `videoCaption` small description for video
 * `ratio` video width / height; for making sure the video retains aspect ratio
+
+##Methods in progress 
+
+###Ads
+
+	$story.eq(5).ad('<ad>HTML</ad>')
+	
+This method (for now) accepts raw HTML as the input.
