@@ -87,8 +87,8 @@ a:hover {
 
 /*BLOCK ASSETS*/
 
-.block-asset {margin: 40px 0;}
-.block-asset > iframe, .block-asset > img {width:100%;}
+.block-item {margin: 40px 0;}
+.block-item > iframe, .block-item > img {width:100%;}
 
 .wide {width: 100%;}
 
@@ -451,7 +451,7 @@ a:hover {
 
 @media only screen and (max-width : 600px) {
 	/*RESET BLOCK ASSETS*/
-	.block-asset {margin: 40px auto !important; float: none !important;}
+	.block-item {margin: 40px auto !important; float: none !important;}
 	/*REDRAW TYPE*/
 	.large {font-size: 20px}
 	.xlarge {font-size: 30px}

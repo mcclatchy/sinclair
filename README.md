@@ -74,10 +74,27 @@ Almost all elements will have a `blockType` option, which will define whether th
 * `quote` the text for the quote
 * `attrib` who said the quote; can contain HTML
 * `citeSrc` source for the quote (optional)
+
+###Refer
+
+	$story.eq(2).refer({
+		'blockType': 'right',
+		'hed' : 'Little refer',
+		'readout' : 'Hello there! I\'m a little box that can serve as an aside to the story',
+		'url' : 'http://www.miamiherald.com',
+		'gotext' : 'Go do something'
+	});
+	
+#####Options
+* `blockType` layout size and position. Accepts `right` or `left`; if set to `wide`, defaults back to right
+* `hed` label for refer
+* `readout` body text for refer
+* `url` url for link after refer body text (optional)
+* `gotext` link text; dependent on `url` being declared
 	
 ###Video
 
-	$story.eq(2).video({
+	$story.eq(3).video({
 		'blockType': 'right',
 		'videoID': 'GUNHbU7LnM4',
 		'videoTitle': 'Video Title test',

@@ -46,5 +46,13 @@ $.when($load).then(function() {
 		'credit' : 'Photo by Peter B. Sinclair / For the Miami Herald',
 		'cutline' : 'This is a picture of what Peter B. Sinclair looked like when he was following David Bowie on the Ziggy Stardust tour.'
 	});
+	
+	$story.eq(3).refer({
+		'blockType': 'right',
+		'hed' : 'Little refer',
+		'readout' : 'Hello there! I\'m a little box that can serve as an aside to the story',
+		'url' : 'http://www.miamiherald.com',
+		'gotext' : 'Go do something'
+	});
 
 });
