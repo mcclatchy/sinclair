@@ -16,16 +16,49 @@ The fine folks at the Chicago Tribune's news apps team named [one of their apps 
 
 ##Basic Functions
 
+###Loading your content
+
+Content is loaded by invoking a method on a container in which to load content. First, we define a deferred object that gets resolved once content is loaded. Presently, there are two methods for adding content: Scraping paragraphs from an existing story, or loading from a static HTML file in the local directory.
+
+	// CREATE YOUR DEFERRED OBJECT
+
+	$load = new $.Deferred();
+
+	// LOAD YOUR CONTENT INTO AN ELEMENT
+
+	$('#article-wrapper').loadContent({
+		'scrapeResource': 'http://www.miamiherald.com/2014/02/11/3927377/poll-shows-outsized-support-for.html #storyBodyContent p',
+		'fallback': 'data.html',
+		'def': $load
+	});
+
+	// RUN YOUR LAYOUT ONLY AFTER YOUR OBJECT GETS RESOLVED
+
+	$.when($load).then(function() {
+		// LAYOUT LOGIC GOES HERE
+	});
+
+#####Options
+*`scrapeResource` the element on the page you're trying to scrape
+*`fallback` location of the fallback html you will load if the scrape fails
+*`def` the aforementioned deferred object to resolve when load has occurred.
+
 Almost all elements will have a `blockType` option, which will define whether they float left, right, or take up the width of the story well.
 
 ###Photos
 
 	$story.eq(0).photo({
 		'blockType': 'wide',
-		'PhotoUrl' : 'http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2013/2/15/1360937072371/David-Bowie-1973-008.jpg',
-		'Credit' : 'Photo by Peter B. Sinclair / For the Miami Herald',
-		'Caption' : 'This is a picture of what Peter B. Sinclair looked like when he was following David Bowie on the Ziggy Stardust tour.'
+		'url' : 'http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2013/2/15/1360937072371/David-Bowie-1973-008.jpg',
+		'credit' : 'Photo by Peter B. Sinclair / For the Miami Herald',
+		'cutline' : 'This is a picture of what Peter B. Sinclair looked like when he was following David Bowie on the Ziggy Stardust tour.'
 	});
+
+#####Options
+*`blockType` layout size and position. Accepts `wide`,`right` or `left`
+*`url` location of the image
+*`credit` text that will appear in the credit field
+*`cutline` the caption for the photo
 
 ###Blockquote
 
@@ -36,6 +69,12 @@ Almost all elements will have a `blockType` option, which will define whether th
 		'citeSrc': 'http://www.miamiherald.com/2013/06/04/3431537/peter-b-sinclair-the-miami-herald.html'
 	});
 	
+#####Options
+*`blockType` layout size and position. Accepts `wide`,`right` or `left`
+*`quote` the text for the quote
+*`attrib` who said the quote; can contain HTML
+*`citeSrc` source for the quote (optional)
+	
 ###Video
 
 	$story.eq(2).video({
@@ -45,3 +84,10 @@ Almost all elements will have a `blockType` option, which will define whether th
 		'videoCaption': 'test test test test test test test',
 		'ratio': 1.77
 	});
+	
+#####Options
+*`blockType` layout size and position. Accepts `wide`,`right` or `left`
+*`videoID` ID of youtube video
+*`videoTitle` name of video
+*`videoCaption` small description for video
+*`ratio` video width / height; for making sure the video retains aspect ratio

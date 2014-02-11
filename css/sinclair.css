@@ -27,36 +27,13 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
-body {
-	font-size: 16px;
-	line-height: 1.6em;
-	width: 100%;
-	font-family: Georgia, Times, Serif;
-	margin: 0 auto;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
+body {line-height: 1.6em;font-family: Georgia, Times, Serif}
+ol, ul {list-style: none}
+blockquote, q {quotes: none}
 blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-
-.clearfix {
-   clear: both;
-}
-
-html {
-	width: 100%;
-}
+q:before, q:after {content: '';content: none}
+table {border-collapse: collapse;border-spacing: 0}
+.clearfix {clear: both}
 
 /*BEGIN HERALD UTILITY CSS*/
 
@@ -82,35 +59,12 @@ a:hover {
 
 /*TYPE SIZES*/
 
-.xsmall {
-	font-size: 12px;
-	line-height: 12px;
-	margin-bottom: .3em;
-}
-
-.small {
-	font-size: 14px;
-	line-height: 14px;
-	margin-bottom: .3em;
-}
-
-.large {
-	font-size: 24px;
-	line-height: 24px;
-	margin-bottom: .3em;
-}
-
-.xlarge {
-	font-size: 36px;
-	line-height: 36px;
-	margin-bottom: .3em;
-}
-
-.huge {
-	font-size: 60px;
-	line-height: 60px;
-	margin-bottom: .3em;
-}
+.xsmall, .small, .large, .xlarge, .huge { line-height: 1.2em; margin-bottom: .3em}
+.xsmall {font-size: .75em}
+.small {font-size: .875em}
+.large {font-size: 1.5em}
+.xlarge {font-size: 2.2em}
+.huge {font-size: 3em}
 
 /*CASE*/
 .upper {text-transform: uppercase}
@@ -126,17 +80,88 @@ a:hover {
 .gray {color: #777}
 
 /*FLOATS AND MARGIN*/
+.float-left {float: left}
+.float-right {float: right}
+.margin-left {margin-left: 30px !important}
+.margin-right {margin-right: 30px !important}
 
-.float-left {
+/*BLOCK ASSETS*/
+
+.block-asset {margin: 40px 0;}
+.block-asset > iframe, .block-asset > img {width:100%;}
+
+.wide {width: 100%;}
+
+.right {
+	max-width: 310px;
 	float: right;
+	margin-left: 40px;
 }
 
-.float-right {
-	float: right;
+.left {
+	max-width: 310px;
+	float: left;
+	margin-right: 40px;
 }
 
-.margin-left {
-	margin-left: 30px !important;
+.double-wide figure.left , .double-wide figure.right {
+	width: 48%;
+}
+
+/*COMMENT*/
+
+.comment-box {
+	width: 300px;
+	margin: 15px 0px 15px 15px;
+	padding: 20px;
+	font-size: 14px;
+}
+
+.comment-box p {
+	margin-bottom: 0px !important;
+}
+
+/*ADS*/
+
+.square-ad {
+	float: right;
+	margin: 15px 5% 15px 40px;
+	padding: 20px;
+	border: 1px solid #ccc;
+}
+
+.square-ad span {
+	text-align: center;
+	display: block;
+	font-family: 'Raleway', Helvetica, Arial, Sans-Serif;
+	text-transform: uppercase;
+	color: #666;
+	font-size: 10px;
+	margin-bottom: 4px;
+	font-weight: 900;
+	position: relative;
+	top: -6px;
+}
+
+/*PULLOUT QUOTE*/
+
+.pullout-quote {
+	font-family: Georgia, Times, Serif;
+	font-style: italic;
+	font-size: 32px;
+	line-height: 1.6em;
+}
+
+.attrib-line {
+	display: block;
+	font-family: 'Raleway', Helvetica, Arial, Sans-Serif;
+	font-style: normal;
+	font-size: 14px;
+	font-weight: 900;
+	text-transform: uppercase;
+	line-height: 18px;
+	color: #aaa;
+	margin-top: 10px;
 }
 
 /*BEGIN TEMPLATING UTILITY*/
@@ -354,147 +379,12 @@ a:hover {
 	text-decoration: underline;
 }
 
-/*BLOCK ASSETS*/
 
-.block-asset {margin: 40px 0;}
-.block-asset > iframe, .block-asset > img {width:100%;}
-.wide {width: 100%;}
-
-.right {
-	max-width: 310px;
-	float: right;
-	margin-left: 40px;
-}
-
-.left {
-	max-width: 310px;
-	float: left;
-	margin-right: 40px;
-}
-
-.photo-array {
-	margin: 20px auto;
-}
-
-.photo-array img {
-	margin: 0;
-	padding: 0;
-}
-
-.double-wide img {
-	width: 100%;
-}
-
-.double-wide figure.left , .double-wide figure.right {
-	width: 48%;
-}
-
-.single-photo img {
-	width: 100%;
-}
-
-.photo-credit {
-	line-height: 1em;
-	display: block;
-	margin: 4px 0;
-}
-
-.aside-vertical-photo {
-	width: 40%;
-	max-width: 300px;
-	margin: 15px 0 15px 15px;
-	padding: 20px;
-	font-size: 14px;
-}
-
-.aside-vertical-photo img {
-	width: 100%;
-	height: auto;
-}
-
-/*COMMENT*/
-
-.comment-box {
-	width: 300px;
-	margin: 15px 0px 15px 15px;
-	padding: 20px;
-	font-size: 14px;
-}
-
-.comment-box p {
-	margin-bottom: 0px !important;
-}
-
-/*ADS*/
-
-.square-ad {
-	float: right;
-	margin: 15px 5% 15px 40px;
-	padding: 20px;
-	border: 1px solid #ccc;
-}
-
-.square-ad span {
-	text-align: center;
-	display: block;
-	font-family: 'Raleway', Helvetica, Arial, Sans-Serif;
-	text-transform: uppercase;
-	color: #666;
-	font-size: 10px;
-	margin-bottom: 4px;
-	font-weight: 900;
-	position: relative;
-	top: -6px;
-}
-
-/*PULLOUT QUOTE*/
-
-.pullout-quote {
-	font-family: Georgia, Times, Serif;
-	font-style: italic;
-	font-size: 32px;
-	line-height: 1.6em;
-}
-
-.attrib-line {
-	display: block;
-	font-family: 'Raleway', Helvetica, Arial, Sans-Serif;
-	font-style: normal;
-	font-size: 14px;
-	font-weight: 900;
-	text-transform: uppercase;
-	line-height: 18px;
-	color: #aaa;
-	margin-top: 10px;
-}
 
 /*SMALLER SCREENS*/
 
 @media only screen and (max-width : 920px) {
 /* Styles */
-
-#story-holder p {
-	padding: 0 !important;
-}
-	
-	.compare-section, .section {
-		padding-left: 10%;
-		padding-right: 10%;
-	}
-	
-	.asset-holder {
-		width: auto !important;
-		height: auto !important;
-		position: static !important;
-		float: left;
-		margin: 10px 20px 10px 0px;
-	}
-	
-	.blockEl {
-		margin-left: auto !important;
-		margin-right: auto !important;
-	}
-	
 	.photo-array {
 		margin-left: auto !important;
 		margin-right: auto !important;
@@ -519,14 +409,7 @@ a:hover {
 	.photo-array img {
 		width: 100%;
 	}
-	
-	.asideRight {
-		margin-left: auto !important;
-		margin-right: auto !important;
-		width: auto !important;
-		float: none;
-	}
-	
+
 	.square-ad {
 		padding-left: 0;
 		padding-right: 0;
@@ -551,21 +434,7 @@ a:hover {
 		padding: 0 4% 0 4%;
 	}
 	
-	.asset-holder {
-		margin: 2em 0 2em 0;
-		padding: 2em 0 2em 0;
-		border-top: 1px solid #ccc;
-		border-bottom: 1px solid #ccc;
-		text-align: left;
-	}
-	
-	.asset-content {
-		padding: 0 !important;
-	}
-	
-	.align-right {
-		text-align: left;
-	}
+	.align-right {text-align: left}
 	
 	.square-ad {
 		padding-left: 0;
@@ -581,39 +450,12 @@ a:hover {
 
 
 @media only screen and (max-width : 600px) {
-	
-	p {
-		font-size: 1em;
-	}
-
-.logoB {
-	background: transparent url('http://www.miamiherald.com/static/media/projects/libraries/images/h_b.png') no-repeat scroll center;
-	width: 25px;
-	height: 30px;
-	background-size: 25px 30px;
-}
-
-.logoW {
-	background: transparent url('http://www.miamiherald.com/static/media/projects/libraries/images/h_w.png') no-repeat scroll center;
-	width: 25px;
-	height: 30px;
-	background-size: 25px 30px;
-}
-
-.large {
-	font-size: 20px;
-	line-height: 20px;
-}
-
-.xlarge {
-	font-size: 30px;
-	line-height: 30px;
-}
-
-.huge {
-	font-size: 40px;
-	line-height: 40px;
-}
+	/*RESET BLOCK ASSETS*/
+	.block-asset {margin: 40px auto !important; float: none !important;}
+	/*REDRAW TYPE*/
+	.large {font-size: 20px}
+	.xlarge {font-size: 30px}
+	.huge {font-size: 40px}
 
 #footerAd {
 	display: none;
@@ -628,6 +470,20 @@ a:hover {
 #footer-info a {
 	display: block;
 	margin-bottom: 10px;
+}
+
+.logoB {
+	background: transparent url('http://www.miamiherald.com/static/media/projects/libraries/images/h_b.png') no-repeat scroll center;
+	width: 25px;
+	height: 30px;
+	background-size: 25px 30px;
+}
+
+.logoW {
+	background: transparent url('http://www.miamiherald.com/static/media/projects/libraries/images/h_w.png') no-repeat scroll center;
+	width: 25px;
+	height: 30px;
+	background-size: 25px 30px;
 }
 
 }

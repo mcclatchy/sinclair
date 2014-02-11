@@ -138,26 +138,7 @@ $(this).after('<div class="photo-array double-wide"><figure class="left float-le
 	+'</figcaption></div>');
 }
 
-// COMMENT TEASER
 
-$.fn.commentTeez = function(input) {
-$(this).after('<aside class="comment-box float-right margin-left taupeBox"><h3 class="ral fat upper red">'
-+input.Hed+
-'</h3><p>'
-+input.ReadOut+
-' <a href="'
-+input.Location+
-'">'
-+input.GoTo+
-'</a></p></aside>');
-}
-
-
-// RAW LEFT BOX
-
-function UassetLeft(input) {
-$storyGraf.eq(input.afterGraf - 1).before('<aside class="asset-holder"><div class="asset-content">'+input.HTMLcontent+'</div></aside>');
-}
 
 // AD INSERTION
 
@@ -175,7 +156,7 @@ function UinsertBannerAd(afterGraf) {
 
 
 $.fn.quote = function(input) {
-	$(this).after('<blockquote id="current" class="'+input.blockType+' block-asset quote-aside"><p class="large heavier bright">&ldquo;'
+	$(this).after('<blockquote id="current" class="'+input.blockType+' block-item quote-item"><p class="large heavier bright">&ldquo;'
 	+input.quote+
 	'&rdquo;</p><small class="block">'
 	+input.attrib+
@@ -196,7 +177,7 @@ $.fn.quote = function(input) {
 }
 
 $.fn.video = function(input) {
-$(this).after('<figure class="'+input.blockType+' block-asset video-item"><iframe class="yt-embed" id="'+input.videoID+'" src="http://www.youtube.com/embed/'+input.videoID+'?modestbranding&showinfo=0" frameborder="0" allowfullscreen></iframe><figcaption><span class="vid-spr ral fat upper">'+input.videoTitle+'</span>  '+input.videoCaption+'</figcaption></figure>');
+$(this).after('<figure class="'+input.blockType+' block-item video-item"><iframe class="yt-embed" id="'+input.videoID+'" src="http://www.youtube.com/embed/'+input.videoID+'?modestbranding&showinfo=0" frameborder="0" allowfullscreen></iframe><figcaption><span class="vid-spr ral fat upper">'+input.videoTitle+'</span>  '+input.videoCaption+'</figcaption></figure>');
 
 $('#'+input.videoID).height( function () {
 	return $(this).width() / input.ratio
@@ -205,14 +186,28 @@ $('#'+input.videoID).height( function () {
 }
 
 $.fn.photo = function (input) {
-$(this).after('<figure class="'+input.blockType+' block-asset photo-item"><img src="'
-+input.PhotoUrl+
+$(this).after('<figure class="'+input.blockType+' block-item photo-item"><img src="'
++input.url+
 '"alt="'
-+input.Caption+
-'"/><small class="photo-credit xsmall upper ral align-right">'
-+input.Credit+
++input.cutline+
+'"/><small class="photo-credit xsmall upper ral align-right block">'
++input.credit+
 '</small><figcaption>'
-+input.Caption
++input.cutline
 +'</figcaption><div class="clearfix"></div></figure>');
+}
+
+// COMMENT TEASER
+
+$.fn.commentTeez = function(input) {
+$(this).after('<aside class="'+input.blockType+' block-item comment-item"><h3 class="ral fat upper red">'
++input.Hed+
+'</h3><p>'
++input.ReadOut+
+' <a href="'
++input.Location+
+'">'
++input.GoTo+
+'</a></p></aside>');
 }
 

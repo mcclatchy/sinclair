@@ -42,9 +42,9 @@ $.when($load).then(function() {
 	// PHOTO EXAMPLE
 	$story.eq(2).photo({
 		'blockType': 'wide',
-		'PhotoUrl' : 'http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2013/2/15/1360937072371/David-Bowie-1973-008.jpg',
-		'Credit' : 'Photo by Peter B. Sinclair / For the Miami Herald',
-		'Caption' : 'This is a picture of what Peter B. Sinclair looked like when he was following David Bowie on the Ziggy Stardust tour.'
+		'url' : 'http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2013/2/15/1360937072371/David-Bowie-1973-008.jpg',
+		'credit' : 'Photo by Peter B. Sinclair / For the Miami Herald',
+		'cutline' : 'This is a picture of what Peter B. Sinclair looked like when he was following David Bowie on the Ziggy Stardust tour.'
 	});
 
 });
