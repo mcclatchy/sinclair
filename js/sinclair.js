@@ -124,21 +124,6 @@ $.fn.byline = function(input) {
 	'</a><span class="b-time upper ral normal xsmall block red">'+input.timeType+' <time>'+input.time+'</time></span></aside>');
 
 }
-
-// SINGLE PHOTO
-
-$.fn.singlePhoto = function (input) {
-$(this).after('<figure class="photo-array single-photo"><img src="'
-+input.PhotoUrl+
-'"alt="'
-+input.Caption+
-'"/><small class="photo-credit xsmall upper ral normal right">'
-+input.Credit+
-'</small><figcaption>'
-+input.Caption
-+'</figcaption><div class="clearfix"></div></figure>');
-}
-
 // BUILD DOUBLE PHOTO ARRAY
 
 $.fn.twinPhotos = function(input) {
@@ -151,21 +136,6 @@ $(this).after('<div class="photo-array double-wide"><figure class="left float-le
 	'</small><figcaption>'
 	+input.Caption
 	+'</figcaption></div>');
-}
-
-// BUILD SMALL VERTICAL PHOTOS
-
-$.fn.verticalRight = function(input) {
-		
-$(this).after('<figure class="aside-vertical-photo float-right margin-left"><img src="'
-	+input.PhotoUrl+
-	'"alt="'
-	+input.Caption+
-	'"/><small class="photo-credit xsmall upper ral normal right">'
-	+input.Credit+
-	'</small><figcaption>'
-	+input.Caption
-	+'</figcaption><div class="clearfix"></div></figure>');
 }
 
 // COMMENT TEASER
@@ -201,5 +171,48 @@ function UinsertAdTwo(afterGraf) {
 
 function UinsertBannerAd(afterGraf) {
 	$storyGraf.eq(afterGraf - 1).after('<aside id="footerAd"><span>advertisement</span><div id="div-gpt-ad-106911552261722130-1"><script type="text/javascript">googletag.cmd.push(function() { googletag.display(\'div-gpt-ad-106911552261722130-1\'); });</script><div id="google_ads_iframe_/7675/MIA.site_miamiherald/News_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/7675/MIA.site_miamiherald/News_0" name="google_ads_iframe_/7675/MIA.site_miamiherald/News_0" width="728" height="90" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" src="javascript:&quot;<html><body style=\'background:transparent\'></body></html>&quot;" style="border: 0px; vertical-align: bottom;"></iframe></div><iframe id="google_ads_iframe_/7675/MIA.site_miamiherald/News_0__hidden__" name="google_ads_iframe_/7675/MIA.site_miamiherald/News_0__hidden__" width="0" height="0" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" src="javascript:&quot;<html><body style=\'background:transparent\'></body></html>&quot;" style="border: 0px; vertical-align: bottom; visibility: hidden; display: none;"></iframe></div></aside><div class="clearfix"></div>');
+}
+
+
+$.fn.quote = function(input) {
+	$(this).after('<blockquote id="current" class="'+input.blockType+' block-asset quote-aside"><p class="large heavier bright">&ldquo;'
+	+input.quote+
+	'&rdquo;</p><small class="block">'
+	+input.attrib+
+	'</small></blockquote>');
+
+	if (typeof(input.citeSrc) !== 'undefined') {
+		$('#current').attr('cite', input.citeSrc)
+		$('#current small').append(' <a class="gray-link" href="'+input.citeSrc+'" target="_blank">Source &rarr;</a>')
+	} else {
+		return false
+	}
+	
+	if (input.blockType === 'wide') {
+		$('#current').addClass('align-center')
+		$('#current p').removeClass('large').addClass('xlarge')
+	}
+	$('#current').removeAttr('id')
+}
+
+$.fn.video = function(input) {
+$(this).after('<figure class="'+input.blockType+' block-asset video-item"><iframe class="yt-embed" id="'+input.videoID+'" src="http://www.youtube.com/embed/'+input.videoID+'?modestbranding&showinfo=0" frameborder="0" allowfullscreen></iframe><figcaption><span class="vid-spr ral fat upper">'+input.videoTitle+'</span>  '+input.videoCaption+'</figcaption></figure>');
+
+$('#'+input.videoID).height( function () {
+	return $(this).width() / input.ratio
+})
+
+}
+
+$.fn.photo = function (input) {
+$(this).after('<figure class="'+input.blockType+' block-asset photo-item"><img src="'
++input.PhotoUrl+
+'"alt="'
++input.Caption+
+'"/><small class="photo-credit xsmall upper ral align-right">'
++input.Credit+
+'</small><figcaption>'
++input.Caption
++'</figcaption><div class="clearfix"></div></figure>');
 }
 

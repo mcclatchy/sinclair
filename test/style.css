@@ -1,0 +1,8 @@
+#article-wrapper { max-width: 1000px; margin: 0 auto}
+
+#article-wrapper > p{
+	max-width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 40px;
+}

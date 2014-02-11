@@ -31,7 +31,7 @@ body {
 	font-size: 16px;
 	line-height: 1.6em;
 	width: 100%;
-	font-family: 'Roboto Slab', Georgia, Times, Serif;
+	font-family: Georgia, Times, Serif;
 	margin: 0 auto;
 }
 ol, ul {
@@ -71,34 +71,16 @@ a:hover {
 }
 
 /*DISPLAY*/
+.block {display: block}
+.inline-block {display: inline-block}
+.align-center {text-align: center}
+.align-right {text-align: right}
 
-.block {
-	display: block;
-}
+/*TYPE FAMILIES*/
+.rob { font-family: Georgia, Times, Serif}
+.ral { font-family: Helvetica, Arial, Sans-Serif}
 
-.inline-block {
-	display: inline-block;
-}
-
-.center {
-	text-align: center;
-}
-
-.right {
-	text-align: right;
-}
-
-/*TYPE*/
-
-.rob { font-family: 'Roboto Slab', Georgia, Times, Serif; }
-.ral { font-family: 'Raleway', Helvetica, Arial, Sans-Serif; }
-
-/*COLOR*/
-
-.red { color: #a00 }
-.gray { color: #777 }
-
-/*SIZE*/
+/*TYPE SIZES*/
 
 .xsmall {
 	font-size: 12px;
@@ -131,21 +113,17 @@ a:hover {
 }
 
 /*CASE*/
-
-.upper { text-transform: uppercase }
+.upper {text-transform: uppercase}
 
 /*WEIGHTS*/
+.lighter {font-weight: 300}
+.normal {font-weight: normal}
+.heavier {font-weight: 700}
+.fat {font-weight: 900}
 
-.lighter { font-weight: 300 }
-.normal { font-weight: normal }
-.heavier { font-weight: 700 }
-.fat { font-weight: 900 }
-
-/*DEFAULT*/
-
-p {
-	margin-bottom: 20px;
-}
+/*COLORS*/
+.red {color: #a00}
+.gray {color: #777}
 
 /*FLOATS AND MARGIN*/
 
@@ -376,14 +354,26 @@ p {
 	text-decoration: underline;
 }
 
-/*PHOTO ARRAYS*/
+/*BLOCK ASSETS*/
+
+.block-asset {margin: 40px 0;}
+.block-asset > iframe, .block-asset > img {width:100%;}
+.wide {width: 100%;}
+
+.right {
+	max-width: 310px;
+	float: right;
+	margin-left: 40px;
+}
+
+.left {
+	max-width: 310px;
+	float: left;
+	margin-right: 40px;
+}
 
 .photo-array {
 	margin: 20px auto;
-}
-
-.double-wide {
-	width: 100%;
 }
 
 .photo-array img {
@@ -638,19 +628,6 @@ p {
 #footer-info a {
 	display: block;
 	margin-bottom: 10px;
-}
-
-.aside-vertical-photo {
-	margin-left: auto !important;
-	margin-right: auto !important;
-	width: auto !important;
-	float: none;
-	max-width: 100%;
-	padding: 0;
-}
-
-.aside-vertical-photo img {
-	width: 100%;
 }
 
 }
