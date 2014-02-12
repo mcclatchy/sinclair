@@ -87,21 +87,23 @@ a:hover {
 
 /*BLOCK ASSETS*/
 
-.block-item {margin: 40px 0;}
+.block-item {margin: 40px auto; max-width: 900px}
 .block-item > iframe, .block-item > img {width:100%;}
-
-.wide {width: 100%;}
+.photo-item.splash {width: 100%; max-width: none !important}
+.photo-item.splash > figcaption,.photo-item.splash > small { max-width: 900px; margin-left: auto; margin-right: auto;}
 
 .right {
 	max-width: 310px;
 	float: right;
 	margin-left: 40px;
+	margin-right: 10%;
 }
 
 .left {
 	max-width: 310px;
 	float: left;
 	margin-right: 40px;
+	margin-left: 10%;
 }
 
 .double-wide figure.left , .double-wide figure.right {
@@ -171,12 +173,6 @@ a:hover {
 
 /*SOCIAL TOOLS*/
 
-.taupeBox {
-	background: #f8f5f2;
-	padding: 8px 11px;
-	top: 0px !important;
-}
-
 .social-tools {
 	float: right;
 	display: inline-block;
@@ -185,38 +181,18 @@ a:hover {
 }
 
 .share-icon {
+	background:url(http://www.miamiherald.com/static/media/projects/libraries/images/social_sprites.png) no-repeat scroll;
 	display: inline-block;
 	cursor: pointer;
 	margin: 0 2px;
-}
-
-.share-icon:hover {
-	background-position-y: 100% !important;
-}
-
-.facebook-share {
-  background:url(http://www.miamiherald.com/static/media/projects/libraries/images/social_sprites.png) no-repeat scroll;
-  background-position:0 0;
   background-size:5em 2.5em;
   height:20px;
   width:20px;
 }
-
-.twitter-share {
-	background:url(http://www.miamiherald.com/static/media/projects/libraries/images/social_sprites.png) no-repeat scroll;
-	background-position:30% 0;
-	background-size:5em 2.5em;
-	height:20px;
-	width:20px;
-}
-
-.google-share {
-  background:url(http://www.miamiherald.com/static/media/projects/libraries/images/social_sprites.png) no-repeat scroll;
-  background-position:63% 0;
-  background-size:5em 2.5em;
-  height:20px;
-  width:20px;
-}
+.share-icon:hover {background-position-y: 100% !important}
+.facebook-share {background-position:0 0}
+.twitter-share {background-position:30% 0}
+.google-share {background-position:63% 0}
 
 .comments-bg {
   background:url(http://www.miamiherald.com/static/media/projects/libraries/images/social_sprites.png) no-repeat scroll;
@@ -224,56 +200,6 @@ a:hover {
   background-size:5em 2.5em;
   height:1.25em;
   width:1.25em;
-}
-
-/*BUTTONS*/
-
-.redActionButton {
-	font-family: 'Raleway', Helvetica, Arial, Sans-Serif;
-	font-size: 13px;
-	color: #fff;
-	padding: 6px 8px;
-	background: #d10000;
-	border-radius: 3px;
-	display: inline-block;
-	border-bottom: 2px solid #a00;
-	text-transform: uppercase;
-	font-weight: 900;
-	margin: 10px 0;
-	cursor: pointer;
-}
-
-.redActionButton:hover {
-	background: #a00;
-	border-bottom: 1px solid #6f0000;
-	position: relative;
-	top: 1px;
-	text-decoration: none;
-	margin-bottom: 11px !important;
-}
-
-.grayActionButton {
-	font-family: 'Raleway', Helvetica, Arial, Sans-Serif;
-	font-size: 13px;
-	color: #fff;
-	padding: 6px 8px;
-	background: #888;
-	border-radius: 3px;
-	display: inline-block;
-	border-bottom: 2px solid #666;
-	text-transform: uppercase;
-	font-weight: 900;
-	margin: 10px 0;
-	cursor: pointer;
-}
-
-.grayActionButton:hover {
-	background: #666;
-	border-bottom: 1px solid #444;
-	position: relative;
-	top: 1px;
-	text-decoration: none;
-	margin-bottom: 11px !important;
 }
 
 /*FOOTER*/
@@ -304,35 +230,17 @@ a:hover {
 
 /*SMALLER SCREENS*/
 
-@media only screen and (max-width : 920px) {
-/* Styles */
-	.photo-array {
-		margin-left: auto !important;
-		margin-right: auto !important;
-	}
-	
-	.photo-array .left, .photo-array .right {
-		width: 100% !important;
-	}
-	
-	.photo-array .left figcaption {
-		margin-bottom: 20px;
-	}
-	
+@media only screen and (max-width : 930px) {
+
+	#article-wrapper {padding: 0 5%}
+	.right {margin-right: 5%}
+	.left {margin-left: 5%}
 }
 
 @media only screen and (max-width : 700px) {
-/* Styles */	
-
-	#article-wrapper {padding: 0 5%}
-	.align-right {text-align: left}
-	
-}
-
-
-@media only screen and (max-width : 600px) {
 	/*RESET BLOCK ASSETS*/
 	.block-item {margin: 40px auto !important; float: none !important; max-width: 100%}
+	.block-item iframe{margin: 0 auto; display: block}
 	/*REDRAW TYPE*/
 	.large {font-size: 20px}
 	.xlarge {font-size: 30px}
@@ -353,4 +261,3 @@ a:hover {
 }
 
 }
-

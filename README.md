@@ -43,6 +43,12 @@ Content is loaded by invoking a method on a container in which to load content. 
 * `fallback` location of the fallback html you will load if the scrape fails
 * `def` the aforementioned deferred object to resolve when load has occurred
 
+###Layout mode
+
+	$story.layoutMode()
+
+This method adds number labels to each paragraph to help deduce where assets will go.
+
 ###Adding a Folio
 
 This method should be invoked on a header-like element near the beginning of the page.
@@ -96,7 +102,7 @@ Almost all elements will have a `blockType` option, which will define whether th
 	});
 
 #####Options
-* `blockType` layout size and position. Accepts `wide`,`right` or `left`
+* `blockType` layout size and position. Accepts `wide`,`right`,`left` and `splash`, which is specific for photos, and strips the image full-width
 * `url` location of the image
 * `credit` text that will appear in the credit field
 * `cutline` the caption for the photo

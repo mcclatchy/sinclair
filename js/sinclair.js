@@ -1,13 +1,11 @@
 // HERALDSCRIPT
 // INITIATE LAYOUT MODE
 
-function layoutMode() {
-
-	$('#story-holder > p').each(function(index) {
-		$(this).before('<h4 class="graf-label">Graf ' + (index + 1) + ' </h4>');
-		$(this).css('background', '#eee').css('border-bottom', '1px dashed #666');
+$.fn.layoutMode = function() {
+	$(this).each(function(index) {
+		$(this).css('position','relative')
+		$(this).prepend('<h4 class="red ral fat" style="position: absolute; left: -25px">'+index+'</h4>');
 	});
-
 }
 
 

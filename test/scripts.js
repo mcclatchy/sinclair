@@ -44,7 +44,7 @@ $.when($load).then(function() {
 	// DEFINE YOUR PARAGRAPHS
 	
 	$story = $('#article-wrapper p')
-	
+	$story.layoutMode()
 	// BEGIN LAYOUT LOGIC HERE
 	
 	// BLOCKQUOTE EXAMPLE
@@ -72,6 +72,7 @@ $.when($load).then(function() {
 		'cutline' : 'This is a picture of what Peter B. Sinclair looked like when he was following David Bowie on the Ziggy Stardust tour.'
 	});
 	
+	// REFER EXAMPLE
 	$story.eq(3).refer({
 		'blockType': 'right',
 		'hed' : 'Little refer',
@@ -83,5 +84,12 @@ $.when($load).then(function() {
 	initAds();
 	
 	$story.eq(5).ad('<div id="div-gpt-ad-106911552261722130-3"><script type="text/javascript">googletag.cmd.push(function() { googletag.display("div-gpt-ad-106911552261722130-3"); });</script></div>')
+	
+	$story.eq(7).photo({
+		'blockType': 'splash',
+		'url' : 'http://miriadna.com/desctopwalls/images/max/Fairy-forest.jpg',
+		'credit' : 'Photo by Peter B. Sinclair / For the Miami Herald',
+		'cutline' : 'This is a picture of what Peter B. Sinclair looked like when he was following David Bowie on the Ziggy Stardust tour.'
+	});
 
 });
