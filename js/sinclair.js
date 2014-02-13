@@ -1,17 +1,10 @@
 // HERALDSCRIPT
 // INITIATE LAYOUT MODE
-
 $.fn.layoutMode = function() {
 	$(this).each(function(index) {
-		$(this).css('position','relative')
-		$(this).prepend('<h4 class="red ral fat" style="position: absolute; left: -25px">'+index+'</h4>');
+		$(this).css('position', 'relative')
+		$(this).prepend('<h4 class="red ral fat" style="position: absolute; left: -25px">' + index + '</h4>');
 	});
-}
-
-
-function initFooter(input) {
-	$('body').append('<footer id="footer"><aside id="footerAd"><span>advertisement</span><div id="div-gpt-ad-106911552261722130-1"><script type="text/javascript">googletag.cmd.push(function() { googletag.display(\'div-gpt-ad-106911552261722130-1\'); });</script><div id="google_ads_iframe_/7675/MIA.site_miamiherald/News_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/7675/MIA.site_miamiherald/News_0" name="google_ads_iframe_/7675/MIA.site_miamiherald/News_0" width="728" height="90" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" src="javascript:&quot;<html><body style=\'background:transparent\'></body></html>&quot;" style="border: 0px; vertical-align: bottom;"></iframe></div><iframe id="google_ads_iframe_/7675/MIA.site_miamiherald/News_0__hidden__" name="google_ads_iframe_/7675/MIA.site_miamiherald/News_0__hidden__" width="0" height="0" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" src="javascript:&quot;<html><body style=\'background:transparent\'></body></html>&quot;" style="border: 0px; vertical-align: bottom; visibility: hidden; display: none;"></iframe></div></aside><div class="clearfix"></div><div id="fb-root"></div> <script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=133847067760"; fjs.parentNode.insertBefore(js, fjs); }(document, "script", "facebook-jssdk"));</script><h2 class="footer_head" style="font-size: 2em;">Join the discussion</h2><p>The Miami Herald is pleased to provide this opportunity to share information, experiences and observations about what\'s in the news. Some of the comments may be reprinted elsewhere on the site or in the newspaper. We encourage lively, open debate on the issues of the day, and ask that you refrain from profanity, hate speech, personal comments and remarks that are off point. Thank you for taking the time to offer your thoughts.</p><p>The Miami Herald uses Facebook\'s commenting system. You need to log in with a Facebook account in order to comment. If you have questions about commenting with your Facebook account, click <a target="_blank" href="http://www.miamiherald.com/2013/02/06/3221150/commenting-faq.html">here</a>.</p><p><span style="font-weight:bold;">Have a news tip?</span> You can send it anonymously.  Click <a target="_blank" href="http://www.miamiherald.com/2009/08/14/1186127/got-news.html">here</a> to send us your tip - or - consider joining the <a target="_blank" href="http://www.miamiherald.com/insight/">Public Insight Network</a> and become a source for The Miami Herald and el Nuevo Herald.</p><div class="fb-comments" data-href="' + input.url + '" data-num-posts="10" data-colorscheme="dark"></div><div class="clearfix"></div><div id="footer-info"><a href="http://www.miamiherald.com"><img id="footer-logo" src="http://media.miamiherald.com/static/testdir/mast2013/miamiheraldlogo43.png"/></a><ul class="footer-list"><a href="http://www.miamiherald.com/terms_of_service"target="_blank">Terms of Service</a><a href="http://www.miamiherald.com/priacy_service"target="_blank">Privacy Policy</a><a href="http://www.miamiherald.com/copyright" target="_blank">Copyright</a><a href="http://www.miamiherald.com/contact-us" target="_blank">Contact us</a></div></footer>');
-
 }
 
 $.fn.byline = function(input) {
@@ -24,7 +17,6 @@ $.fn.twinPhotos = function(input) {
 }
 
 // FIXED
-
 $.fn.loadContent = function(input) {
 
 	target = $(this)
@@ -138,6 +130,129 @@ $.fn.simpleFooter = function(input) {
 
 }
 
+// IN PROGRESS
+$.fn.audio = function(input) {
+
+	if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)) {
+		var ieversion = new Number(RegExp.$1)
+		if (ieversion <= 8) {
+			console.log("Audio doesnt work here")
+			return false
+		}
+	} else {
+		console.log("Audio works here")
+
+
+		$(this).after('<div id="' + input.name + '" class="'+input.blockType+' block-item audio-player"><audio><source src=' + input.oggsrc + ' type="audio/ogg"><source src=' + input.mp3src + ' type="audio/mp4"><p class="rob">Your browser does not support the audio element.</p></audio></div>');
+
+		$theBox = $('#' + input.name)
+		
+		if (input.blockType === 'wide') {
+			$theBox.removeClass('wide').addClass('right')
+		}
+
+		$theBox.append('<h4 class="fat upper ral gray small audio-tag">Audio</h4><h3 class="large ral heavier">' + input.headline + '</h3><p class="rob">' + input.readout + '</p><div class="audio-progress"><div class="audio-current-progress" id="audio-progress-' + input.name + '"></div></div><span class="play-button" id="' + input.name + '-play' + '"></span><span class="pause-button" id="' + input.name + '-pause' + '" style="display: none"></span><span class="replay-button" id="' + input.name + '-replay' + '" style="display: none"></span><small class="audio-time small gray ral float-right" style="display: none"><span class="current-time" id="' + input.name + '-ct' + '"></span> / <span class="total-time" id="' + input.name + '-tt' + '"></span></small>');
+
+		// PLAY BUTTON CLICK
+		$('#' + input.name + ' .play-button').click(function() {
+			$.each($('audio'), function() {
+				$(this)[0].pause();
+			});
+			$('#' + input.name + ' .audio-time').show()
+			$('.pause-button').hide();
+			$('.play-button').show();
+			$('#' + input.name + ' audio')[0].play();
+			$(this).hide();
+			$('#' + input.name + ' .pause-button').show();
+		});
+
+		// PAUSE BUTTON CLICK
+		$('#' + input.name + ' .pause-button').click(function() {
+			$('#' + input.name + ' audio')[0].pause();
+			$(this).hide();
+			$('#' + input.name + ' .play-button').show();
+		});
+
+		// REPLAY BUTTON CLICK
+		$('#' + input.name + ' .replay-button').click(function() {
+			$(this).hide();
+			$('#' + input.name + ' .pause-button').show();
+			$('#' + input.name + ' audio')[0].currentTime = 0
+			$('#' + input.name + ' audio')[0].play()
+		});
+
+		// HANDLE TIMEUPDATE
+		$('#' + input.name + ' audio').on("timeupdate", function() {
+
+			// HANDLE TOTAL TIME LOGIC
+			$totalMin = Math.floor($('#' + input.name + ' audio')[0].duration / 60)
+			$totalSec = Math.floor($('#' + input.name + ' audio')[0].duration % 60)
+			$totalDur = $totalMin + ':' + $totalSec
+
+			// HANDLE CURRENT TIME LOGIC
+			$current = 0
+
+			if ($('#' + input.name + ' audio')[0].currentTime < 60) {
+				$current = Math.floor($('#' + input.name + ' audio')[0].currentTime)
+
+				if ($current < 10) {
+					$current = '0:0' + $current
+				} else {
+					$current = '0:' + $current
+				}
+
+			} else {
+
+				$currentMin = Math.floor($('#' + input.name + ' audio')[0].currentTime / 60)
+				$currentSec = Math.floor($('#' + input.name + ' audio')[0].currentTime % 60)
+
+				if ($currentSec < 10) {
+					$currentSec = '0' + $currentSec
+				} else {
+					$currentSec = $currentSec
+				}
+
+				$current = $currentMin + ':' + $currentSec
+			}
+
+			$('#' + input.name + ' .current-time').text($current);
+			$('#' + input.name + ' .total-time').text($totalDur);
+
+			$theBar = $('#' + input.name + ' .audio-current-progress');
+
+			$theBar.css('width', ($('#' + input.name + ' audio')[0].currentTime / $('#' + input.name + ' audio')[0].duration) * 100 + '%')
+
+		});
+
+		// HANDLE SCRUBBING
+		$('#' + input.name + ' .audio-progress').click(function(e) {
+			var $parentOffset = $(this).parent().offset();
+			var $totalWidth = $(this).parent().width()
+
+			var $relX = e.pageX - $parentOffset.left;
+			var $relY = e.pageY - $parentOffset.top;
+
+			console.log
+
+			var $newTime = $('#' + input.name + ' audio')[0].duration * ($relX / $totalWidth)
+
+			$('#' + input.name + ' audio')[0].currentTime = $newTime
+
+			if ($('#' + input.name + ' audio')[0].paused == false) {
+				$('#' + input.name + ' audio')[0].play();
+			}
+		});
+
+		// HANDLE END OF AUDIO
+		$('#' + input.name + ' audio').on('ended', function() {
+			$('#' + input.name + ' .replay-button').show();
+			$('#' + input.name + ' .play-button').hide();
+			$('#' + input.name + ' .pause-button').hide();
+		});
+
+	}
+}
+
 // AD INSERTION
 
 function initAds() {
@@ -149,6 +264,3 @@ $.fn.ad = function(input) {
 }
 
 
-function UinsertBannerAd(afterGraf) {
-	$storyGraf.eq(afterGraf - 1).after('<aside id="footerAd"><span>advertisement</span><div id="div-gpt-ad-106911552261722130-1"><script type="text/javascript">googletag.cmd.push(function() { googletag.display(\'div-gpt-ad-106911552261722130-1\'); });</script><div id="google_ads_iframe_/7675/MIA.site_miamiherald/News_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/7675/MIA.site_miamiherald/News_0" name="google_ads_iframe_/7675/MIA.site_miamiherald/News_0" width="728" height="90" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" src="javascript:&quot;<html><body style=\'background:transparent\'></body></html>&quot;" style="border: 0px; vertical-align: bottom;"></iframe></div><iframe id="google_ads_iframe_/7675/MIA.site_miamiherald/News_0__hidden__" name="google_ads_iframe_/7675/MIA.site_miamiherald/News_0__hidden__" width="0" height="0" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" src="javascript:&quot;<html><body style=\'background:transparent\'></body></html>&quot;" style="border: 0px; vertical-align: bottom; visibility: hidden; display: none;"></iframe></div></aside><div class="clearfix"></div>');
-}

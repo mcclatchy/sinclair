@@ -158,6 +158,27 @@ Almost all elements will have a `blockType` option, which will define whether th
 
 ##Methods in progress 
 
+###Photos
+
+This method adds an HTML5 audio player to the page. It requires both .mp3 and .ogg files to comply with standards.
+
+	$story.eq(9).audio({
+		'blockType' : 'left',
+		'name' : 'second-audio',
+		'mp3Src' : 'http://www.tonycuffe.com/mp3/tailtoddle_lo.mp3',
+		'oggSrc' : 'http://upload.wikimedia.org/wikipedia/commons/c/c8/Example.ogg',
+		'headline' : 'Hello there! Testing sound!',
+		'readout' : 'This is an example of an html5 audio player usable in sinclair that accepts the same audio file in mp3 and ogg formats to be compliant will all modern browsers.'
+	});
+
+#####Options
+* `blockType` layout size and position. Accepts `right`,`left` setting to `wide` will default this setting to `right`
+* `name` a unique name to identify the audio-player; this is necessary to make sure interactions are kept track of properly when there are multiple audio players on the page.
+* `mp3src` the url of the mp3 file for the player
+* `oggsrc` the url of the ogg file for the player
+* `headline` a small headline for the audio
+* `readout` a small description for the the audio
+
 ###Ads
 
 	$story.eq(5).ad('<ad>HTML</ad>')

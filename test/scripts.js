@@ -44,7 +44,7 @@ $.when($load).then(function() {
 	// DEFINE YOUR PARAGRAPHS
 	
 	$story = $('#article-wrapper p')
-	$story.layoutMode()
+	// $story.layoutMode()
 	// BEGIN LAYOUT LOGIC HERE
 	
 	// BLOCKQUOTE EXAMPLE
@@ -81,15 +81,24 @@ $.when($load).then(function() {
 		'gotext' : 'Go do something'
 	});
 	
-	initAds();
-	
-	$story.eq(5).ad('<div id="div-gpt-ad-106911552261722130-3"><script type="text/javascript">googletag.cmd.push(function() { googletag.display("div-gpt-ad-106911552261722130-3"); });</script></div>')
+	// initAds();
+	// 
+	// $story.eq(5).ad('<div id="div-gpt-ad-106911552261722130-3"><script type="text/javascript">googletag.cmd.push(function() { googletag.display("div-gpt-ad-106911552261722130-3"); });</script></div>')
 	
 	$story.eq(7).photo({
 		'blockType': 'splash',
 		'url' : 'http://miriadna.com/desctopwalls/images/max/Fairy-forest.jpg',
 		'credit' : 'Photo by Peter B. Sinclair / For the Miami Herald',
 		'cutline' : 'This is a picture of what Peter B. Sinclair looked like when he was following David Bowie on the Ziggy Stardust tour.'
+	});
+	
+	$story.eq(9).audio({
+		'blockType' : 'wide',
+		'name' : 'second-audio',
+		'mp3src' : 'http://www.tonycuffe.com/mp3/tailtoddle_lo.mp3',
+		'oggsrc' : 'http://upload.wikimedia.org/wikipedia/commons/c/c8/Example.ogg',
+		'headline' : 'Hello there! Testing sound!',
+		'readout' : 'This is an example of an html5 audio player usable in sinclair that accepts the same audio file in mp3 and ogg formats to be compliant will all modern browsers.'
 	});
 
 });
