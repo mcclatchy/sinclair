@@ -253,6 +253,93 @@ $.fn.audio = function(input) {
 	}
 }
 
+$.fn.gallery = function(input) {
+
+$(this).after('<aside class="wide block-item gallery-item" id="'
++input.name+
+'"><div class="gallery-folio align-center"><h2>GALLERY: '
++input.title+
+'</h2><aside class="counter"><span class="current"></span> / <span class="total"></span></aside></div><div class="clearfix"></div><header class="gallery-intro gallery-photo"><div class="gallery-header-wrapper align-center"><h2 class="gallery-title large heavier">'+input.title+'</h2><small class="upper ral">'+input.credit+'</small><p class="gallery-summary">'+input.summary+'</p><div class="grayActionButton" id="'+input.name+'-init">open gallery</div></div></header></aside>');
+
+	$('#'+input.name).prepend('<div class="gallery-controller left-controller"></div><div class="gallery-controller right-controller"></div>')
+
+		// data.reverse();
+	$.each(input.array, function(i) {
+		$('#'+input.name).append('<figure class="gallery-photo" data-order="'
+		+(i+1)+
+		'" style="z-index: '+((i*-1000)-1000)+'"><img src="'
+		+input.array[i].url+
+		'" /><figcaption>'
+		+input.array[i].caption+
+		'</figcaption></figure>');
+	});
+	
+	// DEFINE A MIN-HEIGHT FOR GALLERY
+	defineH();
+	$('.gallery-photo[data-order="1"] figcaption').hide();
+
+// INTERACTION
+
+$('#'+input.name+'-init').click(function () {
+	
+	$totalImg = input.array.length
+	$('#'+input.name+' .total').text($totalImg)
+	$('#'+input.name+' .current').text(1)
+	
+	$currentImg = 1
+	$('#'+input.name+' .gallery-intro').fadeOut(500);
+	$('#'+input.name+' .right-controller').fadeIn(500);
+	$('#'+input.name+' .gallery-folio').fadeTo(400,1);
+	$('.gallery-photo[data-order="1"] > figcaption').fadeTo(400,1);
+	
+});
+
+$('#'+input.name+' .right-controller').click(function () {
+	
+	$currentImg = $currentImg + 1
+	$('#'+input.name+' .gallery-photo').hide();
+	$('#'+input.name+' .gallery-photo[data-order="'+$currentImg+'"]').fadeIn(500);
+	$('#'+input.name+' .current').text($currentImg)
+	checkLimits();
+});
+
+$('#'+input.name+' .left-controller').click(function () {
+	
+	$currentImg = $currentImg - 1
+	$('#'+input.name+' .gallery-photo').hide();
+	$('#'+input.name+' .gallery-photo[data-order="'+$currentImg+'"]').fadeIn(500);
+	$('#'+input.name+' .current').text($currentImg)
+	checkLimits();
+});
+
+function checkLimits() {
+	if ($currentImg === 1) {
+		$('#'+input.name+' .left-controller').hide();
+	} else {
+		$('#'+input.name+' .left-controller').show();
+	}
+	if ($currentImg === input.array.length) {
+		$('#'+input.name+' .right-controller').hide();
+	} else {
+		$('#'+input.name+' .right-controller').show();
+	}
+}
+
+function defineH() {
+	$setHeight = $(window).height() * .8
+	$('#'+input.name).height($setHeight)
+	
+	$('#'+input.name+ ' .gallery-photo').height($setHeight);
+	$('#'+input.name+ ' .gallery-photo img').height($setHeight*.83);
+	$('#'+input.name+ ' .gallery-photo figcaption').height($setHeight*.1);
+	
+}
+
+$(window).load(function() { defineH() });
+$(window).resize(function() { defineH() });
+
+}
+
 // AD INSERTION
 
 function initAds() {

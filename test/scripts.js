@@ -101,4 +101,25 @@ $.when($load).then(function() {
 		'readout' : 'This is an example of an html5 audio player usable in sinclair that accepts the same audio file in mp3 and ogg formats to be compliant will all modern browsers.'
 	});
 
+	$story.eq(12).gallery({
+		'array' : [
+		{
+			'url' : 'http://media1.s-nbcnews.com/j/MSNBC/Components/Slideshows/_production/ss-110921-hydro-puppy/ss-110921-hydro-puppy-01.grid-8x2.jpg',
+			'caption' : 'this is a test 1'
+		},
+		{
+			'url' : 'http://25.media.tumblr.com/598e7c3662fcc5c64e630fdbedf15867/tumblr_mxp9xmAEDv1qf6rvbo1_500.jpg',
+			'caption' : 'this is a test 2'
+		},
+		{
+			'url' : 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcT--MEIvmKfE5K-zlLTXLIolztNVmkvbUPpgh54-sT6Ypx8L6jv',
+			'caption' : 'this is a test 3'
+		},
+		],
+		'name' : 'test-gallery',
+		'title' : 'A puppy gallery',
+		'summary' : 'This is a three image gallery to test the gallery function',
+		'credit' : 'Photos by Peter B. Sinclair'
+	})
+
 });

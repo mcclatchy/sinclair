@@ -158,7 +158,7 @@ Almost all elements will have a `blockType` option, which will define whether th
 
 ##Methods in progress 
 
-###Photos
+###Audio
 
 This method adds an HTML5 audio player to the page. It requires both .mp3 and .ogg files to comply with standards.
 
@@ -178,6 +178,34 @@ This method adds an HTML5 audio player to the page. It requires both .mp3 and .o
 * `oggsrc` the url of the ogg file for the player
 * `headline` a small headline for the audio
 * `readout` a small description for the the audio
+
+###Gallery
+
+This method builds a gallery out of an array of url-caption objects.
+
+	$story.eq(12).gallery({
+		'array' : [
+		{
+			'url' : 'http://media1.s-nbcnews.com/j/MSNBC/Components/Slideshows/_production/ss-110921-hydro-puppy/ss-110921-hydro-puppy-01.grid-8x2.jpg',
+			'caption' : 'this is a test 1'
+		},
+		{
+			'url' : 'http://25.media.tumblr.com/598e7c3662fcc5c64e630fdbedf15867/tumblr_mxp9xmAEDv1qf6rvbo1_500.jpg',
+			'caption' : 'this is a test 2'
+		}
+		],
+		'name' : 'test-gallery',
+		'title' : 'A puppy gallery',
+		'summary' : 'This is a three image gallery to test the gallery function',
+		'credit' : 'Photos by Peter B. Sinclair'
+	})
+
+#####Options
+* `array` an array of photo objects with `url` and `caption` properties. It can be declared inline, or as a variable.
+* `name` a unique name to identify the gallery; this is necessary to make sure interactions are kept track of properly when there are multiple galleries on the page.
+* `title` the human-readable name for the gallery
+* `summary` a small description of the gallery
+* `credit` a place to credit who took the photos
 
 ###Ads
 
