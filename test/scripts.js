@@ -40,7 +40,12 @@ $.when($load).then(function() {
 		'url' : 'http://www.miamiherald.com/contact-us'
 	}
 	]);
-
+	
+	$('#splash').simplehed({
+		'hed' : 'The title of the story',
+		'summary' : 'The quick brown fox jumps over the lazy dog'
+	})
+	
 	// DEFINE YOUR PARAGRAPHS
 	
 	$story = $('#article-wrapper p')

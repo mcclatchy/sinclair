@@ -7,6 +7,10 @@ $.fn.layoutMode = function() {
 	});
 }
 
+$.fn.simplehed = function(input) {
+	$(this).append('<h1 class="heavier huge">' + input.hed + '</h1><p class="summary">' + input.summary + '</p>');
+}
+
 $.fn.byline = function(input) {
 	$(this).append('<aside class="byline center"><small class="b-name upper ral fat block">By ' + input.name + '</small><a href="mailto:' + input.email + '"class="b-email upper ral normal small block">' + input.email + '</a><span class="b-time upper ral normal xsmall block red">' + input.timeType + ' <time>' + input.time + '</time></span></aside>');
 }
@@ -332,9 +336,9 @@ function defineH() {
 	$('#'+input.name+ ' .gallery-photo').height($setHeight);
 	$('#'+input.name+ ' .gallery-photo img').height($setHeight*.83);
 	$('#'+input.name+ ' .gallery-photo figcaption').height($setHeight*.1);
-	
 }
 
+$('#'+input.name).append('<div class="clearfix"></div>')
 $(window).load(function() { defineH() });
 $(window).resize(function() { defineH() });
 

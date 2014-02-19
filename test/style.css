@@ -4,3 +4,9 @@
 	margin-right: auto;
 	margin-bottom: 40px;
 }
+
+#splash {
+	max-width: 800px;
+	margin: 30px auto;
+	padding: 30px 0;
+}

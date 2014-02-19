@@ -356,7 +356,7 @@ a:hover {
 }
 
 @media only screen and (max-width : 900px) {
-	.gallery {
+	.gallery-item {
 		height: auto !important;
 	}
 	
@@ -368,7 +368,7 @@ a:hover {
 		display: none;
 	}
 	
-	.gallery-item {
+	.gallery-photo {
 		position: static !important;
 		margin: 30px 0;
 		display: block !important;
@@ -376,15 +376,16 @@ a:hover {
 		height: auto !important;
 	}
 	
-	.gallery-item  img{
+	.gallery-photo > img{
 		width: 100%;
 		height: auto !important;
-		margin-bottom: 20px;
 	}
 	
-	.gallery-item figcaption {
+	.gallery-photo > figcaption {
+		display: block !important;
 		color: #666;
 		text-align: left;
+		height: auto !important;
 	}
 	
 }
