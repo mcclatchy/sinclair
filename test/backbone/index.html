@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-we-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="shortcut icon" href="http://media.kansascity.com/images/app-icon.png">
+
+    <title>Sinclair Test File</title>
+
+    <!-- Compiled CSS using LESS -->
+    <link href="../../css/sinclair.compiled.css" type="text/css" rel="stylesheet" />
+    
+    <!-- RequireJS load. The Sinclair library will fetch what it needs -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+  </head>
+
+  <body>
+    <div id="header"></div>
+    <article id="article-wrapper" class="article-wrapper"></article>
+
+    <script>
+      require.config({
+        paths: {
+          "sinclair": "../../js/sinclair.amd"
+        }
+      })
+      require(["sinclair"], function(sinclair) {
+        sinclair.loadContent({
+          scrapeResource: "data.html",
+          container: "#storyBodyContent"
+        }).done( function(html) {
+
+          $("#article-wrapper").html(html);
+          
+          $("#header").folio({
+            pageTitle: 'The Sinclair Project demo page',
+            folioTitle: 'Sinclair Demo',
+            shortUrl: 'https://github.com/mcclatchy/sinclair',
+            flat: true,
+            tracker: true
+          })
+
+          $("body").simpleFooter({
+            links: [
+              {
+                name: 'Terms of Service',
+                url: 'http://www.miamiherald.com/terms_of_service'
+              },
+              {
+                name: 'Privacy Policy',
+                url: 'http://www.miamiherald.com/privacy_policy'
+              },
+              {
+                name: 'Copyright',
+                url: 'http://www.miamiherald.com/copyright'
+              },
+              {
+                name: 'Contact us',
+                url: 'http://www.miamiherald.com/contact-us'
+              }
+            ]
+          })
+
+          $story = $('#article-wrapper p')
+
+          $story.eq(0).photo({
+            blockType: 'wide',
+            url: 'http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2013/2/15/1360937072371/David-Bowie-1973-008.jpg',
+            credit: 'Photo by Peter B. Sinclair / For the Miami Herald',
+            cutline: 'This is a picture of what Peter B. Sinclair looked like when he was following David Bowie on the Ziggy Stardust tour.'
+          });
+
+          $story.eq(1).quote({
+            blockType: 'wide',
+            quote: 'This is an example of a nice big quote that runs in different positions',
+            attrib: '<strong>Peter B. Sinclair,</strong> The namesake of this thing',
+            citeSrc: 'http://www.miamiherald.com/2013/06/04/3431537/peter-b-sinclair-the-miami-herald.html'
+          });
+
+          $story.eq(2).refer({
+            blockType: 'left',
+            hed: 'Little refer',
+            readout: 'Hello there! I\'m a little box that can serve as an aside to the story',
+            url: 'http://www.miamiherald.com',
+            gotext: 'Go do something'
+          });
+
+          $story.eq(4).video({
+            blockType: 'wide',
+            videoID: 'GUNHbU7LnM4',
+            videoTitle: 'Video Title test',
+            videoCaption: 'test test test test test test test',
+            ratio: 1.77
+          });
+        })
+        .fail( function(msg) {
+          console.log("Failed: %s", msg);
+        });
+      })
+    </script>
+  </body>
+</html>
+

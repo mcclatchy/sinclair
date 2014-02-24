@@ -1,0 +1,9 @@
+<blockquote class="<%= blockType %> block-item quote-item" cite="<%= citeSrc %>">
+  <p class="large heavier bright">&ldquo;<%= quote %>&rdquo;</p>
+  <small class="block">
+    <% attrib %>
+    <% if(citeSrc) { %>
+      <a class="gray-link" href="<%= citeSrc %>" target="_blank">Source &rarr;</a>
+    <% } %>
+  </small>
+</blockquote>

@@ -1,0 +1,17 @@
+<div id="floating-folio" class="folio">
+  <% if(tracker) { %>
+    <div class="perc-holder">
+      <div id="tracker"></div>
+    </div> 
+  <% } %>
+  <a href="http://www.miamiherald.com" target="_blank" class="logoB logo"></a>
+  <div id="folio-info">
+    <h2 class="small ral fat upper folio-header"><pre class="folio-title" id="folio-title"><%= folioTitle %></pre></h2>
+    <nav class="social-tools">
+      <a class="share-icon twitter-share" href="http://twitter.com/home?status=<%= pageTitle %>+<%= shortUrl %>" onclick="window.open(return false; this.href, '_blank,toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=260')"></a>
+      <a class="share-icon facebook-share" href="http://www.facebook.com/share.php?u=<%= shortUrl %>&title=<%= pageTitle %>" onclick="window.open(return false; this.href,'_blank','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=260')"></a>
+      <a class="share-icon google-share" href="https://plus.google.com/share?url=<%= shortUrl %>" onclick="window.open(return false; this.href,'_blank','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=260')"></a>
+    </nav>
+  </div>
+  <div class="clearfix"></div>
+</div>

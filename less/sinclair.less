@@ -1,0 +1,55 @@
+/*
+ * Sinclair LESS File
+ * compiled by Grunt
+ */
+
+// Include our other files
+/* @import "base"; */
+@import "views/default";
+
+.perc-holder {
+  #default > .perc-holder();
+}
+
+.folio {
+  #default.folio();
+  .specialFonts();
+
+  .logo {
+    #default.logo(@url:'http://www.macon.com/static/media/projects/libraries/images/tele_bw.jpg', @width:155px, @height:35px);
+  }
+
+  #folio-info {
+    #default.folio-info();
+  }
+
+  .social-tools {
+    #default.social-tools();
+  }
+}
+
+#article, #article-wrapper {
+  p {
+    #default.body();
+  }
+
+  .specialFonts();
+
+  .photo-item {
+    #default.photo-item();
+  }
+
+  .quote-item {
+    #default.quote-item();
+  }
+
+  .comment-item {
+    #default.comment-item();
+  }
+
+  .video-item {
+    #default.video-item();
+  }
+}
+
+
