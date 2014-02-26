@@ -89,7 +89,7 @@ var Sinclair = function(selector, context) {
         data = data.replace(/<(img|script)\b[^>]*>/ig, '');
 
         // Look for the container and ship along
-        var html = $("<div>").append($.parseHTML(data)).find(input.container);
+        var html = $("<div>").append($.parseHTML(data)).find(input.container).html();
         input.def.resolve(html);
       })
       .fail( function() {
@@ -101,7 +101,7 @@ var Sinclair = function(selector, context) {
             data = data.replace(/<(img|script)\b[^>]*>/ig, '');
 
             // Look for the container and ship along
-            var html = $("<div>").append($.parseHTML(data).find(input.container));
+            var html = $("<div>").append($.parseHTML(data)).find(input.container).html();
             input.def.resolve(html);
           })
           .fail( function() {
@@ -128,6 +128,10 @@ var Sinclair = function(selector, context) {
       folio: function(input) {
         var self = this;
         input = $.extend(defaults.folio, input);
+
+        // Force booleans
+        if(typeof input.flat == "string") input.flat = (input.flat === "true") ? true : false;
+        if(typeof input.tracker == "string") input.tracker = (input.tracker === "true") ? true : false;
 
         if(!input.template) {
           input.template = defaults.templates["default/folio.jst"];
@@ -258,8 +262,8 @@ var Sinclair = function(selector, context) {
 if ( typeof define === "function" && define.amd ) {
   require.config({
     paths: {
-      jquery: "//code.jquery.com/jquery.min",
-      underscore: "//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min"
+      jquery: "http://code.jquery.com/jquery.min",
+      underscore: "http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min"
 
       // Templates compiled directly into the script with Grunt
     },

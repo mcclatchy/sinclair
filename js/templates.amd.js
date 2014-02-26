@@ -120,15 +120,27 @@ return __p
 
 this["JST"]["default/video.jst"] = function(obj) {
 obj || (obj = {});
-var __t, __p = '', __e = _.escape;
+var __t, __p = '', __e = _.escape, __j = Array.prototype.join;
+function print() { __p += __j.call(arguments, '') }
 with (obj) {
 __p += '<figure class="' +
 ((__t = ( blockType )) == null ? '' : __t) +
-' block-item video-item">\n  <iframe class="yt-embed" id="' +
+' block-item video-item">\n  ';
+ 
+    var videoSource;
+    if(videoID.match(/^http(s)*:\/\//)) {
+      var rand = Math.floor(Math.random() * 10000);
+      videoSource = videoID;
+      videoID = "video-" + rand;
+    } else {
+      videoSource = "http://www.youtube.com/embed/" + videoID + "?modestbranding&showinfo=0";
+    }
+  ;
+__p += '\n  <iframe class="yt-embed" id="' +
 ((__t = ( videoID )) == null ? '' : __t) +
-'" src="http://www.youtube.com/embed/' +
-((__t = ( videoID )) == null ? '' : __t) +
-'?modestbranding&showinfo=0" frameborder="0" allowfullscreen></iframe>\n  <figcaption><span class="vid-spr ral fat upper">' +
+'" src="' +
+((__t = ( videoSource )) == null ? '' : __t) +
+'" frameborder="0" allowfullscreen></iframe>\n  <figcaption><span class="vid-spr ral fat upper">' +
 ((__t = ( videoTitle )) == null ? '' : __t) +
 '</span>' +
 ((__t = ( videoCaption )) == null ? '' : __t) +
