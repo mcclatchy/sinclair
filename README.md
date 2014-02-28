@@ -48,7 +48,7 @@ This tab contains the elements to configure the folio.
 
 ### Footer
 
-This tab will add footer links if they are present. If there are no links in the tab, the footer will not be appended. All link will be opened in a new tab.
+This tab will add footer links if they are present. If there are no links in the tab, the footer will not be appended. All links will be opened in a new tab.
 
 * **Link Text:** The text to show.
 * **Link:** The link to go to.
@@ -85,7 +85,7 @@ The output tab is the target destination for the `buildFile()` function call. To
 
 To create html you can use on a server, click the Generate Output menu item. An attached Google Apps Script will ask for permission to the document. Allow this access and the script will create HTML output and dump that content into the output tab. To get the story online copy that entire cell, paste it into a new file on your computer and FTP that file up to its final destination.
 
-A couple of notes:
+**A couple of notes:**
 * The file needs to be on the same domain of the story to work. 
 * If you would like to develop on your computer before uploading it to the server, copy the source code of the target story page into a file on your computer and place that relative path in the "Backup Story Page" of the configuration tab. Then repeat the output process.
 * The AMD sinclair file includes almost everything to work. RequireJS is loaded from http://cdnjs.com/ over https.
