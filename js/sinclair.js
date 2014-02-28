@@ -261,12 +261,6 @@ var Sinclair = function(selector, context) {
 
 if ( typeof define === "function" && define.amd ) {
   require.config({
-    paths: {
-      jquery: "http://code.jquery.com/jquery.min",
-      underscore: "http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min"
-
-      // Templates compiled directly into the script with Grunt
-    },
     shim: {
       templates: ["underscore"]
     }

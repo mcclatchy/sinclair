@@ -31,19 +31,14 @@ module.exports = function(grunt) {
           // optimize: "none",
           baseUrl: 'js',
           paths: {
-            jquery: "empty:",
-            underscore: "empty:",
-            backbone: "empty:",
+            jquery: "jquery.min",
+            underscore: "underscore-min",
             templates: "templates.amd"
           },
           shim: {
             bootstrap: ["jquery"],
             underscore: {
               exports: '_'
-            },
-            backbone: {
-              deps: ['jquery', 'underscore'],
-              exports: 'Backbone'
             },
             templates: ["underscore"]
           },
