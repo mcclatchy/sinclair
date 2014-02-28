@@ -1,0 +1,128 @@
+// CSS RESET
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+body {
+  line-height: 1.6em;
+  font-family: Georgia, Times, Serif
+}
+
+ol, ul {
+  list-style: none
+}
+
+blockquote, q {
+  quotes: none
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';content: none
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0
+}
+
+.clearfix {clear: both}
+
+/* LESS Mixins */
+
+.block() {
+  display: block;
+  margin: @gutter auto;
+  max-width: @blockItemWidth;
+
+  iframe, img {
+    width: 100%;
+  }
+}
+
+.right(@width:@floatWidth) {
+  max-width: @width;
+  float: right;
+  margin-left: @gutter;
+  margin-right: 10%;
+}
+
+.left(@width:@floatWidth) {
+  max-width: @width;
+  float: left;
+  margin-right: @gutter;
+  margin-left: 10%;
+}
+
+
+/* BEGIN HERALD UTILITY CSS */
+
+a {
+  color: @linkColor;
+
+  &:hover {
+    @linkHoverColor;
+  }
+}
+
+.specialFonts() {
+  /*TYPE FAMILIES*/
+  .rob { font-family: Georgia, Times, Serif}
+  .ral { font-family: Helvetica, Arial, Sans-Serif}
+
+  /*TYPE SIZES*/
+  .xsmall, .small, .large, .xlarge, .huge { line-height: 1.2em; margin-bottom: .3em}
+  .xsmall {font-size: .75em}
+  .small {font-size: .875em}
+  .large {font-size: 1.5em}
+  .xlarge {font-size: 2.2em}
+  .huge {font-size: 3em}
+
+  /*CASE*/
+  .upper {text-transform: uppercase}
+
+  /*WEIGHTS*/
+  .lighter {font-weight: 300}
+  .normal {font-weight: normal}
+  .heavier {font-weight: 700}
+  .fat {font-weight: 900}
+
+  /*COLORS*/
+  .red {color: @red}
+  .gray {color: @gray}
+}
+
+/*DISPLAY*/
+.block {display: block}
+.inline-block {display: inline-block}
+.align-center {text-align: center}
+.align-right {text-align: right}
+
+.double-wide figure.left , .double-wide figure.right {
+	width: 48%;
+}
+

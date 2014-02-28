@@ -14,36 +14,125 @@ The fine folks at the Chicago Tribune's news apps team named [one of their apps 
 
 [The Miami Herald explored the long, strange history of the name Peter B. Sinclair](http://www.miamiherald.com/2013/06/04/3431537/peter-b-sinclair-the-miami-herald.html) in a way that must be fully read to be appreciated.
 
-##Basic Functions
+##Google Doc Version	
 
-###Loading your content
+In an attempt to make creating stories easier for a larger range of people, the default view has been ported to a new public [Google Doc](https://docs.google.com/a/kcstar.com/spreadsheet/ccc?key=0AuRuRdHZo6DPdEtUekMySWtDX1U4UFJKY0xMTG1qMUE&usp=drive_web#gid=0). To use this document, make a copy in your own Google Drive account, and change what's needed. There are currently five tabs to the document: Configuration, Folio, Footer, Assets, and Output. The first four will allow you to set up the currently supported parts of the story.
 
-Content is loaded by invoking a method on a container in which to load content. First, we define a deferred object that gets resolved once content is loaded. Presently, there are two methods for adding content: Scraping paragraphs from an existing story, or loading from a static HTML file in the local directory.
+[Click here](https://googledrive.com/host/0B-RuRdHZo6DPNEQyOGRXRlhqSEU/) to see a demo of the output saved in a publicly hosted Google Drive folder.
 
-	// CREATE YOUR DEFERRED OBJECT
+### Configuration
 
-	$load = new $.Deferred();
+This tab contains elements and options for the whole story. Required files are included for convenience in a public Google Drive folder. You may use these files, but you may get faster results if you host these elsewhere.
 
-	// LOAD YOUR CONTENT INTO AN ELEMENT
+* **CSS File:** The main CSS of the project.
+* **Javascript File:** The AMD version of the Sinclair project: `sinclair.amd.js`. 
+* **Story Page:** The story to scrape. This needs to be on the same domain as the exported file.
+* **Backup Story Page:** The backup html file to use if the story is not available.
+* **Paragraph Container:** The element containing all paragraphs in the scraped story.
+* **Main Domain:** The domain to link to in the folio.
+* **Page Title:** The meta title of the page.
+* **Project URL:** The url of the project.
 
-	$('#article-wrapper').loadContent({
-		'scrapeResource': 'http://www.miamiherald.com/2014/02/11/3927377/poll-shows-outsized-support-for.html #storyBodyContent p',
+**Note: RequireJS appends the `.js` extension when it loads documents, so you should not include it.**
+
+### Folio
+
+This tab contains the elements to configure the folio.
+
+* **Show Folio:** Toggles the folio on and off. Use TRUE or FALSE.
+* **Page Title:** The title used in the social tools.
+* **Folio Title:** The name to display in the folio.
+* **Project URL:** The url to use in the social tools.
+* **Flat:** Whether to show the folio all the time or have it appear after scrolling. Use TRUE or FALSE.
+* **Tracker:** Whether to show the line indicating how far a reader has gotten. Use TRUE or FALSE.
+
+### Footer
+
+This tab will add footer links if they are present. If there are no links in the tab, the footer will not be appended. All links will be opened in a new tab.
+
+* **Link Text:** The text to show.
+* **Link:** The link to go to.
+
+### Assets
+
+This is the main page of the document, and will control the asset types that are available. Currently, only a small set is supported. As more are programmed they will be added to the document. All assets will be added **before** the paragraph in the placement field.
+
+* **Type:** The type of asset. Currently photo, quote, refer and video are supported.
+* **Position:** Changes the position of the asset.
+	* left -- Floats the element left of the paragraphs.
+	* right -- Floats the element right of the paragraphs.
+	* wide -- Places the element above the paragraph at the set paragraph width.
+	* splash -- Places the element above the paragraph with full width to the edge of the window.
+* **Placement:** The paragraph number to append the element before.
+* **Title:** The title for the elements that use one, currently refer and video.
+* **Text:** The main text for the asset. 
+	* photo -- the cutline
+	* quote -- the quote
+	* refer -- the body
+	* video -- the video caption
+* **Attribution** The attribution for widgets that use one, currently photo and quote
+* **Source/Link:** Has multiple uses.
+	* photo -- the image url (hosted elsewhere)
+	* quote -- the link target of the quoted material
+	* refer -- the link target of the referred material
+	* video -- the Youtube url or video ID 
+* **Link Text:** The text for outgoing links of assets that use one, currently refer
+* **Ratio:** The ratio to use for included videos. This will size the player.
+
+### Output
+
+The output tab is the target destination for the `buildFile()` function call. To invoke this function, there is a custom menu added to the document titled **Sinclair**. In that menu there is one option: **Generate Ouput**. 
+
+To create html you can use on a server, click the Generate Output menu item. An attached Google Apps Script will ask for permission to the document. Allow this access and the script will create HTML output and dump that content into the output tab. To get the story online copy that entire cell, paste it into a new file on your computer and FTP that file up to its final destination.
+
+**A couple of notes:**
+* The file needs to be on the same domain of the story to work. 
+* If you would like to develop on your computer before uploading it to the server, copy the source code of the target story page into a file on your computer and place that relative path in the "Backup Story Page" of the configuration tab. Then repeat the output process.
+* The AMD sinclair file includes almost everything to work. RequireJS is loaded from http://cdnjs.com/ over https.
+
+##Basic Functions (Loading Content Manually)
+
+###Loading your content .. *CHANGED IN GOOGLE DOC BRANCH*
+
+There are two methods to loading Sinclair. A standard method adds a sinclair object to the window object. There is also an AMD (RequireJS) method, in which case the object will be loaded in the require() function. Presently, there are two methods for adding content: Scraping paragraphs from an existing story, or loading from a static HTML file in the local directory. Content is scraped from either location using the `sinclair.loadContent()` method, and a deferred object is returned. 
+
+	// LOAD YOUR CONTENT AND THEN APPEND IT WHEREVER YOU LIKE
+
+	// Standard Approach
+
+	sinclair.loadContent({
+		'scrapeResource': "http://www.miamiherald.com/2014/02/11/3927377/poll-shows-outsized-support-for.html",
 		'fallback': 'data.html',
-		'def': $load
-	});
-
-	// RUN YOUR LAYOUT ONLY AFTER YOUR OBJECT GETS RESOLVED
-
-	$.when($load).then(function() {
+		'container': "#storyBodyContent"
+	}).done( function(html) {
 		// LAYOUT LOGIC GOES HERE
 	});
 
-#####Options
-* `scrapeResource` the element on the page you're trying to scrape
-* `fallback` location of the fallback html you will load if the scrape fails
-* `def` the aforementioned deferred object to resolve when load has occurred
+	// RequireJS Approach
+	
+	require(["sinclair"], function(sinclair) {
+		sinclair.loadContent({
+			scrapeResource: "data.html",
+			container: "#storyBodyContent"
+		}).done( function(html) {
+			// LAYOUT LOGIC GOES HERE
+		});
+	});
 
-###Layout mode
+#####Options
+* `scrapeResource` the url of the page you're trying to scrape
+* `fallback` location of the fallback html you will load if the scrape fails
+* `container` the element of the page you're scraping that holds the paragraphs
+
+### UnderscoreJS Templates ... *NEW*
+
+All basic elements can now take a new `template:` parameter. The parameter is looking for a compiled [UnderscoreJS template function](http://underscorejs.org/#template). There is currently only one set of templates included in the `templates.js` and `templates.amd.js` file: the default view. If the parameter is omitted these templates will be used. 
+
+*As I add Kansas City's templates into the mix, I will document those and create a toggle in the Google Doc -- Jay*
+
+**Note:** when using the AMD version of Sinclair, the templates are pre-compiled and included in the `sinclair.amd.js` file along with jQuery and UderscoreJS. This is the method that the Google Doc version uses. If you would prefer to use Sinclair directly, make sure to include the template file, along with jQuery and UnderscoreJS, prior to including Sinclair. You may also use any custom temlates you wish to create inside each instance.
+
+###Layout mode .. *NOT IN THE GOOGLE DOC BRANCH YET*
 
 	$story.layoutMode()
 
@@ -54,11 +143,11 @@ This method adds number labels to each paragraph to help deduce where assets wil
 This method should be invoked on a header-like element near the beginning of the page.
 
 	$('#splash').folio({
-	'pageTitle' : 'The Sinclair Project demo page',
-	'folioTitle' : 'Sinclair Demo',
-	'shortUrl' : 'https://github.com/mcclatchy/sinclair',
-	'flat' : true,
-	'tracker' : true
+		'pageTitle' : 'The Sinclair Project demo page',
+		'folioTitle' : 'Sinclair Demo',
+		'shortUrl' : 'https://github.com/mcclatchy/sinclair',
+		'flat' : true,
+		'tracker' : true
 	})
 	
 #####Options
@@ -68,6 +157,7 @@ This method should be invoked on a header-like element near the beginning of the
 * `shortUrl` shortened url build to concatenate the custom tweet with `pageTitle`
 * `flat` *boolean* if `true`, folio is fixed to top of page; if `false`, folio slides down after user scrolls past element upon which the method was invoked
 * `tracker` builds progress bar fixed to top of folio
+* `template` [optional] an alternative UnderscoreJS template to use
 
 ###Adding a simple footer
 
@@ -90,7 +180,7 @@ This method adds a simple footer based on an array of name-url objects
 
 ##Basic Elements
 
-Almost all elements will have a `blockType` option, which will define whether they float left, right, or take up the width of the story well.
+Almost all elements will have a `blockType` option, which will define whether they float left, right, or take up the width of the story well. Before basic elements can be loaded on a page, a jQuery variable must be set with all paragraphs like so `$story = $('#article-wrapper p')`.
 
 ###Photos
 
@@ -106,6 +196,7 @@ Almost all elements will have a `blockType` option, which will define whether th
 * `url` location of the image
 * `credit` text that will appear in the credit field
 * `cutline` the caption for the photo
+* `template` [optional] an alternative UnderscoreJS template to use
 
 ###Blockquote
 
@@ -121,6 +212,7 @@ Almost all elements will have a `blockType` option, which will define whether th
 * `quote` the text for the quote
 * `attrib` who said the quote; can contain HTML
 * `citeSrc` source for the quote (optional)
+* `template` [optional] an alternative UnderscoreJS template to use
 
 ###Refer
 
@@ -138,6 +230,7 @@ Almost all elements will have a `blockType` option, which will define whether th
 * `readout` body text for refer
 * `url` url for link after refer body text (optional)
 * `gotext` link text; dependent on `url` being declared
+* `template` [optional] an alternative UnderscoreJS template to use
 	
 ###Video
 
@@ -155,8 +248,9 @@ Almost all elements will have a `blockType` option, which will define whether th
 * `videoTitle` name of video
 * `videoCaption` small description for video
 * `ratio` video width / height; for making sure the video retains aspect ratio
+* `template` [optional] an alternative UnderscoreJS template to use
 
-##Methods in progress 
+##Methods in progress .. *NOT INCORPORATED IN THE GOOGLE DOC BRANCH YET*
 
 ###Audio
 

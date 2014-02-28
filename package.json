@@ -1,0 +1,27 @@
+{
+  "name": "Sinclair",
+  "version": "2.0.0",
+  "description": "Sinclair aims to create an easy-to-use, multi-media, responsively designed template for online news packages. Based on Javascript with heavy use of CSS, Sinclair allows multimedia objects to be incorporated on a paragraph-by-paragraph basis with text. The project was pioneered by Lazaro Gamio with The Miami Herald. It's now an official project of The McClatchy Company, which is aiming to create a user-friendly template that can be used by McClatchy properties and other organizations which follow the open MIT license.",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-jst": "~0.5.1",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-requirejs": "~0.4.1",
+    "grunt-contrib-less": "~0.9.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mcclatchy/sinclair.git"
+  },
+  "keywords": [
+    "sinclair",
+    "mcclatchy"
+  ],
+  "author": "The McClatchy Company",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mcclatchy/sinclair/issues"
+  },
+  "homepage": "https://github.com/mcclatchy/sinclair"
+}

@@ -1,0 +1,14 @@
+<figure class="<%= blockType %> block-item video-item">
+  <% 
+    var videoSource;
+    if(videoID.match(/^http(s)*:\/\//)) {
+      var rand = Math.floor(Math.random() * 10000);
+      videoSource = videoID;
+      videoID = "video-" + rand;
+    } else {
+      videoSource = "http://www.youtube.com/embed/" + videoID + "?modestbranding&showinfo=0";
+    }
+  %>
+  <iframe class="yt-embed" id="<%= videoID %>" src="<%= videoSource %>" frameborder="0" allowfullscreen></iframe>
+  <figcaption><span class="vid-spr ral fat upper"><%= videoTitle %></span><%= videoCaption %></figcaption>
+</figure>

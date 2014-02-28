@@ -136,6 +136,12 @@ a:hover {
 	padding-right: 10px;
 }
 
+#folio-info > h2 {
+  position: relative; 
+  top: 10px; 
+  display: inline-block
+}
+
 .perc-holder {
 	width: 102%;
 	position: absolute;
