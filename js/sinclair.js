@@ -1,6 +1,6 @@
 /*
  * Sinclair Project
- * author Lazaro Gamio
+ * Lazaro Gamio, Jay Pilgreen
  * copyright The McClatchy Company
  */
 

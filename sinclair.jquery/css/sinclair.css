@@ -1,0 +1,445 @@
+/*CSS FILE*/
+
+/*CSS RESET*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {line-height: 1.6em;font-family: Georgia, Times, Serif}
+ol, ul {list-style: none}
+blockquote, q {quotes: none}
+blockquote:before, blockquote:after,
+q:before, q:after {content: '';content: none}
+table {border-collapse: collapse;border-spacing: 0}
+.clearfix {clear: both}
+
+/*BEGIN HERALD UTILITY CSS*/
+
+/*LINKS*/
+
+a {
+	color: #666;
+}
+
+a:hover {
+	color: #222;
+}
+
+/*DISPLAY*/
+.block {display: block}
+.inline-block {display: inline-block}
+.align-center {text-align: center}
+.align-right {text-align: right}
+
+/*TYPE FAMILIES*/
+.rob { font-family: Georgia, Times, Serif}
+.ral { font-family: Helvetica, Arial, Sans-Serif}
+
+/*TYPE SIZES*/
+
+.xsmall, .small, .large, .xlarge, .huge { line-height: 1.2em; margin-bottom: .3em}
+.xsmall {font-size: .75em}
+.small {font-size: .875em}
+.large {font-size: 1.5em}
+.xlarge {font-size: 2.2em}
+.huge {font-size: 3em}
+
+/*CASE*/
+.upper {text-transform: uppercase}
+
+/*WEIGHTS*/
+.lighter {font-weight: 300}
+.normal {font-weight: normal}
+.heavier {font-weight: 700}
+.fat {font-weight: 900}
+
+/*COLORS*/
+.red {color: #a00}
+.gray {color: #777}
+
+/*FLOATS AND MARGIN*/
+.float-left {float: left}
+.float-right {float: right}
+.margin-left {margin-left: 30px !important}
+.margin-right {margin-right: 30px !important}
+
+/*BLOCK ASSETS*/
+
+.block-item {margin: 40px auto; max-width: 900px}
+.block-item > iframe, .block-item > img {width:100%;}
+.photo-item.splash {width: 100%; max-width: none !important}
+.photo-item.splash > figcaption,.photo-item.splash > small { max-width: 900px; margin-left: auto; margin-right: auto;}
+
+.right {
+	max-width: 310px;
+	float: right;
+	margin-left: 40px;
+	margin-right: 10%;
+}
+
+.left {
+	max-width: 310px;
+	float: left;
+	margin-right: 40px;
+	margin-left: 10%;
+}
+
+.double-wide figure.left , .double-wide figure.right {
+	width: 48%;
+}
+
+/*FOLIO*/
+
+#floating-folio {
+	width: 98%;
+	position: fixed;
+	top: 0%;
+	left: 0%;
+	background: #fff;
+	height: 40px;
+	padding: 9px 1% 0 1%;
+	display: none;
+	z-index: 10000;
+	-moz-box-shadow:    0px 6px 2px rgba(0,0,0,0.2);
+	-webkit-box-shadow: 0px 6px 2px rgba(0,0,0,0.2);
+	box-shadow:         0px 6px 2px rgba(0,0,0,0.2);
+}
+
+#folio-title {position: relative; top: -6px}
+#folio-info { height: 100% }
+
+#floating-folio > .logoB, #floating-folio > .logoW {
+	float: left;
+	margin-right: 10px;
+	padding-right: 10px;
+}
+
+.perc-holder {
+	width: 102%;
+	position: absolute;
+	top: 0%;
+	left: -1%;
+	height: 3px;
+	background: #fff;
+}
+
+#tracker { height: 100%; background: #a00; width: 0px; }
+
+.logoB {
+	display: block;
+	background: transparent url('http://www.miamiherald.com/static/media/projects/libraries/images/logo_b.png') no-repeat scroll center left;
+	width: 167px;
+	height: 30px;
+	background-size: 167px 30px;
+}
+
+.logoB-tiny {
+	display: block;
+	background: transparent url('http://www.miamiherald.com/static/media/projects/libraries/images/logo_b-tiny.png') no-repeat scroll center left;
+	width: 134px;
+	height: 24px;
+	background-size: 134px 24px;
+}
+
+.logoW {
+	display: block;
+	background: transparent url('http://www.miamiherald.com/static/media/projects/libraries/images/logo_w.png') no-repeat scroll center left;
+	width: 167px;
+	height: 30px;
+	background-size: 167px 30px;
+}
+
+/*SOCIAL TOOLS*/
+
+.social-tools {
+	float: right;
+	display: inline-block;
+	position: relative;
+	top: 7px;
+}
+
+.share-icon {
+	background:url(http://www.miamiherald.com/static/media/projects/libraries/images/social_sprites.png) no-repeat scroll;
+	display: inline-block;
+	cursor: pointer;
+	margin: 0 2px;
+  background-size:5em 2.5em;
+  height:20px;
+  width:20px;
+}
+.share-icon:hover {background-position-y: 100% !important}
+.facebook-share {background-position:0 0}
+.twitter-share {background-position:30% 0}
+.google-share {background-position:63% 0}
+
+.comments-bg {
+  background:url(http://www.miamiherald.com/static/media/projects/libraries/images/social_sprites.png) no-repeat scroll;
+  background-position:100% 0;
+  background-size:5em 2.5em;
+  height:1.25em;
+  width:1.25em;
+}
+
+/*FOOTER*/
+
+/*SIMPLE FOOTER*/
+
+.footer-list {
+	text-align: center;
+	padding: 30px 0 20px 0;
+}
+
+.footer-list .logoB-tiny{
+	margin: 0 auto 10px auto;
+}
+
+.footer-list a {
+	color: #666;
+	text-decoration: none;
+	padding: 0 10px;
+}
+
+.footer-list a:hover {
+	color: #000;
+	text-decoration: underline;
+}
+
+/*AUDIO*/
+
+.audio-progress {
+	height: 8px;
+	background: #efefef;
+	width: 100%;
+	margin: 20px 0 10px 0;
+	cursor:pointer;
+}
+.audio-current-progress { height: 8px; background: #aaa}
+.audio-time {position:relative;top:3px}
+
+.play-button, .pause-button, .replay-button {
+	width: 15px;
+	height: 15px;
+	display: inline-block;
+	cursor: pointer;
+	opacity: 0.6;
+	background: transparent no-repeat scroll center center;
+}
+.play-button:hover,.pause-button:hover,.replay-button:hover {opacity: 1}
+.play-button {background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAFM0aXcAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAQ1JREFUeNpi/P//PwMIMIGIKdNm/gcIIEaYCAuIB6QVAQKIGSQiIib538vbh3Hb1s0HGEACk6fOSADRIAwQQHA9MMAE0gvVjzAeZgXYdBCRk5XOCJMACCCYof+BeAHMYGQMtgTZTCSQCDRpAQsWCUegxAEYB8OZ6AAggED2C2CzG4RBXiiA+ksBXSMTEvs+UMEHIBbAJgkC/ED8HqjgATZJGDgADyUkcBDoHQcYByb5ECiI4SC8fgUIMFhQNgDZBiBvAU14wEAkQHaTPwgDDYLxG4F4AtCwD8RoRgf1IAw17CMQNwANmkCsZvTw7Qca1A/lBwIN2kCs5o3YwgOX5otQxQeICbAPsITKQAIAAO5lnEVBWajkAAAAAElFTkSuQmCC')}
+.pause-button {background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAPCAYAAAGadH+5AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJ1JREFUeNpi/P//PwMIMDFAAUAAMcJEWKZMmwlmAQQQM0hEREzy/7atmxtBNFwtDAAEEFwPDID0NgDpA0C8PycrnRFDC4YAQACBzYBqqwdiR6C2AzAnYDWCoJEEnYkOAAKIoAKwFSBHwRyGzqfckXRQQNCbAAEGV4AUHzAAjhdkryNrBMUTUU6g2A8jwAAWJPYDID6IxP+ApvYgNgMAen1IXhUiG5gAAAAASUVORK5CYII=')}
+.replay-button {background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAPCAYAAAGadH+5AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAVdJREFUeNpi/P//PwMIMDFAAUAAMcJEWKZMmwlmAQQQM0hEREzy57atm1uA9H+Y2u9QFR8BAgiuBwaYgcocTp0+e9/M1KQRqCoApGV/TlY6I1TBerAWmA0gCYAAggkEgGRhgshmssC0QulEmATMFJizGqG0A1RyAZQ/EcWZQAkBIGUAxBeAVn0AiQEEEIY/0AELVOcFIKUPxBeBOg2QFcDcoA+lN8DcgO5IENgIUwAEAugmgMAEoPEXYGz0cACB/UBjFYE0yPX70U0whNL3gfg9shh6ODhAg/sATAwgwDDCARpYDlBsAFTsQDCckDQeA2JNJPmD6Bpg0QQ0OAHdkwvQNDMgBRtIowLUjzA+yHUGcC/AAh4KAoGSG7DYHoCUskBAEDkeHiKxE3B4GVn8IyhBIXsBlEYeADE/EPujuQgdfARiBVyxAJJoAOJ4LBpByakAaPMDmAAAZ6aT5z6ChYsAAAAASUVORK5CYII=')}
+
+/*GALLERY*/
+
+.gallery-item {
+	width: 100% !important;
+	position: relative;
+	margin-bottom: 40px;
+}
+
+.gallery-header-wrapper {
+	position: relative;
+	top: 30%;
+}
+
+.gallery-photo {
+	display: none;
+	text-align: center;
+	width: 100%;
+}
+
+.gallery-photo > img {
+	width: 100%;
+	margin: 0 auto;
+}
+
+.gallery-photo > figcaption {
+	width: auto;
+	margin: 0 auto;
+	padding-top: 2% !important;
+	vertical-align: middle;
+}
+
+.gallery-intro {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+	background: rgba(255,255,255,0.8);
+	padding: 0 !important;
+	text-align: center;
+	width: 100% !important;
+}
+
+.gallery-photo[data-order="1"] {display: block}
+
+/*TYPE */
+
+.gallery-title { margin-bottom: 10px }
+
+.gallery-intro small {
+	margin: 6px 0;
+	padding: 6px 0;
+	display: inline-block;
+	border-top: 1px solid #999;
+	border-bottom: 1px solid #999;
+}
+
+.gallery-summary {margin: 0 auto}
+.gallery-folio { opacity: 0; text-align: center; margin-bottom: 10px }
+
+.gallery-folio h2 {
+	font-size: 12px;
+	text-transform: uppercase;
+	display: inline-block;
+	margin-right: 8px;
+	padding-right: 8px;
+	border-right: 1px solid #999;
+}
+
+.gallery-folio .counter {
+	font-size: 12px;
+	text-transform: uppercase;
+	display: inline-block;
+}
+
+
+/*CONTROLLERS*/
+
+.gallery-controller {
+	width: 23px;
+	height: 40px;
+	position: absolute;
+	top: 45%;
+	background: #666;
+	display: none;
+	cursor: pointer;
+	opacity: .6;
+}
+
+.gallery-controller:hover {
+	opacity: 1;
+}
+
+.left-controller {
+	background: #fff url('left-controller.png') no-repeat scroll top left;
+	left: -50px;
+	display: none;
+}
+
+
+.right-controller {
+	background: #fff url('right-controller.png') no-repeat scroll top left;
+	right: -50px;
+}
+
+@media only screen and (max-width : 900px) {
+	.gallery-item {
+		height: auto !important;
+	}
+	
+	.gallery .grayActionButton {
+		display: none !important;
+	}
+	
+	.gallery-folio {
+		display: none;
+	}
+	
+	.gallery-photo {
+		position: static !important;
+		margin: 30px 0;
+		display: block !important;
+		width: 100%;
+		height: auto !important;
+	}
+	
+	.gallery-photo > img{
+		width: 100%;
+		height: auto !important;
+	}
+	
+	.gallery-photo > figcaption {
+		display: block !important;
+		color: #666;
+		text-align: left;
+		height: auto !important;
+	}
+	
+}
+
+/*SMALLER SCREENS*/
+
+@media only screen and (max-width : 930px) {
+
+	#article-wrapper {padding: 0 5%}
+	.right {margin-right: 5%}
+	.left {margin-left: 5%}
+}
+
+@media only screen and (max-width : 700px) {
+	/*RESET BLOCK ASSETS*/
+	.block-item {margin: 40px auto !important; float: none !important; max-width: 100%}
+	.block-item iframe{margin: 0 auto; display: block}
+	/*REDRAW TYPE*/
+	.large {font-size: 20px}
+	.xlarge {font-size: 30px}
+	.huge {font-size: 40px}
+
+.logoB {
+	background: transparent url('http://www.miamiherald.com/static/media/projects/libraries/images/h_b.png') no-repeat scroll center;
+	width: 25px;
+	height: 30px;
+	background-size: 25px 30px;
+}
+
+.logoW {
+	background: transparent url('http://www.miamiherald.com/static/media/projects/libraries/images/h_w.png') no-repeat scroll center;
+	width: 25px;
+	height: 30px;
+	background-size: 25px 30px;
+}
+
+}
+
+@media only screen and (max-width : 500px) {
+	
+	.audio-player {
+		width: 100%;
+		float: none;
+		margin: 30px 0;
+	}
+
+	.audio-img {
+		margin: 0 10px 10px 0;
+		float: left;
+	}
+	
+	.audio-progress {
+		clear:both;
+		margin-top: 10px;
+	}
+	
+}
