@@ -103,7 +103,7 @@ $.when($load).then(function() {
 		states:{
 			AK:"#e07725",
 			CA:"#e07725",
-			DC::"#e07725",
+			DC:"#e07725",
 			FL:"#e07725",
 			GA:"#e07725",
 			ID:"#e07725",
