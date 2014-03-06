@@ -97,6 +97,29 @@ $.when($load).then(function() {
 		'cutline' : 'This is a picture of what Peter B. Sinclair looked like when he was following David Bowie on the Ziggy Stardust tour.'
 	});
 	
+	//Map example
+	story.eq(5).stateMap({
+		blockType:"right",
+		states:{
+			AK:"#e07725",
+			CA:"#e07725",
+			DC::"#e07725",
+			FL:"#e07725",
+			GA:"#e07725",
+			ID:"#e07725",
+			IL:"#e07725",
+			KS:"#e07725",
+			KY:"#e07725",
+			MO:"#e07725",
+			MS:"#e07725",
+			NC:"#e07725",
+			PA:"#e07725",
+			SC:"#e07725",
+			TX:"#e07725",
+			WA:"#e07725"
+		}
+	});
+	
 	$story.eq(9).audio({
 		'blockType' : 'wide',
 		'name' : 'second-audio',
