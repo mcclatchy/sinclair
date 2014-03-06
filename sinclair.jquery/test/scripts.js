@@ -98,7 +98,7 @@ $.when($load).then(function() {
 	});
 	
 	//Map example
-	story.eq(5).stateMap({
+	$story.eq(5).stateMap({
 		blockType:"right",
 		states:{
 			AK:"#e07725",
