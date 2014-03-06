@@ -123,6 +123,36 @@ $.fn.refer = function(input) {
 
 }
 
+$.fn.code = function(input) {
+	
+	$(this).after('<aside class="' + input.blockType + ' block-item code-item">' + input.html + '</aside>');
+	
+}
+
+$.fn.stateMap = function(input) {
+	
+	if(window.Raphael && window.drawStates){
+		var map = drawStates($('<aside class="' + input.blockType + ' block-item stateMap-item"></aside>').insertAfter(this)[0])
+	} else {
+		console.log("State map drawing utility libraries failed to load");
+	}
+	// AN OBJECT OF STATES (BY POSTAL ABBREVIATION) CAN BE PASSED TO CREATE AN INITIAL COLOR SCHEME
+	for(ST in input.states){
+		map.states[ST].attr("fill",input.states[ST]);
+	}
+	// IF THERE IS NO NATIONAL DATA OR DATA FOR DC THOSE BLOCKS WILL BE DISABLED BY DEFAULT
+	// NOTE: THEY CAN BE ENABLED BY CALLING THE show() METHOD LATER ON
+	if(!input.states.DC){
+		map.states.DC.hide();
+	}
+	if(!input.states.US){
+		map.states.US.hide();
+	}
+	// WE NEED TO RETURN THE MAP OBJECT IN CASE INTERACTIVITY NEEDS TO BE LAYERED INTO IT
+	return map;
+	
+}
+
 $.fn.simpleFooter = function(input) {
 
 	$(this).append('<div class="footer-list ral upper fat xsmall" id="current"><a href="http://miamiherald.com" target="_blank" class="logoB-tiny"></a></nav>')
