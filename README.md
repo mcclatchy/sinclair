@@ -23,7 +23,7 @@ The fine folks at the Chicago Tribune's news apps team named [one of their apps 
 
 ##Google Doc Version	
 
-In an attempt to make creating stories easier for a larger range of people, the default view has been ported to a new public [Google Doc](https://docs.google.com/a/kcstar.com/spreadsheet/ccc?key=0AuRuRdHZo6DPdEtUekMySWtDX1U4UFJKY0xMTG1qMUE&usp=drive_web#gid=0). To use this document, make a copy in your own Google Drive account, and change what's needed. There are currently five tabs to the document: Configuration, Folio, Footer, Assets, and Output. The first four will allow you to set up the currently supported parts of the story.
+In an attempt to make creating stories easier for a larger range of people, the default view has been ported to a new public [Google Doc](https://docs.google.com/spreadsheet/ccc?key=0AuRuRdHZo6DPdG9oLXlVNjV2bDN0clJuX294dER0RUE&usp=sharing). To use this document, make a copy in your own Google Drive account, and change what's needed. There are currently five tabs to the document: Configuration, Folio, Footer, Assets, and Output. The first four will allow you to set up the currently supported parts of the story.
 
 [Click here](https://googledrive.com/host/0B-RuRdHZo6DPNEQyOGRXRlhqSEU/) to see a demo of the output saved in a publicly hosted Google Drive folder.
 
@@ -96,6 +96,8 @@ To create html you can use on a server, click the Generate Output menu item. An 
 * The file needs to be on the same domain of the story to work. 
 * If you would like to develop on your computer before uploading it to the server, copy the source code of the target story page into a file on your computer and place that relative path in the "Backup Story Page" of the configuration tab. Then repeat the output process.
 * The AMD sinclair file includes almost everything to work. RequireJS is loaded from http://cdnjs.com/ over https.
+* **The custom menu will not be available until you copy the document into your own drive account**
+* Google Drive puts the appropriate header information on files stored in Public directories. You can use this method to store the original story if you like.
 
 ##Basic Functions (Loading Content Manually)
 
