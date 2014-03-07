@@ -156,6 +156,73 @@ Almost all elements will have a `blockType` option, which will define whether th
 * `videoCaption` small description for video
 * `ratio` video width / height; for making sure the video retains aspect ratio
 
+###Code
+
+	$story.eq(4).code({
+		'blockType':'right',
+		'html':'Freeform html code can be inserted here.'
+	}
+
+####Options
+* `blockType` layout size and position. Accepts `wide`,`right` or `left`
+* `html` HTML code block to be inserted at this aside
+
+###StateMap
+
+	$story.eq(5).stateMap({
+		blockType:"right",
+		hed:"Where in the world is Sinclair",
+		readout:"Peter B. Sinclair's home state highlighted below with related states also noted.",
+		attrib:"McClatchy",
+		citeSrc:'http://www.mcclatchy.com/2006/06/09/354/daily.html',
+		states:{
+			AK:"#f2a755",
+			CA:"#f2a755",
+			DC:"#f2a755",
+			FL:"#e07725",
+			GA:"#f2a755",
+			ID:"#f2a755",
+			IL:"#f2a755",
+			KS:"#f2a755",
+			KY:"#f2a755",
+			MO:"#f2a755",
+			MS:"#f2a755",
+			NC:"#f2a755",
+			PA:"#f2a755",
+			SC:"#f2a755",
+			TX:"#f2a755",
+			WA:"#f2a755"
+		}
+	})
+
+####Options
+* `blockType` layout size and position. Accepts `wide`,`right` or `left`
+* `hed` label for the map
+* `readout` chatter text for the map
+* `attrib` source attribution for the map. This can either be a single string, or a list of sources in an array
+* `citeSrc` this should be where the source information links to; it should match the `attrib` as either a single string or an array of URLs (any sources without a URL to link to can be skipped by using `false`).
+* `states` an object delineating how each state should be colored, labeled by two letter postal abbreviation; states not included will be colored in `#ccc` by default. Boxes for the US and DC will be hidden unless values are given for them
+
+####Note
+This function returns a reference to the state map itself. The return object includes a .map reference to the Raphael canvas itself and the .states reference represents an onject (keyed by postal abbreviation) to each of the individual state polygons. You can use these to add interactivity or additional styling to the map after it is placed according to the [Raphael documentation](http://raphaeljs.com/reference.html). 
+
+###Hype
+
+	$story.eq(6).hype({
+		blockType:'wide',
+		url:'http://www.bnd.com/static/media/VortexSurfing/VortexSurfing.html',
+		width:600,
+		height:345
+	})
+
+####Options
+* `blockType` layout size and position. Accepts `wide`,`right` or `left`
+* `url` the source URL for the uploaded Tumult Hype project
+* `width` and `height` the actual height and width, at 100%, of the exported Hype document
+
+####Note
+This function creates an iframe to place the Hype projecct in. Because Hype is non-responsive, CSS transforms are used to make the module scalable within the Sinclair framework. This means that extreme transforms will introduce visual artifacts and that elements like fonts may become difficult to read. If an element is being created for a Sinclair project, it should be designed as close as possible to the ideal display sizes of 310px or 900px. Additionally, this module is suitable for use with other non-responsive iframed content if need be.
+
 ##Methods in progress 
 
 ###Audio
