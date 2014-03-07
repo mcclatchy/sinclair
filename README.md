@@ -32,13 +32,13 @@ In an attempt to make creating stories easier for a larger range of people, the 
 This tab contains elements and options for the whole story. Required files are included for convenience in a public Google Drive folder. You may use these files, but you may get faster results if you host these elsewhere.
 
 * **CSS File:** The main CSS of the project.
+* **Extra CSS File:** An optional CSS file to include after everything else.
 * **Javascript File:** The AMD version of the Sinclair project: `sinclair.amd.js`. 
+* **Extra Javascript File:** An optional JS file to include after everything else. *Note: This is outside of the require call, so the sinclair object is not available.*
 * **Story Page:** The story to scrape. This needs to be on the same domain as the exported file.
 * **Backup Story Page:** The backup html file to use if the story is not available.
 * **Paragraph Container:** The element containing all paragraphs in the scraped story.
-* **Main Domain:** The domain to link to in the folio.
 * **Page Title:** The meta title of the page.
-* **Project URL:** The url of the project.
 
 **Note: RequireJS appends the `.js` extension when it loads documents, so you should not include it.**
 
@@ -47,11 +47,14 @@ This tab contains elements and options for the whole story. Required files are i
 This tab contains the elements to configure the folio.
 
 * **Show Folio:** Toggles the folio on and off. Use TRUE or FALSE.
-* **Page Title:** The title used in the social tools.
 * **Folio Title:** The name to display in the folio.
 * **Project URL:** The url to use in the social tools.
 * **Flat:** Whether to show the folio all the time or have it appear after scrolling. Use TRUE or FALSE.
 * **Tracker:** Whether to show the line indicating how far a reader has gotten. Use TRUE or FALSE.
+* **Logo File:** URL for the logo to put in the folio.
+* **Logo Link:** Target URL for the logo (your home page).
+* **Logo Width:** The width of the logo image.
+* **Logo Height:** The height of the logo image.
 
 ### Footer
 
@@ -147,7 +150,7 @@ All basic elements can now take a new `template:` parameter. The parameter is lo
 
 This method adds number labels to each paragraph to help deduce where assets will go.
 
-###Adding a Folio
+###Adding a Folio ... *NEW*
 
 This method should be invoked on a header-like element near the beginning of the page.
 
@@ -156,7 +159,13 @@ This method should be invoked on a header-like element near the beginning of the
 		'folioTitle' : 'Sinclair Demo',
 		'shortUrl' : 'https://github.com/mcclatchy/sinclair',
 		'flat' : true,
-		'tracker' : true
+		'tracker' : true,
+		logo: {
+			url: 'http://www.miamiherald.com/static/media/projects/libraries/images/logo_b.png',
+			link: 'http://www.miamiherald.com/',
+			width: '167px',
+			height: '30px'
+		}
 	})
 	
 #####Options
