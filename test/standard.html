@@ -32,11 +32,16 @@
         $("#article-wrapper").html(html);
 
         $("#header").folio({
-          pageTitle: 'The Sinclair Project demo page',
           folioTitle: 'Sinclair Demo',
           shortUrl: 'https://github.com/mcclatchy/sinclair',
           flat: true,
-          tracker: true
+          tracker: true,
+					logo: {
+						url: "http://www.miamiherald.com/static/media/projects/libraries/images/logo_b.png",
+						link: "http://www.miamiherald.com/",
+						height: "30px",
+						width: "167px"
+					}
         })
 
         $story = $('#article-wrapper p')

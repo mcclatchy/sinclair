@@ -60,12 +60,9 @@
     }
   }
 
-  .logo(@url, @height, @width) {
+  .logo() {
     display: block;
-    background: transparent url(@url) no-repeat scroll center left;
-    width: @width;
-    height: @height;
-    background-size: @width @height;
+    background: transparent no-repeat scroll center left;
     float: left;
     margin-right: 10px;
     padding-right: 10px;
@@ -123,6 +120,11 @@
     color: @color;
     line-height: @lineHeight;
     max-width: @maxWidth;
+
+		// Phone Landscape
+		@media (max-width: 767px) {
+			max-width: 90%;
+		}
   }
 
   .photo-item() {
@@ -136,6 +138,11 @@
         max-width: @blockItemWidth;
         margin-left: auto;
         margin-right: auto;
+
+				// Phone Landscape
+				@media (max-width: 767px) {
+					max-width: 90%;
+				}
       }
 
       &:first-child {

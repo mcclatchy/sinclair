@@ -35,11 +35,16 @@
           $("#article-wrapper").html(html);
           
           $("#header").folio({
-            pageTitle: 'The Sinclair Project demo page',
             folioTitle: 'Sinclair Demo',
             shortUrl: 'https://github.com/mcclatchy/sinclair',
-            flat: false,
-            tracker: false
+            flat: true,
+            tracker: false,
+						logo: {
+							url: "http://www.miamiherald.com/static/media/projects/libraries/images/logo_b.png",
+							link: "http://www.miamiherald.com/",
+							height: "30px",
+							width: "167px"
+						}
           })
 
           $("body").simpleFooter({

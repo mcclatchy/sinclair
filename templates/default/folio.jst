@@ -4,7 +4,7 @@
       <div id="tracker"></div>
     </div> 
   <% } %>
-  <a href="http://www.miamiherald.com" target="_blank" class="logoB logo"></a>
+  <a href="<%= logo.link %>" target="_blank" class="logoB logo" style="background-image: url('<%= logo.url %>'); background-size: <%= logo.width %> <%= logo.height %>; width: <%= logo.width %>; height: <%= logo.height %>;"></a>
   <div id="folio-info">
     <h2 class="small ral fat upper folio-header"><pre class="folio-title" id="folio-title"><%= folioTitle %></pre></h2>
     <nav class="social-tools">
