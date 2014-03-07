@@ -99,7 +99,11 @@ $.when($load).then(function() {
 	
 	//Map example
 	$story.eq(5).stateMap({
-		blockType:"right",
+	blockType:"right",
+		hed:"McClatchy states",
+		readout:"States with McClatchy newspapers across the country.",
+		attrib:"McClatchy",
+		citeSrc:'http://www.mcclatchy.com/2006/06/09/354/daily.html',
 		states:{
 			AK:"#e07725",
 			CA:"#e07725",
