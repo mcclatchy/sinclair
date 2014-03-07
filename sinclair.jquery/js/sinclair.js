@@ -181,6 +181,21 @@ $.fn.stateMap = function(input) {
 	
 }
 
+$.fn.hype = function(input) {
+	
+	$(this).after('<aside id="current" class="' + input.blockType + ' block-item hype-item"></aside>');
+	$('#current').append($(document.createElement('iframe')).attr({src:input.url}).css({width:input.width,height:input.height}));
+	$(window).resize(function(){
+		$('.hype-item>iframe').each(function(){
+			var r=$(this).parent().width()/$(this).width();
+			console.log(r);
+			$(this).css({transform:'scale('+r+')','transform-origin':'0 0','margin-right':$(this).width()*(r-1),'margin-bottom':$(this).height()*(r-1)});
+		});
+	}).trigger("resize");
+	$('#current').removeAttr('id');
+	
+}
+
 $.fn.simpleFooter = function(input) {
 
 	$(this).append('<div class="footer-list ral upper fat xsmall" id="current"><a href="http://miamiherald.com" target="_blank" class="logoB-tiny"></a></nav>');
