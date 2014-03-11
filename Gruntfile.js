@@ -28,7 +28,7 @@ module.exports = function(grunt) {
     requirejs: {
       compile: {
         options: {
-          // optimize: "none",
+					// optimize: "none",
           baseUrl: 'js',
           paths: {
             jquery: "jquery.min",

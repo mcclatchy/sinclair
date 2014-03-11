@@ -14,6 +14,25 @@
     
     <!-- RequireJS load. The Sinclair library will fetch what it needs -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+
+		<script type='text/javascript'>
+			var googletag = googletag || {};
+			var gptadslots = [];
+			googletag.cmd = googletag.cmd || [];
+			(function(){ var gads = document.createElement('script');
+			 gads.async = true; gads.type = 'text/javascript';
+			 var useSSL = 'https:' == document.location.protocol;
+			 gads.src = (useSSL ? 'https:' : 'http:') + '//www.googletagservices.com/tag/js/gpt.js';
+			 var node = document.getElementsByTagName('script')[0];
+			 node.parentNode.insertBefore(gads, node);
+			 })();
+
+			googletag.cmd.push( function() {
+					googletag.pubads().enableSingleRequest();
+					googletag.pubads().enableAsyncRendering();
+					googletag.enableServices();
+			})
+    </script>
   </head>
 
   <body>
@@ -100,6 +119,13 @@
             videoCaption: 'test test test test test test test',
             ratio: 1.77
           });
+
+					$story.eq(5).ad({
+						blockType: 'right',
+						tracking: '/7675/KCM.site_kansascity/_HomePage',
+						adPos: 1,
+						targetID: "gpt-ad-slot-top"
+					});
         })
         .fail( function(msg) {
           console.log("Failed: %s", msg);

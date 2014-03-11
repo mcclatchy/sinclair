@@ -89,7 +89,44 @@ This is the main page of the document, and will control the asset types that are
 * **Link Text:** The text for outgoing links of assets that use one, currently refer
 * **Ratio:** The ratio to use for included videos. This will size the player.
 
-### Output
+### Ads ... *New*
+
+There is a new ad panel that will allow you to put in GPT ad tags. Currently GPT is the only supported type, but others can be added if need be. Additionally, due to mobile issues we have found out with our responsive design, only the 300x250 size is supported. 
+
+* **Type:** The type of ad. Currently gpt is the only option.
+* **Position:** Changes the position of the asset.
+	* left -- Floats the element left of the paragraphs.
+	* right -- Floats the element right of the paragraphs.
+* **Placement:** The paragraph number to append the ad before.
+* **Tracking:** The ad tracking string. (If there is a page that provides this elsewhere let me know. I always copy/paste from our website.)
+* **Target ID:** The id for the element to place the ad into. **This must be unique.**
+* **Ad Position:** The position inside the ad system .. aka I have no idea but you need it.
+* **ATF:** Whether the ad shouldbe designated as being above the fold.
+
+
+### Output .. *New Options*
+
+There are now two options in the Sinclair custom menu for outputting the html: `Generate Output` and `Save in Current Drive Folder`.
+
+> **Possible Confusion / Odd Behavior Note!!!** -- *When run either of these functions the first time, they will ask for permission to do their job. When you allow this access, the functions do not actually run. The first time you select an output option, you may need to click the menu action twice.*
+
+#### "Save in Current Drive Folder"
+
+Google Drive folders can be set to be public, and can act as a temporary hosting solution. This is particularly handy when developing the story. To use this new method:
+
+1. Make a copy of the [current Sinclair spreadhseet](https://docs.google.com/spreadsheet/ccc?key=0AuRuRdHZo6DPdG9oLXlVNjV2bDN0clJuX294dER0RUE&usp=sharing).
+2. Place your copy in a new public Google Drive folder.
+3. Select the "Save in Current Drive Folder" action in the Sinclair custom menu.
+4. On the details pane of the folder in Drive, find the "Hosting" link. **The folder must be public to see this.**
+
+**A couple of notes:**
++ The function will either create an **index.html** file, or will create a new version of the current **index.html** file in the same folder as the spreadsheet. 
++ Google hosted folders work like a web root, so CSS files, JS files or HTML versions of the story can be stored and accessed much like a regular site.
++ Google puts appropriate CORS headers on html files, allowing you to develop completely in drive with a couple of extra steps:
+	1. Copy the html source of the story into a new file in the Google Drive folder.
+	2. Place the Google Drive url in the "Backup Story Page" cell.
+
+#### "Generate Output"
 
 The output tab is the target destination for the `buildFile()` function call. To invoke this function, there is a custom menu added to the document titled **Sinclair**. In that menu there is one option: **Generate Ouput**. 
 
@@ -101,6 +138,8 @@ To create html you can use on a server, click the Generate Output menu item. An 
 * The AMD sinclair file includes almost everything to work. RequireJS is loaded from http://cdnjs.com/ over https.
 * **The custom menu will not be available until you copy the document into your own drive account**
 * Google Drive puts the appropriate header information on files stored in Public directories. You can use this method to store the original story if you like.
+
+---
 
 ##Basic Functions (Loading Content Manually)
 

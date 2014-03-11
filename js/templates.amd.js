@@ -2,6 +2,34 @@ define(function(){
 
 this["JST"] = this["JST"] || {};
 
+this["JST"]["default/ad.jst"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape;
+with (obj) {
+__p += '<figure class="' +
+((__t = ( blockType )) == null ? '' : __t) +
+' block-item ad-item">\n\t<div id="' +
+((__t = ( targetID )) == null ? '' : __t) +
+'"></div>\n\t<script>\n\t\tgoogletag.cmd.push(function() {\n\t\t\tgptadslots[\'' +
+((__t = ( targetID )) == null ? '' : __t) +
+'\'] = googletag.defineSlot(\'' +
+((__t = ( tracking )) == null ? '' : __t) +
+'\', [' +
+((__t = ( size )) == null ? '' : __t) +
+'], \'' +
+((__t = ( targetID )) == null ? '' : __t) +
+'\').setTargeting(\'atf\', [\'' +
+((__t = ( atf )) == null ? '' : __t) +
+'\']).setTargeting(\'pos\', [\'' +
+((__t = ( adPos )) == null ? '' : __t) +
+'\']).addService(googletag.pubads());\n\t\t});\n\n\t\tgoogletag.cmd.push(function() {\n\t\t\tgoogletag.display(\'' +
+((__t = ( targetID )) == null ? '' : __t) +
+'\');\n\t\t});\n\t</script>\n</figure>\n';
+
+}
+return __p
+};
+
 this["JST"]["default/folio.jst"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape, __j = Array.prototype.join;

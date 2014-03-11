@@ -50,7 +50,15 @@ var Sinclair = function(selector, context) {
       videoTitle: '',
       videoCaption: '',
       ratio: 1
-    }
+    },
+		ad: {
+			blockType: 'right',
+			size: '[300,250]',
+			tracking: '',
+			targetID: '',
+			adPos: 0,
+			atf: 'N'
+		}
   }
 
   return {
@@ -250,7 +258,22 @@ var Sinclair = function(selector, context) {
 
         // Allow chaining
         return self;
-      }
+      },
+
+			ad: function(input) {
+				var self = this;
+				input = $.extend(defaults.ad, input);
+
+				if(!input.template) {
+					input.template = defaults.templates["default/ad.jst"];
+				}
+
+				var html = input.template(input);
+				self.before(html);
+
+				// Allow chaining
+				return self;
+			}
     }
   }
 }

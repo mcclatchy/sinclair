@@ -1,0 +1,12 @@
+<figure class="<%= blockType %> block-item ad-item">
+	<div id="<%= targetID %>"></div>
+	<script>
+		googletag.cmd.push(function() {
+			gptadslots['<%= targetID %>'] = googletag.defineSlot('<%= tracking %>', [<%= size %>], '<%= targetID %>').setTargeting('atf', ['<%= atf %>']).setTargeting('pos', ['<%= adPos %>']).addService(googletag.pubads());
+		});
+
+		googletag.cmd.push(function() {
+			googletag.display('<%= targetID %>');
+		});
+	</script>
+</figure>
