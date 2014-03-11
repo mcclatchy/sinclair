@@ -123,9 +123,82 @@ $.fn.refer = function(input) {
 
 }
 
+$.fn.code = function(input) {
+	
+	$(this).after('<aside class="' + input.blockType + ' block-item code-item">' + input.html + '</aside>');
+	
+}
+
+$.fn.stateMap = function(input) {
+	
+	if(window.Raphael && window.drawStates){
+		$(this).after('<aside id="current" class="' + input.blockType + ' block-item stateMap-item"></aside>');
+		var map = drawStates($(document.createElement('div')).addClass('map').appendTo("#current")[0])
+	} else {
+		console.log("State map drawing utility libraries failed to load");
+		return false;
+	}
+	// AN OBJECT OF STATES (BY POSTAL ABBREVIATION) CAN BE PASSED TO CREATE AN INITIAL COLOR SCHEME
+	for(ST in input.states){
+		map.states[ST].attr("fill",input.states[ST]);
+	}
+	// IF THERE IS NO NATIONAL DATA OR DATA FOR DC THOSE BLOCKS WILL BE DISABLED BY DEFAULT
+	// NOTE: THEY CAN BE ENABLED BY CALLING THE show() METHOD LATER ON
+	if(!input.states.DC){
+		map.states.DC.hide();
+	}
+	if(!input.states.US){
+		map.states.US.hide();
+	}
+	if(input.readout){
+		$('#current>.map').before($(document.createElement('h3')).text(input.hed).addClass('ral fat'));
+	}
+	if(input.hed){
+		$('#current>.map').before($(document.createElement('p')).text(input.readout).addClass('ral small'));
+	}
+	if(input.attrib){
+		$('#current>.map').after($(document.createElement('p')).text('Source: ').addClass('source ral xsmall'));
+		if(input.attrib instanceof Array){
+			for(i=0;i<input.attrib.length;i++){
+				if(i>0){
+					$('#current .source').append(', ');
+				}
+				$('#current .source').append($(document.createElement('a')).text(input.attrib[i]));
+				if(input.citeSrc[i]){
+					$('#current .source a:last').attr('href',input.citeSrc[i]);
+				}
+			}
+		} else {
+			$('#current .source').append($(document.createElement('a')).text(input.attrib));
+			if(input.citeSrc){
+				$('#current .source a').attr('href',input.citeSrc);
+			}
+		}
+	}
+	$('#current').removeAttr('id')
+	// WE NEED TO RETURN THE MAP OBJECT IN CASE INTERACTIVITY NEEDS TO BE LAYERED INTO IT
+	return map;
+	
+}
+
+$.fn.hype = function(input) {
+	
+	$(this).after('<aside id="current" class="' + input.blockType + ' block-item hype-item"></aside>');
+	$('#current').append($(document.createElement('iframe')).attr({src:input.url}).css({width:input.width,height:input.height}));
+	$(window).resize(function(){
+		$('.hype-item>iframe').each(function(){
+			var r=$(this).parent().width()/$(this).width();
+			console.log(r);
+			$(this).css({transform:'scale('+r+')','transform-origin':'0 0','margin-right':$(this).width()*(r-1),'margin-bottom':$(this).height()*(r-1)});
+		});
+	}).trigger("resize");
+	$('#current').removeAttr('id');
+	
+}
+
 $.fn.simpleFooter = function(input) {
 
-	$(this).append('<div class="footer-list ral upper fat xsmall" id="current"><a href="http://miamiherald.com" target="_blank" class="logoB-tiny"></a></nav>')
+	$(this).append('<div class="footer-list ral upper fat xsmall" id="current"><a href="http://miamiherald.com" target="_blank" class="logoB-tiny"></a></nav>');
 
 	$.each(input, function(i) {
 		$('#current').append('<a href="' + input[i].url + '" target="_blank">' + input[i].name + '</a>')

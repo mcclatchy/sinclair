@@ -97,6 +97,33 @@ $.when($load).then(function() {
 		'cutline' : 'This is a picture of what Peter B. Sinclair looked like when he was following David Bowie on the Ziggy Stardust tour.'
 	});
 	
+	//Map example
+	$story.eq(5).stateMap({
+		blockType:"right",
+		hed:"Where in the world is Sinclair",
+		readout:"Peter B. Sinclair's home state highlighted below with related states also noted.",
+		attrib:"McClatchy",
+		citeSrc:'http://www.mcclatchy.com/2006/06/09/354/daily.html',
+		states:{
+			AK:"#f2a755",
+			CA:"#f2a755",
+			DC:"#f2a755",
+			FL:"#e07725",
+			GA:"#f2a755",
+			ID:"#f2a755",
+			IL:"#f2a755",
+			KS:"#f2a755",
+			KY:"#f2a755",
+			MO:"#f2a755",
+			MS:"#f2a755",
+			NC:"#f2a755",
+			PA:"#f2a755",
+			SC:"#f2a755",
+			TX:"#f2a755",
+			WA:"#f2a755"
+		}
+	}).states.FL.toFront().glow({width:2,offsetx:3,offsety:3});
+	
 	$story.eq(9).audio({
 		'blockType' : 'wide',
 		'name' : 'second-audio',
