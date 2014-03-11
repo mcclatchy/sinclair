@@ -21,7 +21,7 @@ The fine folks at the Chicago Tribune's news apps team named [one of their apps 
 [Nine Funerals](http://www.macon.com/static/media/projects/nine-funerals/)
 [The Dove Keeper](http://www.macon.com/static/media/projects/birdman/test/)
 
-##Google Doc Version	
+##Google Doc Version (2)
 
 In an attempt to make creating stories easier for a larger range of people, the default view has been ported to a new public [Google Doc](https://docs.google.com/spreadsheet/ccc?key=0AuRuRdHZo6DPdG9oLXlVNjV2bDN0clJuX294dER0RUE&usp=sharing). To use this document, make a copy in your own Google Drive account, and change what's needed. There are currently five tabs to the document: Configuration, Folio, Footer, Assets, and Output. The first four will allow you to set up the currently supported parts of the story.
 
@@ -39,6 +39,7 @@ This tab contains elements and options for the whole story. Required files are i
 * **Backup Story Page:** The backup html file to use if the story is not available.
 * **Paragraph Container:** The element containing all paragraphs in the scraped story.
 * **Page Title:** The meta title of the page.
+* **Omniture Tag:** Place code generated from the [MI tag builder](http://www.google.com/url?q=http%3A%2F%2Fwww.mcclatchyinteractive.com%2Fstatic%2Fanalytics%2Fhtml%2Ftaggenerator%2F&sa=D&sntz=1&usg=AFQjCNEmb3bIqJpi6oXd1wnDC0MWMIa9qw) here and it will be added to the page.
 
 **Note: RequireJS appends the `.js` extension when it loads documents, so you should not include it.**
 
@@ -363,3 +364,4 @@ This method builds a gallery out of an array of url-caption objects.
 	$story.eq(5).ad('<ad>HTML</ad>')
 	
 This method (for now) accepts raw HTML as the input.
+
