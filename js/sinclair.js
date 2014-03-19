@@ -129,6 +129,14 @@ var Sinclair = function(selector, context) {
 
     fn: {
 
+			layoutMode: function() {
+				var tick = 0;
+				$(this).each( function() {
+					$(this).prepend("<span style='font-size: 150%; color: #999; padding-right: 10px;'>" + tick + ".</span>");
+					tick++;
+				});
+			},
+
       /*
        * Draws the bar at the top
        */
