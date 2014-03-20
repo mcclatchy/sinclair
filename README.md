@@ -20,6 +20,7 @@ The fine folks at the Chicago Tribune's news apps team named [one of their apps 
 **Macon Telegraph**
 [Nine Funerals](http://www.macon.com/static/media/projects/nine-funerals/)
 [The Dove Keeper](http://www.macon.com/static/media/projects/birdman/test/)
+[My Brother's Keeper](http://www.macon.com/static/media/projects/brotherkeeper/test/)
 
 ##Google Doc Version	
 
