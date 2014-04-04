@@ -36,9 +36,9 @@ This tab contains elements and options for the whole story. Required files are i
 * **Extra CSS File:** An optional CSS file to include after everything else.
 * **Javascript File:** The AMD version of the Sinclair project: `sinclair.amd.js`. 
 * **Extra Javascript File:** An optional JS file to include after everything else. *Note: This is outside of the require call, so the sinclair object is not available.*
-* **Story Page:** The story to scrape. This needs to be on the same domain as the exported file.
+* **Story Page:** The story to scrape. This will point at the actual file/URL where the story lives. This needs to be on the same domain as the exported file.
 * **Backup Story Page:** The backup html file to use if the story is not available.
-* **Paragraph Container:** The element containing all paragraphs in the scraped story.
+* **Paragraph Container:** The element containing all paragraphs in the scraped story. Once the file is loaded, the container tells Sinclair which element in the HTML file contains the text of the story. This should be formatted as the [jQuery selector](http://api.jquery.com/category/selectors/) of the element.
 * **Page Title:** The meta title of the page.
 * **Omniture Tag:** Place code generated from the [MI tag builder](http://www.google.com/url?q=http%3A%2F%2Fwww.mcclatchyinteractive.com%2Fstatic%2Fanalytics%2Fhtml%2Ftaggenerator%2F&sa=D&sntz=1&usg=AFQjCNEmb3bIqJpi6oXd1wnDC0MWMIa9qw) here and it will be added to the page.
 
