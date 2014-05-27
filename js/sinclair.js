@@ -96,8 +96,11 @@ var Sinclair = function(selector, context) {
         // Remove all the images and scripts
         data = data.replace(/<(img|script)\b[^>]*>/ig, '');
 
-        // Look for the container and ship along
-        var html = $("<div>").append($.parseHTML(data)).find(input.container).html();
+        // Look for any matching containers and ship along all of their contents
+        var html = ""
+        $("<div>").append($.parseHTML(data)).find(input.container).each(function(){
+        	html += $(this).html();
+        });
         input.def.resolve(html);
       })
       .fail( function() {
