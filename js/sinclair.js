@@ -98,8 +98,21 @@ var Sinclair = function(selector, context) {
 
         // Look for any matching containers and ship along all of their contents
         var html = ""
-        $("<div>").append($.parseHTML(data)).find(input.container).each(function(){
+       $("<div>").append($.parseHTML(data)).find(input.container).each(function(){
+        	if($(this).html() == $(this).text()){
+        		html+='<'+$(this).prop('tagName');
+        		if($(this).attr('class')){
+        			html+=' class="'+$(this).attr('class')+'"';
+        		}
+        		if($(this).attr('id')){
+        			html+=' id="'+$(this).attr('class')+'"';
+        		}
+        		html+='>';
+        	}
         	html += $(this).html();
+        	if($(this).html() == $(this).text()){
+        		html+='</'+$(this).prop('tagName')+'>';
+        	}
         });
         input.def.resolve(html);
       })
@@ -111,9 +124,25 @@ var Sinclair = function(selector, context) {
             // Remove all the images and scripts
             data = data.replace(/<(img|script)\b[^>]*>/ig, '');
 
-            // Look for the container and ship along
-            var html = $("<div>").append($.parseHTML(data)).find(input.container).html();
-            input.def.resolve(html);
+			// Look for any matching containers and ship along all of their contents
+			var html = ""
+		   $("<div>").append($.parseHTML(data)).find(input.container).each(function(){
+				if($(this).html() == $(this).text()){
+					html+='<'+$(this).prop('tagName');
+					if($(this).attr('class')){
+						html+=' class="'+$(this).attr('class')+'"';
+					}
+					if($(this).attr('id')){
+						html+=' id="'+$(this).attr('class')+'"';
+					}
+					html+='>';
+				}
+				html += $(this).html();
+				if($(this).html() == $(this).text()){
+					html+='</'+$(this).prop('tagName')+'>';
+				}
+			});
+			input.def.resolve(html);
           })
           .fail( function() {
             input.def.reject("Could not get any of the resources");

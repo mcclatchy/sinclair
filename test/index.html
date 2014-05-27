@@ -48,11 +48,10 @@
       require(["sinclair"], function(sinclair) {
         sinclair.loadContent({
           scrapeResource: "data.html",
-          container: "#storyBodyContent"
+          container: "H3.byline, H3.credit_line, #storyBodyContent"
         }).done( function(html) {
 
           $("#article-wrapper").html(html);
-          
           $("#header").folio({
             folioTitle: 'Sinclair Demo',
             shortUrl: 'https://github.com/mcclatchy/sinclair',
