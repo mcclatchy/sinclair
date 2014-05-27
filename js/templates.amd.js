@@ -119,8 +119,12 @@ __p += '<blockquote class="' +
 ((__t = ( citeSrc )) == null ? '' : __t) +
 '">\n  <p class="large heavier bright">&ldquo;' +
 ((__t = ( quote )) == null ? '' : __t) +
-'&rdquo;</p>\n  <small class="block">\n    ';
- attrib ;
+'&rdquo;</p>\n  <small class="block">\n  \t';
+ if(attrib) { ;
+__p += '\n\t    ' +
+((__t = ( attrib )) == null ? '' : __t) +
+'\n\t';
+ } ;
 __p += '\n    ';
  if(citeSrc) { ;
 __p += '\n      <a class="gray-link" href="' +
@@ -173,7 +177,7 @@ __p += '<figure class="' +
       videoSource = videoID;
       videoID = "video-" + rand;
     } else {
-      videoSource = "http://www.youtube.com/embed/" + videoID + "?modestbranding&showinfo=0";
+      videoSource = location.protocol + "//www.youtube.com/embed/" + videoID + "?modestbranding&showinfo=0";
     }
   ;
 __p += '\n  <iframe class="yt-embed" id="' +

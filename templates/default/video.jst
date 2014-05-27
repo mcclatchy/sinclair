@@ -6,7 +6,7 @@
       videoSource = videoID;
       videoID = "video-" + rand;
     } else {
-      videoSource = "http://www.youtube.com/embed/" + videoID + "?modestbranding&showinfo=0";
+      videoSource = location.protocol + "//www.youtube.com/embed/" + videoID + "?modestbranding&showinfo=0";
     }
   %>
   <iframe class="yt-embed" id="<%= videoID %>" src="<%= videoSource %>" frameborder="0" allowfullscreen></iframe>
