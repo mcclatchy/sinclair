@@ -90,7 +90,6 @@ var Sinclair = function(selector, context) {
       }
 
       // Try the live file
-      var cleanData;
       $.ajax({
         url:input.scrapeResource
       }).done( function(data) {
