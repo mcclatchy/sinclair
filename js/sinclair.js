@@ -300,6 +300,21 @@ var Sinclair = function(selector, context) {
         return self;
       },
 
+			code: function(input) {
+				var self = this;
+				input = $.extend(defaults.code, input);
+
+				if(!input.template) {
+					input.template = defaults.templates["default/code.jst"];
+				}
+
+				var html = input.template(input);
+				self.before(html);
+
+				// Allow chaining
+				return self;
+			},
+			
 			ad: function(input) {
 				var self = this;
 				input = $.extend(defaults.ad, input);
