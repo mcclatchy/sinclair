@@ -119,8 +119,13 @@
             videoCaption: 'test test test test test test test',
             ratio: 1.77
           });
+          			
+          			$story.eq(5).code({
+          				blockType:'wide',
+          				text:'<i style="text-align:center;display:block;">Hello world</i><p>This is a block of arbitrary code inserted into the Sinclair template</p><script>console.log("supporting even scripting!")<\/script>'
+          			});
 
-					$story.eq(5).ad({
+					$story.eq(6).ad({
 						blockType: 'right',
 						tracking: '/7675/KCM.site_kansascity/_HomePage',
 						adPos: 1,

@@ -30,6 +30,20 @@ __p += '<figure class="' +
 return __p
 };
 
+this["JST"]["default/code.jst"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape;
+with (obj) {
+__p += '<aside class="' +
+((__t = ( blockType )) == null ? '' : __t) +
+' block-item code-item">\n  ' +
+((__t = ( text )) == null ? '' : __t) +
+'\n</aside>';
+
+}
+return __p
+};
+
 this["JST"]["default/folio.jst"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape, __j = Array.prototype.join;
