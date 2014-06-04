@@ -313,7 +313,7 @@ var Sinclair = function(selector, context) {
 
 				// Allow chaining
 				return self;
-			}
+			},
 			
 			ad: function(input) {
 				var self = this;
