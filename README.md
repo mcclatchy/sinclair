@@ -44,6 +44,8 @@ This tab contains elements and options for the whole story. Required files are i
 
 **Note: RequireJS appends the `.js` extension when it loads documents, so you should not include it.**
 
+**Note:** Non paragraph containers may be scraped as well in order to pull elements such as bylines, credit lines and headlines in to the Sinclair template. All scraped non-paragraph elements _before_ the first `<p>` tag will be migrated into the templates' header div.
+
 ### Folio
 
 This tab contains the elements to configure the folio.
@@ -308,6 +310,47 @@ Almost all elements will have a `blockType` option, which will define whether th
 * `videoCaption` small description for video
 * `ratio` video width / height; for making sure the video retains aspect ratio
 * `template` [optional] an alternative UnderscoreJS template to use
+
+###Code
+
+	$story.eq(4).code({
+		'blockType': 'wide',
+		'html': '<h1>Hello World</h1><p>Arbitrary HTML code goes here</p>'
+	});
+	
+#####Options
+* `blockType` layout size and position. Accepts `wide`,`right` or `left`
+* `html` This is the HTML to be inserted in this block
+
+#####Notes
+* This code block will simply add your HTML code into the responsive block.
+* Sinclair will not **not** validate your code. Incorrect closures may break the containing element and cause errors in the surrounding Sinclair template.
+* Because this is **unprocessed** HTML code, it is only as responsive as you make it. Even though the Sinclair template is designed to be responsive, if the code in this block is not it may bleed out of the responsive framework.
+* In the Google Drive Spreadsheet, you place your HTML code in the `Text` field 
+
+
+###Hype
+
+	$story.eq(6).hype({
+		blockType:'wide',
+		url:'http://www.bnd.com/static/media/VortexSurfing/VortexSurfing.html',
+		width:600,
+		height:345
+	})
+
+####Options
+* `blockType` layout size and position. Accepts `wide`,`right` or `left`
+* `url` the source URL for the uploaded Tumult Hype project
+* `width` and `height` the actual height and width, at 100%, of the exported Hype document
+
+####Note
+* The `hype()` function assumes the dimensions are in pixels and will automatically append the measurement, do *not* add `px` to the height or width
+* In the spreadsheet, the height and width are inserted in the `Ratio` column in the format `[height]x[width]` you may use the following separators: `x`, `X` or `:`
+* This function creates an iframe to place the Hype projecct in. Because Hype is non-responsive, CSS transforms are used to make the module scalable within the Sinclair framework. This means that extreme transforms will introduce visual artifacts and that elements like fonts may become difficult to read. If an element is being created for a Sinclair project, it should be designed as close as possible to the ideal display size.
+* The iframe will be scale down, but it will not enlarge the content to fit a larger space
+* While designed for Tumult Hype HTML, this function should work with most iframed content
+* Google Drive is served of off HTTPS. If your iframe is on an insecure server, _like many static servers are_, modern Web browsers will block the insecure content from being displayed from a secure page. You may need to explicitly enable to the content to preview it from within Google Drive.
+
 
 ##Methods in progress .. *NOT INCORPORATED IN THE GOOGLE DOC BRANCH YET*
 
