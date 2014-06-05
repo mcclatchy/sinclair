@@ -110,9 +110,9 @@ __p += '<aside class="' +
 ((__t = ( input.url )) == null ? '' : __t) +
 '" style="width:' +
 ((__t = ( input.width )) == null ? '' : __t) +
-';height:' +
+'px;height:' +
 ((__t = ( input.height )) == null ? '' : __t) +
-'"></iframe>\n</aside>';
+'px"></iframe>\n</aside>';
 
 }
 return __p
