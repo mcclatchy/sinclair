@@ -100,6 +100,24 @@ __p += '\n</div>\n';
 return __p
 };
 
+this["Templates"]["default/hype.jst"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape;
+with (obj) {
+__p += '<aside class="' +
+((__t = ( blockType )) == null ? '' : __t) +
+' block-item hype-item">\n  <iframe src="' +
+((__t = ( input.url )) == null ? '' : __t) +
+'" style="width:' +
+((__t = ( input.width )) == null ? '' : __t) +
+';height:' +
+((__t = ( input.height )) == null ? '' : __t) +
+'"></iframe>\n</aside>';
+
+}
+return __p
+};
+
 this["Templates"]["default/photo.jst"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
