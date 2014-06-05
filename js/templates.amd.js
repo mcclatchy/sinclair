@@ -109,12 +109,12 @@ with (obj) {
 __p += '<aside class="' +
 ((__t = ( blockType )) == null ? '' : __t) +
 ' block-item hype-item">\n  <iframe src="' +
-((__t = ( input.url )) == null ? '' : __t) +
+((__t = ( url )) == null ? '' : __t) +
 '" style="width:' +
-((__t = ( input.width )) == null ? '' : __t) +
+((__t = ( width )) == null ? '' : __t) +
 'px;height:' +
-((__t = ( input.height )) == null ? '' : __t) +
-'px"></iframe>\n</aside>';
+((__t = ( height )) == null ? '' : __t) +
+'px;margin:auto;display:block;"></iframe>\n</aside>';
 
 }
 return __p
