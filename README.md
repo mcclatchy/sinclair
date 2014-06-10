@@ -408,3 +408,15 @@ This method builds a gallery out of an array of url-caption objects.
 	$story.eq(5).ad('<ad>HTML</ad>')
 	
 This method (for now) accepts raw HTML as the input.
+
+##Redirecting users from your website
+
+Sinclair utilizes your CMS's current publishing process to streamline workflow. This allows writing and editing to be performed as usual without needing to fork the production process for print and digital needs. Publishing via the standard CMS also allows us to utilize the SEO and feed architecture already built into our sites.
+
+However, this also means we will need to redirect users from the normal story pages to the Sinclair package hosted on your static server. Using the "Link to URL" option in the Pubsys will automatically have the links on your site point to the designed package rather than the story page.
+
+Unfortunately, that feature does not work with stories syndicated across McClatchy sites nor our current mobile apps. Likewise, it is still possible for users who discover the story's URL on the site to navigate directly to it without being redirected.
+
+The `redirect.html` file is designed to channel all of these users to the same location. The file should be uploaded into the directory of your Sinclair package. It can then be appended to your story as an iframe (via either CCI or Pubsys) to redirect users. You can point at the specific page using the URL search variable "page"
+
+i.e. `redirect.html?page=index.html` would point users who navigate to the main story to the index file in the same directory as the redirect script. You can point to subdirectories by replacing the slashes with `%2f` such that you could save redirect.html to a parent directory and reference it as such: `/static/redirect.html?page=myPackage%2fpart-one%2findex.html`
