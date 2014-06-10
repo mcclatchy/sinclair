@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8" />
+</head>
+<body>
+	<script>
+		var gets = document.location.search.substr(1).split("&");
+		var g = {};
+		for(i=0;i<gets.length;i++){
+			g[gets[i].split("=")[0]] = gets[i].split("=")[1];
+		}
+		var loc = document.location.href.split("/").slice(0,document.location.href.split("/").length-1).join("/") + "/";
+		if(g.page){
+			loc+=g.page.split("%2f").join("/");
+		}
+		
+		var url = (window.location != window.parent.location) ? document.referrer: document.location;
+		
+		if(url != loc){
+			window.top.location.replace(loc);
+		}
+	</script>
+</body>
+</html>
