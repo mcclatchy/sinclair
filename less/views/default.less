@@ -8,8 +8,10 @@
 // Colors
 @red: #a00;
 @gray: #777;
-@linkColor: #666;
-@linkHoverColor: #222;
+@linkColor: #285a8d;
+@linkHoverColor: darken(@linkColor,25%);
+@linkVisitColor: #543c78;
+@linkVisitHoverColor: darken(@linkVisitColor,25%);
 
 // Include the base file for mixins, etc.
 @import "../base";
@@ -125,6 +127,14 @@
 		@media (max-width: 767px) {
 			max-width: 90%;
 		}
+  }
+  
+  span.ng_subhead{
+	display:block;
+	font-family: Helvetica, Arial, Sans-Serif;
+	font-size:1.5em;
+	line-height:1.1em;
+	font-weight:700;
   }
 
   .photo-item() {

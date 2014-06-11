@@ -39,12 +39,27 @@ table {border-collapse: collapse;border-spacing: 0}
 
 /*LINKS*/
 
-a {
-	color: #666;
+a{
+	color:#285a8d;
+	cursor:pointer;
+	display:inline-block;
+	line-height:.9em;
+	border-bottom:1px dotted rgba(40,90,141,.5);
 }
 
-a:hover {
-	color: #222;
+a:visited{
+	color:#626366;
+	border-bottom:1px dotted rgba(98,99,102,.333);
+}
+
+a:hover{
+	color:#3470a1;
+	border-bottom:1px solid rgba(52,112,161,.5);
+}
+
+a:visited:hover{
+	color:#626366;
+	border-bottom:1px solid rgba(98,99,102,.5);
 }
 
 /*DISPLAY*/
@@ -394,6 +409,16 @@ a:hover {
 		height: auto !important;
 	}
 	
+}
+
+/*TEXT ELEMENTS FROM NEWSGATE 3 */
+
+span.ng_subhead{
+	display:block;
+	font-family: Helvetica, Arial, Sans-Serif
+	font-size:1.5em;
+	line-height:1.1em;
+	font-weight:700;
 }
 
 /*SMALLER SCREENS*/

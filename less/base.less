@@ -83,9 +83,23 @@ table {
 
 a {
   color: @linkColor;
+  text-decoration:none;
+  border-bottom:1px dotted lighten(@linkColor,50%);
+  line-height:.9em;
 
   &:hover {
-    @linkHoverColor;
+    color:@linkHoverColor;
+	border-bottom:1px solid lighten(@linkHoverColor,25%);
+  }
+
+  &:visited {
+    color:@linkVisitColor;
+	border-bottom:1px solid lighten(@linkVisitColor,50%);
+  }
+
+  &:visited {
+    color:@linkVisitHoverColor;
+	border-bottom:1px solid lighten(@linkVisitHoverColor,25%);
   }
 }
 
