@@ -1,136 +1,146 @@
+
 <!DOCTYPE HTML>
 <html>
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="apple-mobile-we-app-capable" content="yes">
-    <meta name="mobile-web-app-capable" content="yes">
-    <link rel="shortcut icon" href="http://media.kansascity.com/images/app-icon.png">
-
-    <title>Sinclair Test File</title>
-
-    <!-- Compiled CSS using LESS -->
+    <title>undefined</title>
     <link href="../css/sinclair.compiled.css" type="text/css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
     
-    <!-- RequireJS load. The Sinclair library will fetch what it needs -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
-
-		<script type='text/javascript'>
-			var googletag = googletag || {};
-			var gptadslots = [];
-			googletag.cmd = googletag.cmd || [];
-			(function(){ var gads = document.createElement('script');
-			 gads.async = true; gads.type = 'text/javascript';
-			 var useSSL = 'https:' == document.location.protocol;
-			 gads.src = (useSSL ? 'https:' : 'http:') + '//www.googletagservices.com/tag/js/gpt.js';
-			 var node = document.getElementsByTagName('script')[0];
-			 node.parentNode.insertBefore(gads, node);
-			 })();
-
-			googletag.cmd.push( function() {
-					googletag.pubads().enableSingleRequest();
-					googletag.pubads().enableAsyncRendering();
-					googletag.enableServices();
-			})
+    
+    <script type='text/javascript'>
+    var googletag = googletag || {};
+    var gptadslots = [];
+    googletag.cmd = googletag.cmd || [];
+    (function(){ var gads = document.createElement('script');
+    gads.async = true; gads.type = 'text/javascript';
+    var useSSL = 'https:' == document.location.protocol;
+    gads.src = (useSSL ? 'https:' : 'http:') + '//www.googletagservices.com/tag/js/gpt.js';
+    var node = document.getElementsByTagName('script')[0];
+    node.parentNode.insertBefore(gads, node);
+    })();
+    
+    googletag.cmd.push( function() {
+    googletag.pubads().enableSingleRequest();
+    googletag.pubads().enableAsyncRendering();
+    googletag.enableServices();
+    })
     </script>
   </head>
-
+  
   <body>
     <div id="header"></div>
     <article id="article-wrapper" class="article-wrapper"></article>
-
+    
     <script>
       require.config({
         paths: {
-          "sinclair": "../js/sinclair.amd"
+          "sinclair": "https:\/\/f78e0b15aa4f5929c6f079fb8e91728bafd05ad1.googledrive.com\/host\/0B-RuRdHZo6DPNEQyOGRXRlhqSEU\/sinclair.amd"
         }
-      })
+      });
+      
       require(["sinclair"], function(sinclair) {
         sinclair.loadContent({
-          scrapeResource: "data.html",
-          container: "H3.byline, H3.credit_line, #storyBodyContent"
-        }).done( function(html) {
-
+          scrapeResource: 'https:\/\/googledrive.com\/host\/0B-RuRdHZo6DPNEQyOGRXRlhqSEU\/original-story.html',
+          fallback: '',
+          container: 'h1.entry-title,h3.byline,.creditline,span.updated,#storyBodyContent, .entry-content.story_body'        }).done( function(html) {
           $("#article-wrapper").html(html);
-          $("#header").folio({
-            folioTitle: 'Sinclair Demo',
-            shortUrl: 'https://github.com/mcclatchy/sinclair',
-            flat: true,
-            tracker: false,
-						logo: {
-							url: "http://www.miamiherald.com/static/media/projects/libraries/images/logo_b.png",
-							link: "http://www.miamiherald.com/",
-							height: "30px",
-							width: "167px"
-						}
-          })
-
-          $("body").simpleFooter({
-            links: [
-              {
-                name: 'Terms of Service',
-                url: 'http://www.miamiherald.com/terms_of_service'
-              },
-              {
-                name: 'Privacy Policy',
-                url: 'http://www.miamiherald.com/privacy_policy'
-              },
-              {
-                name: 'Copyright',
-                url: 'http://www.miamiherald.com/copyright'
-              },
-              {
-                name: 'Contact us',
-                url: 'http://www.miamiherald.com/contact-us'
-              }
-            ]
-          })
-
-					$story = $('#article-wrapper p');
-
-          $story.eq(0).photo({
-            blockType: 'splash',
-            url: 'http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2013/2/15/1360937072371/David-Bowie-1973-008.jpg',
-            credit: 'Photo by Peter B. Sinclair / For the Miami Herald',
-            cutline: 'This is a picture of what Peter B. Sinclair looked like when he was following David Bowie on the Ziggy Stardust tour.'
-          });
-
-          $story.eq(1).quote({
-            blockType: 'wide',
-            quote: 'This is an example of a nice big quote that runs in different positions',
-            attrib: '<strong>Peter B. Sinclair,</strong> The namesake of this thing',
-            citeSrc: 'http://www.miamiherald.com/2013/06/04/3431537/peter-b-sinclair-the-miami-herald.html'
-          });
-
-          $story.eq(37).refer({
-            blockType: 'left',
-            hed: 'Little refer',
-            readout: 'Hello there! I\'m a little box that can serve as an aside to the story',
-            url: 'http://www.miamiherald.com',
-            gotext: 'Go do something'
-          });
-
-          $story.eq(4).video({
-            blockType: 'wide',
-            //videoID: 'GUNHbU7LnM4',
-            videoID: 'http://www.youtube.com/embed/GUNHbU7LnM4?modestbranding&showinfo=0',
-            videoTitle: 'Video Title test',
-            videoCaption: 'test test test test test test test',
-            ratio: 1.77
-          });
-
-					$story.eq(5).ad({
-						blockType: 'right',
-						tracking: '/7675/KCM.site_kansascity/_HomePage',
-						adPos: 1,
-						targetID: "gpt-ad-slot-top"
-					});
-        })
-        .fail( function(msg) {
-          console.log("Failed: %s", msg);
+          
+          
+                      $("#header").folio({
+              folioTitle: 'Sinclair Demo',
+              shortUrl: 'https:\/\/github.com\/mcclatchy\/sinclair',
+              flat: 'true',
+              tracker: 'false',
+              logo: {
+                url: 'http:\/\/www.miamiherald.com\/static\/media\/projects\/libraries\/images\/logo_b.png',
+                link: 'http:\/\/www.miamiherald.com\/',
+                width: '167px',
+                height: '30px'              }
+            });
+                      
+                      $("body").simpleFooter({
+              links: [
+                                  {
+                    name: 'Terms of Service',
+                    url: 'http:\/\/www.miamiherald.com\/terms_of_service'                  },
+                                  {
+                    name: 'Privacy Policy',
+                    url: 'http:\/\/www.miamiherald.com\/privacy_policy'                  },
+                                  {
+                    name: 'Copyright',
+                    url: 'http:\/\/www.miamiherald.com\/copyright'                  },
+                                  {
+                    name: 'Contact us',
+                    url: 'http:\/\/www.miamiherald.com\/contact-us'                  },
+                              ]
+            });
+                    
+          $story = $('#article-wrapper p');
+          
+          $("#header").append($story.first().prevAll().get().reverse());
+          
+                      $story.layoutMode();
+                    
+                                  
+                           $story.eq('0').photo({
+                 blockType: 'splash',
+                 url: 'http:\/\/static.guim.co.uk\/sys-images\/Guardian\/Pix\/pictures\/2013\/2\/15\/1360937072371\/David-Bowie-1973-008.jpg',
+                 credit: 'Photo by Peter B. Sinclair \/ For the Miami Herald',
+                 cutline: 'This is a picture of what Peter B. Sinclair looked like when he was following David Bowie on the Ziggy Stardust tour.'               });
+                              $story.eq('1').quote({
+                  blockType: 'wide',
+                  quote: 'This is an example of a nice big quote that runs in different positions',
+                  attrib: '\x3cstrong\x3ePeter B. Sinclair,\x3c\/strong\x3e The namesake of this thing',
+                  citeSrc: 'http:\/\/www.miamiherald.com\/2013\/06\/04\/3431537\/peter-b-sinclair-the-miami-herald.html'                });
+                              $story.eq('2').refer({
+                  blockType: 'left',
+                  hed: 'Little refer',
+                  readout: 'Hello there! I\x27m a little box that can serve as an aside to the story',
+                  url: 'http:\/\/www.miamiherald.com',
+                  gotext: 'Go do something'                });
+                              $story.eq('4').video({
+                  blockType: 'wide',
+                  videoID: 'https:\/\/www.youtube.com\/embed\/GUNHbU7LnM4?modestbranding\x26showinfo=0',
+                  videoTitle: 'Video Title',
+                  videoCaption: 'test test test test test test test',
+                  ratio: '1.77'                });
+                                              $story.eq('10').hype({
+                  blockType: 'wide',
+                  url: 'http:\/\/www.bnd.com\/static\/media\/VortexSurfing\/VortexSurfing.html',
+                  width: '600',
+                  height: '345'                });
+                              $story.eq('16').code({
+                  blockType: 'wide',
+                  text: '\x3cscript\x3econsole.log\(\x22Hello world\x22\)\x3c\/script\x3e\x3cdiv style=\x22position:relative;padding-bottom:50%;width:100%;\x22\x3e\n        \x3ciframe src=\x22https:\/\/www.google.com\/maps\/embed?pb=!1m18!1m12!1m3!1d24954.123708490646!2d-121.48877227452614!3d38.57373425993505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x98f2da69df692086!2sThe\x2bMcClatchy\x2bCompany!5e0!3m2!1sen!2sus!4v1401977696650\x22 width=\x22100%\x22 height=\x22100%\x22 frameborder=\x220\x22 style=\x22border:0;position:absolute;\x22\x3e\x3c\/iframe\x3e\n\x3c\/div\x3e\n'                });
+                              $story.eq('18').code({
+                  blockType: 'splash',
+                  text: '\x3cscript\x3econsole.log\(\x22Hello world\x22\)\x3c\/script\x3e\x3cdiv style=\x22position:relative;padding-bottom:50%;width:100%;\x22\x3e\n        \x3ciframe src=\x22https:\/\/www.google.com\/maps\/embed?pb=!1m18!1m12!1m3!1d24954.123708490646!2d-121.48877227452614!3d38.57373425993505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x98f2da69df692086!2sThe\x2bMcClatchy\x2bCompany!5e0!3m2!1sen!2sus!4v1401977696650\x22 width=\x22100%\x22 height=\x22100%\x22 frameborder=\x220\x22 style=\x22border:0;position:absolute;\x22\x3e\x3c\/iframe\x3e\n\x3c\/div\x3e\n'                });
+                              $story.eq('20').code({
+                  blockType: 'right',
+                  text: '\x3cscript\x3econsole.log\(\x22Hello world\x22\)\x3c\/script\x3e\x3cdiv style=\x22position:relative;padding-bottom:50%;width:100%;\x22\x3e\n        \x3ciframe src=\x22https:\/\/www.google.com\/maps\/embed?pb=!1m18!1m12!1m3!1d24954.123708490646!2d-121.48877227452614!3d38.57373425993505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x98f2da69df692086!2sThe\x2bMcClatchy\x2bCompany!5e0!3m2!1sen!2sus!4v1401977696650\x22 width=\x22100%\x22 height=\x22100%\x22 frameborder=\x220\x22 style=\x22border:0;position:absolute;\x22\x3e\x3c\/iframe\x3e\n\x3c\/div\x3e\n'                });
+                        
+                                  $story.eq('5').ad({
+              blockType: 'left',
+              tracking: '\/7675\/KCM.site_kansascity\/_HomePage',
+              adPos: '1',
+              atf: 'N',
+              targetID: 'gpt-ad-slot-1'            })
+                                if($('.hype-item').length > 0){
+            $(window).resize(function(){
+              $('.hype-item>iframe').each(function(){
+                var r=$(this).parent().width()/$(this).width();
+                if(r<1){
+                  $(this).css({transform:'scale('+r+')','transform-origin':'0 0','margin-right':$(this).width()*(r-1),'margin-bottom':$(this).height()*(r-1)});
+                } else {
+                  $(this).css({transform:'scale(1)','transform-origin':'0 0','margin':'auto'});
+                }
+              });
+            }).trigger("resize");
+          }
         });
-      })
+      });
     </script>
-  </body>
+    
+        
+      </body>
 </html>
-

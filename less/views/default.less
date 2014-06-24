@@ -112,6 +112,40 @@
       }
     }
   }
+  
+  #header{
+	font-family: Helvetica, Arial, Sans-Serif;
+	max-width: 800px;
+	margin: 2em auto;
+	padding: 1.5em 0;
+	font-weight:bold;
+	h1{
+		font-size:3em;
+		line-height:1.25em;
+		margin-bottom:.25em;
+	}
+	span:after{
+		content: " // ";
+		font-weight:100;
+		color:#d0d0d0;
+	}
+	.byline{
+		color:#666;
+	}
+	a{
+		text-decoration:none;
+		border-bottom:none !important;
+	}
+	.creditline{
+		font-weight:200;
+		color:#666;
+		font-size:.85em;
+	}
+	.updated{
+		font-weight:200;
+		color:#8c1c1c;
+	}
+  }
 
   .body(@fontFamily:serif, @fontSize:1.3em, @lineHeight:1.61em, @fontWeight:300, @color:#333, @maxWidth:600px) {
     margin: 0px auto;
@@ -194,6 +228,70 @@
 
     &.right {
       .right();
+    }
+  }
+  
+  .code-item(){
+  	.block();
+  	.body();
+
+    &.splash {
+      width: 100%;
+      max-width: none !important;
+
+      &:first-child {
+        margin-top: 0px;
+      }
+	}
+	
+	&.wide{
+	    max-width: @blockItemWidth;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    &.left {
+      .left();
+      width:310px;
+      max-width:100%;
+    }
+
+    &.right {
+      .right();
+      width:310px;
+      max-width:100%;
+    }
+  }
+  
+  .hype-item(){
+  	.block();
+  	.body();
+
+    &.splash {
+      width: 100%;
+      max-width: none !important;
+
+      &:first-child {
+        margin-top: 0px;
+      }
+	}
+	
+	&.wide{
+	    max-width: @blockItemWidth;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    &.left {
+      .left();
+      width:310px;
+      max-width:100%;
+    }
+
+    &.right {
+      .right();
+      width:310px;
+      max-width:100%;
     }
   }
 
