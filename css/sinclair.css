@@ -125,6 +125,10 @@ a:visited:hover{
 	width: 48%;
 }
 
+.ad-container.embedded{
+	display:none !important;
+}
+
 /*FOLIO*/
 
 #floating-folio {
