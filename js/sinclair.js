@@ -114,9 +114,16 @@ var Sinclair = function(selector, context) {
         		html+='</'+$(this).prop('tagName')+'>';
         	}
         });
-        input.def.resolve(html);
+        if(html.length <= 0){
+        	console.log("No content found, loading fallback")
+        	handleError(input);
+        } else {
+	        input.def.resolve(html);
+	        return input.def;
+	    }
       })
-      .fail( function() {
+      .fail( handleError );
+      function handleError(input) {
         if(input.fallback) {
           $.ajax({
             url: input.fallback
@@ -150,7 +157,7 @@ var Sinclair = function(selector, context) {
         } else {
           input.def.reject("Scrape Resource not available and no fallback set");
         }
-      })
+      }
 
       return input.def;
     },

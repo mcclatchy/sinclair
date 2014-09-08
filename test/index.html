@@ -34,14 +34,14 @@
     <script>
       require.config({
         paths: {
-          "sinclair": "https:\/\/f78e0b15aa4f5929c6f079fb8e91728bafd05ad1.googledrive.com\/host\/0B-RuRdHZo6DPNEQyOGRXRlhqSEU\/sinclair.amd"
+          "sinclair": "..\\js\\sinclair.amd"//"https:\/\/f78e0b15aa4f5929c6f079fb8e91728bafd05ad1.googledrive.com\/host\/0B-RuRdHZo6DPNEQyOGRXRlhqSEU\/sinclair.amd"
         }
       });
       
       require(["sinclair"], function(sinclair) {
         sinclair.loadContent({
-          scrapeResource: 'https:\/\/googledrive.com\/host\/0B-RuRdHZo6DPNEQyOGRXRlhqSEU\/original-story.html',
-          fallback: '',
+          scrapeResource: 'data.html',
+          fallback: 'data2.html',
           container: 'h1.entry-title,h3.byline,.creditline,span.updated,#storyBodyContent, .entry-content.story_body'        }).done( function(html) {
           $("#article-wrapper").html(html);
           
