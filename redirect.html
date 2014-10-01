@@ -14,7 +14,7 @@
 			loc+=g.page.split("%2f").join("/");
 		}
 		
-		var url = (window.location != window.parent.location) ? document.referrer: document.location;
+		var url = (window.location != window.parent.location) ? document.referrer: document.location.href;
 		
 		if(url != loc){
 			window.top.location.replace(loc);
