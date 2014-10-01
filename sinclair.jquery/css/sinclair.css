@@ -181,7 +181,7 @@ a:hover {
 }
 
 .share-icon {
-	background:url(http://www.miamiherald.com/static/media/projects/libraries/images/social_sprites.png) no-repeat scroll;
+	background:url(http://www.mcclatchydc.com/static/images/social_sprites.png) no-repeat scroll;
 	display: inline-block;
 	cursor: pointer;
 	margin: 0 2px;
@@ -195,7 +195,7 @@ a:hover {
 .google-share {background-position:63% 0}
 
 .comments-bg {
-  background:url(http://www.miamiherald.com/static/media/projects/libraries/images/social_sprites.png) no-repeat scroll;
+  background:url(http://www.mcclatchydc.com/static/images/social_sprites.png) no-repeat scroll;
   background-position:100% 0;
   background-size:5em 2.5em;
   height:1.25em;
