@@ -104,6 +104,8 @@ var Sinclair = function(selector, context) {
        * iframe (but order is dictated by not being able to reset any cleared subdomains).
        */
       
+      var html="";
+      
       function fetchContainer(data,selector){
       	html="";
       	$.parseHTML(data).find(selector).each(function(){
@@ -124,50 +126,6 @@ var Sinclair = function(selector, context) {
 		});
 		return html;
       }
-      
-      function loadBackup(input) {
-        if(input.fallback) {
-          $.ajax({
-            url: input.fallback
-          }).done( function(data) {
-            // Remove all the images and scripts
-            data = data.replace(/<(img|script)\b[^>]*>/ig, '');
-
-			// Look for any matching containers and ship along all of their contents
-			var html = ""
-			$("<div>").append($.parseHTML(data)).find(input.container).each(function(){
-				if($(this).html() == $(this).text()){
-					html+='<'+$(this).prop('tagName');
-					if($(this).attr('class')){
-						html+=' class="'+$(this).attr('class')+'"';
-					}
-					if($(this).attr('id')){
-						html+=' id="'+$(this).attr('class')+'"';
-					}
-					html+='>';
-				}
-				html += $(this).html();
-				if($(this).html() == $(this).text()){
-					html+='</'+$(this).prop('tagName')+'>';
-				}
-			});
-			input.def.resolve(html);
-          })
-          .fail( function() {
-            input.def.reject("Could not get any of the resources");
-          })
-        } else {
-          input.def.reject("Scrape Resource not available and no fallback set");
-        }
-      }
-      
-      function loadiframe(input) {
-      
-      }
-      
-      function backupIframe(input) {
-      
-      }
 
       if(!input.scrapeResource && !input.fallback) {
         input.def.reject("You did not include a resource");
@@ -175,22 +133,91 @@ var Sinclair = function(selector, context) {
 
       // Try the live file
       $.ajax({
-        url:input.scrapeResource
-      }).done( function(data) {
-        // Remove all the images and scripts
-        data = data.replace(/<(img|script)\b[^>]*>/ig, '');
-
-        // Look for any matching containers and ship along all of their contents
-        var html = fetchContainer(data,input.container);
-        if(html.length <= 0){
-        	console.log("No content found, loading fallback")
-        	loadBackup(input);
-        } else {
-	        input.def.resolve(html);
-	        return input.def;
-	    }
-      })
-      .fail( loadBackup );
+        url:input.scrapeResource,
+        success: function(data){
+			// Remove all the images and scripts
+			data = data.replace(/<(img|script)\b[^>]*>/ig, '');
+			
+			// Look for any matching containers and ship along all of their contents
+	        html = fetchContainer(data,input.container);
+	        
+			if(html.length <= 0){
+				console.log("No content found, loading fallback")
+				loadBackup();
+			} else {
+				input.def.resolve(html);
+				return input.def;
+			}
+        },
+        error: loadBackup = function(){
+			if(input.fallback) {
+			  $.ajax({
+				url: input.fallback,
+				success:function(data){
+					// Remove all the images and scripts
+					data = data.replace(/<(img|script)\b[^>]*>/ig, '');
+			
+					// Look for any matching containers and ship along all of their contents
+					html = fetchContainer(data,input.container);
+					
+					if(html.length <= 0){
+						console.log("No content found in fallback");
+					} else {
+						//We will not use this now. If we cannot later load out primary, then we will use the fallback
+						//input.def.resolve(html);
+						//return input.def;
+					}
+				},
+				error: function(){
+					input.def.reject("Could not get the backup resource");
+				}
+			  });
+			} else {
+			  input.def.reject("Scrape Resource not available and no fallback set");
+			}
+			  
+		    //Always load the iframe, if successfully -- overwrite the fallback response
+			document.domain=document.domain.split(".").slice(-2).join("."); //Broaden the domain to drop any subdomains
+			var srcFile=document.createElement("iframe");
+			srcFile.id="source_text";
+			srcFile.src=input.scrapeResource;
+			srcFile.style.display="none";
+			srcFile.onload=function(){
+				var srcTxt = this.contentDocument || this.contentWindow.document; //Grab the iframe's content, if we can do so with expanded domains
+				$(srcTxt).remove("iframe,script");
+				document.body.removeChild(srcTxt);
+				if(srcTxt && fetchContainer(srcTxt,input.container) && fetchContainer(srcTxt,input.container).length > 0){
+					html = fetchContainer(srcTxt,input.container);
+					input.def.resolve(html);
+					return input.def;
+				} else if(html.length > 0) {
+					//If we could not grab the main via iframe (or if it was empty) we will use the already retrieved fallback
+					input.def.resolve(html);
+					return input.def;
+				} else {
+					//If we could not get the main and fallback (or they were empty) we will try and grab the fallback via iframe
+					srcTxt=null;
+					srcFile.src=input.fallback;
+					srcFile.onload=function(){
+						var srcTxt = this.contentDocument || this.contentWindow.document; //Grab the iframe's content, if we can do so with expanded domains
+						$(srcTxt).remove("iframe,script");
+						document.body.removeChild(srcTxt);
+						if(srcTxt && fetchContainer(srcTxt,input.container) && fetchContainer(srcTxt,input.container).length > 0){
+							//After failing the first 3 methods, we can use the fallback grabbed via iframe
+							html = fetchContainer(srcTxt,input.container);
+							input.def.resolve(html);
+							return input.def;
+						} else {
+							//All four methods (main, main via iframe, fallback and fallback via iframe) have all failed
+							input.def.reject("Both resources have failed to load via all available methods");
+						}
+					}
+					document.body.appendChild(srcFile);
+				}
+			}
+			document.body.appendChild(srcFile);
+        }
+      });
 
       return input.def;
     },
