@@ -84,46 +84,48 @@ var Sinclair = function(selector, context) {
     loadContent: function(input) {
       // Allow the overload
       input = $.extend(defaults.loadContent, input);
-
-      if(!input.scrapeResource && !input.fallback) {
-        input.def.reject("You did not include a resource");
+      
+      /*
+       * Helped functions for handling the loading
+       *
+       * fetchContainer, will grab the HTML structure of docs, importing either container
+       * nodes with all of their children or grabbing each individual, targeted node (a
+       * container is stripped out, if this is the case)
+       *
+       * Additionally, a series of failure functions provide backup loading. The goal
+       * being to load the primary resource if feasible, but if failing then to load a
+       * local copy. The process is: AJAX call to primary source -> AJAX call to backup ->
+       * attempt to broaden the the document's domain by removing any subdomains and
+       * loading the primary via an iframe -> loading the backup as an iframe.
+       *
+       * Failure states include AJAX and access fails, but also retrieving empty jQuery
+       * selectors (side stepping interstitial ads). It's notable that regardless of
+       * success on the first backup load, the primary source will try to be called via
+       * iframe (but order is dictated by not being able to reset any cleared subdomains).
+       */
+      
+      function fetchContainer(data,selector){
+      	html="";
+      	$.parseHTML(data).find(selector).each(function(){
+			if($(this).html() == $(this).text()){
+				html+='<'+$(this).prop('tagName');
+				if($(this).attr('class')){
+					html+=' class="'+$(this).attr('class')+'"';
+				}
+				if($(this).attr('id')){
+					html+=' id="'+$(this).attr('class')+'"';
+				}
+				html+='>';
+			}
+			html += $(this).html();
+			if($(this).html() == $(this).text()){
+				html+='</'+$(this).prop('tagName')+'>';
+			}
+		});
+		return html;
       }
-
-      // Try the live file
-      $.ajax({
-        url:input.scrapeResource
-      }).done( function(data) {
-        // Remove all the images and scripts
-        data = data.replace(/<(img|script)\b[^>]*>/ig, '');
-
-        // Look for any matching containers and ship along all of their contents
-        var html = ""
-       $("<div>").append($.parseHTML(data)).find(input.container).each(function(){
-        	if($(this).html() == $(this).text()){
-        		html+='<'+$(this).prop('tagName');
-        		if($(this).attr('class')){
-        			html+=' class="'+$(this).attr('class')+'"';
-        		}
-        		if($(this).attr('id')){
-        			html+=' id="'+$(this).attr('class')+'"';
-        		}
-        		html+='>';
-        	}
-        	html += $(this).html();
-        	if($(this).html() == $(this).text()){
-        		html+='</'+$(this).prop('tagName')+'>';
-        	}
-        });
-        if(html.length <= 0){
-        	console.log("No content found, loading fallback")
-        	handleError(input);
-        } else {
-	        input.def.resolve(html);
-	        return input.def;
-	    }
-      })
-      .fail( handleError );
-      function handleError(input) {
+      
+      function loadBackup(input) {
         if(input.fallback) {
           $.ajax({
             url: input.fallback
@@ -133,7 +135,7 @@ var Sinclair = function(selector, context) {
 
 			// Look for any matching containers and ship along all of their contents
 			var html = ""
-		   $("<div>").append($.parseHTML(data)).find(input.container).each(function(){
+			$("<div>").append($.parseHTML(data)).find(input.container).each(function(){
 				if($(this).html() == $(this).text()){
 					html+='<'+$(this).prop('tagName');
 					if($(this).attr('class')){
@@ -158,6 +160,37 @@ var Sinclair = function(selector, context) {
           input.def.reject("Scrape Resource not available and no fallback set");
         }
       }
+      
+      function loadiframe(input) {
+      
+      }
+      
+      function backupIframe(input) {
+      
+      }
+
+      if(!input.scrapeResource && !input.fallback) {
+        input.def.reject("You did not include a resource");
+      }
+
+      // Try the live file
+      $.ajax({
+        url:input.scrapeResource
+      }).done( function(data) {
+        // Remove all the images and scripts
+        data = data.replace(/<(img|script)\b[^>]*>/ig, '');
+
+        // Look for any matching containers and ship along all of their contents
+        var html = fetchContainer(data,input.container);
+        if(html.length <= 0){
+        	console.log("No content found, loading fallback")
+        	loadBackup(input);
+        } else {
+	        input.def.resolve(html);
+	        return input.def;
+	    }
+      })
+      .fail( loadBackup );
 
       return input.def;
     },
