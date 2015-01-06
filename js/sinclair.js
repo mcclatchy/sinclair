@@ -86,7 +86,7 @@ var Sinclair = function(selector, context) {
       input = $.extend(defaults.loadContent, input);
       
       /*
-       * Helped functions for handling the loading
+       * Helper functions for handling the loading
        *
        * fetchContainer, will grab the HTML structure of docs, importing either container
        * nodes with all of their children or grabbing each individual, targeted node (a
@@ -108,7 +108,10 @@ var Sinclair = function(selector, context) {
       
       function fetchContainer(data,selector){
       	html="";
-      	$.parseHTML(data).find(selector).each(function(){
+      	if($.parseHTML(data)){
+      		data=$.parseHTML(data);
+      	}
+      	$("<div>").append(data).find(selector).each(function(){
 			if($(this).html() == $(this).text()){
 				html+='<'+$(this).prop('tagName');
 				if($(this).attr('class')){
@@ -124,6 +127,7 @@ var Sinclair = function(selector, context) {
 				html+='</'+$(this).prop('tagName')+'>';
 			}
 		});
+		//console.log(html);
 		return html;
       }
 
@@ -183,36 +187,45 @@ var Sinclair = function(selector, context) {
 			srcFile.src=input.scrapeResource;
 			srcFile.style.display="none";
 			srcFile.onload=function(){
-				var srcTxt = this.contentDocument || this.contentWindow.document; //Grab the iframe's content, if we can do so with expanded domains
-				$(srcTxt).remove("iframe,script");
-				document.body.removeChild(srcTxt);
-				if(srcTxt && fetchContainer(srcTxt,input.container) && fetchContainer(srcTxt,input.container).length > 0){
-					html = fetchContainer(srcTxt,input.container);
-					input.def.resolve(html);
-					return input.def;
-				} else if(html.length > 0) {
-					//If we could not grab the main via iframe (or if it was empty) we will use the already retrieved fallback
-					input.def.resolve(html);
-					return input.def;
-				} else {
-					//If we could not get the main and fallback (or they were empty) we will try and grab the fallback via iframe
-					srcTxt=null;
-					srcFile.src=input.fallback;
-					srcFile.onload=function(){
-						var srcTxt = this.contentDocument || this.contentWindow.document; //Grab the iframe's content, if we can do so with expanded domains
-						$(srcTxt).remove("iframe,script");
-						document.body.removeChild(srcTxt);
-						if(srcTxt && fetchContainer(srcTxt,input.container) && fetchContainer(srcTxt,input.container).length > 0){
-							//After failing the first 3 methods, we can use the fallback grabbed via iframe
-							html = fetchContainer(srcTxt,input.container);
-							input.def.resolve(html);
-							return input.def;
-						} else {
-							//All four methods (main, main via iframe, fallback and fallback via iframe) have all failed
-							input.def.reject("Both resources have failed to load via all available methods");
+				var srcTxt = null;
+				try{
+					srcTxt = this.contentDocument || this.contentWindow.document; //Grab the iframe's content, if we can do so with expanded domains
+					$(srcTxt).remove("iframe,script");
+				} catch(e){
+					console.log(e);
+					if(html.length > 0) {
+						//If we could not grab the main via iframe (or if it was empty) we will use the already retrieved fallback
+						input.def.resolve(html);
+						return input.def;
+					} else {
+						//If we could not get the main and fallback (or they were empty) we will try and grab the fallback via iframe
+						srcTxt=null;
+						srcFile.src=input.fallback;
+						srcFile.onload=function(){
+							try{
+								srcTxt = this.contentDocument || this.contentWindow.document; //Grab the iframe's content, if we can do so with expanded domains
+							} catch(e){
+								srcFile.parentNode.removeChild(srcFile);
+								//All four methods (main, main via iframe, fallback and fallback via iframe) have all failed
+								input.def.reject("Both resources have failed to load via all available methods");
+							} finally {
+								$(srcTxt).remove("iframe,script");
+								srcFile.parentNode.removeChild(srcFile);
+								//After failing the first 3 methods, we can use the fallback grabbed via iframe
+								html = fetchContainer(srcTxt.body,input.container);
+								input.def.resolve(html);
+								return input.def;
+							}
 						}
+						document.body.appendChild(srcFile);
 					}
-					document.body.appendChild(srcFile);
+					srcFile.parentNode.removeChild(srcFile);
+				} finally{
+					srcFile.parentNode.removeChild(srcFile);
+					$(srcTxt.body).remove("iframe,script");
+					html = fetchContainer(srcTxt.body,input.container);
+					input.def.resolve(html);
+					return input.def;
 				}
 			}
 			document.body.appendChild(srcFile);
