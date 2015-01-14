@@ -67,17 +67,17 @@ __p += '\n  <a href="' +
 ((__t = ( logo.height )) == null ? '' : __t) +
 ';"></a>\n  <div id="folio-info">\n    <h2 class="small ral fat upper folio-header"><pre class="folio-title" id="folio-title">' +
 ((__t = ( folioTitle )) == null ? '' : __t) +
-'</pre></h2>\n    <nav class="social-tools">\n      <a class="share-icon twitter-share" href="http://twitter.com/home?status=' +
+'</pre></h2>\n    <nav class="social-tools">\n      <a class="share-icon twitter-share" href="http://twitter.com/share?text=' +
 ((__t = ( pageTitle )) == null ? '' : __t) +
-'+' +
+'&url=' +
 ((__t = ( shortUrl )) == null ? '' : __t) +
-'" onclick="window.open(return false; this.href, \'_blank,toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=260\')"></a>\n      <a class="share-icon facebook-share" href="http://www.facebook.com/share.php?u=' +
+'" onclick="window.open(this.href, \'_blank,toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=260\');return false;"></a>\n      <a class="share-icon facebook-share" href="http://www.facebook.com/share.php?u=' +
 ((__t = ( shortUrl )) == null ? '' : __t) +
 '&title=' +
 ((__t = ( pageTitle )) == null ? '' : __t) +
-'" onclick="window.open(return false; this.href,\'_blank\',\'toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=260\')"></a>\n      <a class="share-icon google-share" href="https://plus.google.com/share?url=' +
+'" onclick="window.open(this.href,\'_blank\',\'toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=260\');return false;"></a>\n      <a class="share-icon google-share" href="https://plus.google.com/share?url=' +
 ((__t = ( shortUrl )) == null ? '' : __t) +
-'" onclick="window.open(return false; this.href,\'_blank\',\'toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=260\')"></a>\n    </nav>\n  </div>\n  <div class="clearfix"></div>\n</div>\n';
+'" onclick="window.open(this.href,\'_blank\',\'toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=260\');return false;"></a>\n    </nav>\n  </div>\n  <div class="clearfix"></div>\n</div>\n';
 
 }
 return __p
