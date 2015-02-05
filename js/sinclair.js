@@ -127,12 +127,17 @@ var Sinclair = function(selector, context) {
 				html+='</'+$(this).prop('tagName')+'>';
 			}
 		});
-		//console.log(html);
 		return html;
       }
 
       if(!input.scrapeResource && !input.fallback) {
         input.def.reject("You did not include a resource");
+      }
+      
+      /* AVOID A MIXED CONTENT WARNING QUIETLY THROWN WHILE STAGING ON THE GOOGLE DRIVE SERVERS */
+      if(location.protocol==="https:" && input.scrapeResource.indexOf("http://")>=0 && input.fallback.indexOf("http://")<0){
+      	console.log("The primary resource would present mixed content on a secure page; subbing in the secure fallback resource instead");
+      	input.scrapeResource=input.fallback;
       }
 
       // Try the live file
@@ -173,11 +178,11 @@ var Sinclair = function(selector, context) {
 					}
 				},
 				error: function(){
-					input.def.reject("Could not get the backup resource");
+					console.log("Could not get the backup resource");
 				}
 			  });
 			} else {
-			  input.def.reject("Scrape Resource not available and no fallback set");
+			  console.log("Scrape Resource not available and no fallback set");
 			}
 			  
 		    //Always load the iframe, if successfully -- overwrite the fallback response
@@ -190,7 +195,7 @@ var Sinclair = function(selector, context) {
 				var srcTxt = null;
 				try{
 					srcTxt = this.contentDocument || this.contentWindow.document; //Grab the iframe's content, if we can do so with expanded domains
-					$(srcTxt).remove("iframe,script");
+					$(srcTxt).find("iframe,script").remove();
 				} catch(e){
 					console.log(e);
 					if(html.length > 0) {
@@ -219,10 +224,10 @@ var Sinclair = function(selector, context) {
 						}
 						document.body.appendChild(srcFile);
 					}
-					srcFile.parentNode.removeChild(srcFile);
+					//srcFile.parentNode.removeChild(srcFile);
 				} finally{
 					srcFile.parentNode.removeChild(srcFile);
-					$(srcTxt.body).remove("iframe,script");
+					$(srcTxt).find("iframe,script").remove();
 					html = fetchContainer(srcTxt.body,input.container);
 					input.def.resolve(html);
 					return input.def;
