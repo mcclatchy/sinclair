@@ -111,8 +111,15 @@ var Sinclair = function(selector, context) {
       	if($.parseHTML(data)){
       		data=$.parseHTML(data);
       	}
-      	$("<div>").append(data).find(selector).each(function(){
-			if($(this).html() == $(this).text()){
+      	$(data).find(selector).each(function(){
+      		var isContainer=true;
+			for(cc=0;cc<$(this).contents().length;cc++){
+				if($(this).contents()[cc].nodeType==Node.TEXT_NODE && $(this).contents()[cc].nodeValue.trim().length>0){
+					isContainer=false;
+					break;
+				}
+			}
+			if(!isContainer){
 				html+='<'+$(this).prop('tagName');
 				if($(this).attr('class')){
 					html+=' class="'+$(this).attr('class')+'"';
@@ -123,7 +130,7 @@ var Sinclair = function(selector, context) {
 				html+='>';
 			}
 			html += $(this).html();
-			if($(this).html() == $(this).text()){
+			if(!isContainer){
 				html+='</'+$(this).prop('tagName')+'>';
 			}
 		});
@@ -191,6 +198,8 @@ var Sinclair = function(selector, context) {
 			srcFile.id="source_text";
 			srcFile.src=input.scrapeResource;
 			srcFile.style.display="none";
+			srcFile.style.width="100%";
+			srcFile.style.height="100%";
 			srcFile.onload=function(){
 				var srcTxt = null;
 				try{
@@ -224,7 +233,7 @@ var Sinclair = function(selector, context) {
 						}
 						document.body.appendChild(srcFile);
 					}
-					//srcFile.parentNode.removeChild(srcFile);
+					srcFile.parentNode.removeChild(srcFile);
 				} finally{
 					srcFile.parentNode.removeChild(srcFile);
 					$(srcTxt).find("iframe,script").remove();
