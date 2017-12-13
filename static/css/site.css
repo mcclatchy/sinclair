@@ -1,0 +1,23 @@
+/**
+ * Sinclair doc site styles
+ */
+
+@font-face {
+  font-family: "McClatchy Slab";
+  src: url('https://cdn.rawgit.com/mjs2430/mcclatchy/master/fonts/mcclatchy-slab-regular.ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+}
+
+.hero {
+  min-height: calc(100vw * .5625);
+}
+
+.hero h1 {
+  font-size: 102px;
+  font-weight: normal;
+}

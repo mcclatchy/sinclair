@@ -1,0 +1,201 @@
+/* Lyon */
+@font-face {
+    font-family: "Lyon";
+    src: url('../fonts/lyon-black-italic.otf');
+    font-weight: 900;
+    font-style: italic;
+}
+@font-face {
+    font-family: "Lyon";
+    src: url('../fonts/lyon-black.otf');
+    font-weight: 900;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Lyon";
+    src: url('../fonts/lyon-bold-italic.otf');
+    font-weight: 800;
+    font-style: italic;
+}
+@font-face {
+    font-family: "Lyon";
+    src: url('../fonts/lyon-bold.otf');
+    font-weight: 800;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Lyon";
+    src: url('../fonts/lyon-light.otf');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Lyon";
+    src: url('../fonts/lyon-light-italic.otf');
+    font-weight: 300;
+    font-style: italic;
+}
+@font-face {
+    font-family: "Lyon";
+    src: url('../fonts/lyon-medium-italic.otf');
+    font-weight: 500;
+    font-style: italic;
+}
+@font-face {
+    font-family: "Lyon";
+    src: url('../fonts/lyon-medium.otf');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Lyon";
+    src: url('../fonts/lyon-regular-italic.otf');
+    font-weight: 400;
+    font-style: italic;
+}
+@font-face {
+    font-family: "Lyon";
+    src: url('../fonts/lyon-regular.otf');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Lyon";
+    src: url('../fonts/lyon-semi-italic.otf');
+    font-weight: 600;
+    font-style: italic;
+}
+@font-face {
+    font-family: "Lyon";
+    src: url('../fonts/lyon-semi.otf');
+    font-weight: 600;
+    font-style: normal;
+}
+
+/*********** McClatchy Sans ***********/
+@font-face {
+    font-family: "McClatchy Sans";
+    src: url('../fonts/mcclatchy-sans-black.ttf');
+    font-weight: 900;
+    font-style: normal;
+}
+@font-face {
+    font-family: "McClatchy Sans";
+    src: url('../fonts/mcclatchy-sans-bold.ttf');
+    font-weight: 800;
+    font-style: normal;
+}
+@font-face {
+    font-family: "McClatchy Sans";
+    src: url('../fonts/mcclatchy-sans-light.ttf');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: "McClatchy Sans";
+    src: url('../fonts/mcclatchy-sans-medium.ttf');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: "McClatchy Sans";
+    src: url('../fonts/mcclatchy-sans-regular.ttf');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: "McClatchy Sans";
+    src: url('../fonts/mcclatchy-sans-semi.ttf');
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: "McClatchy Sans";
+    src: url('../fonts/mcclatchy-sans-thin.ttf');
+    font-weight: 200;
+    font-style: normal;
+}
+
+/************ McClatchy Sans Condensed **************/
+@font-face {
+    font-family: "McClatchy Sans Cond";
+    src: url('../fonts/mcclatchy-sans-cond-bold.ttf');
+    font-weight: 800;
+    font-style: normal;
+}
+@font-face {
+    font-family: "McClatchy Sans Cond";
+    src: url('../fonts/mcclatchy-sans-cond-demi.ttf');
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: "McClatchy Sans Cond";
+    src: url('../fonts/mcclatchy-sans-cond-medium.ttf');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: "McClatchy Sans Cond";
+    src: url('../fonts/mcclatchy-sans-cond-regular.ttf');
+    font-weight: 400;
+    font-style: normal;
+}
+
+/************ McClatchy Serif **************/
+@font-face {
+    font-family: "McClatchy Serif";
+    src: url('../fonts/mcclatchy-serif-bold.ttf');
+    font-weight: 800;
+    font-style: normal;
+}
+@font-face {
+    font-family: "McClatchy Serif";
+    src: url('../fonts/mcclatchy-serif-medium.ttf');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: "McClatchy Serif";
+    src: url('../fonts/mcclatchy-serif-regular.ttf');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: "McClatchy Serif";
+    src: url('../fonts/mcclatchy-serif-semi.ttf');
+    font-weight: 600;
+    font-style: normal;
+}
+
+/***************** McClatchy Slab **************/
+@font-face {
+    font-family: "McClatchy Slab";
+    src: url('../fonts/mcclatchy-slab-light.ttf');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: "McClatchy Slab";
+    src: url('../fonts/mcclatchy-slab-bold.ttf');
+    font-weight: 800;
+    font-style: normal;
+}
+@font-face {
+    font-family: "McClatchy Slab";
+    src: url('../fonts/mcclatchy-slab-demi.ttf');
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: "McClatchy Slab";
+    src: url('../fonts/mcclatchy-slab-medium.ttf');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: "McClatchy Slab";
+    src: url('../fonts/mcclatchy-slab-regular.ttf');
+    font-weight: 400;
+    font-style: normal;
+}

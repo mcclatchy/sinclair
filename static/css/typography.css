@@ -1,0 +1,47 @@
+/**
+ * Typography
+ */
+
+.slab {
+  font-family: "McClatchy Slab", serif;
+}
+
+.sans {
+  font-family: "McClatchy Sans", sans-serif;
+}
+
+.sans-cond {
+  font-family: "McClatchy Sans Cond", "Helvetica Condensed", sans-serif;
+}
+
+.serif {
+  font-family: "McClatchy Serif", serif;
+}
+
+.lyon {
+  font-family: "Lyon", serif;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-lighter {
+  font-weight: lighter;
+}
+
+.text-normal {
+  font-weight: normal;
+}
+
+.text-bold {
+  font-weight: bold;
+}

@@ -7,7 +7,7 @@ title = "Sinclair dev template"
   <figcaption>Donec ultricies ex non erat finibus tempor.</figcaption>
 </figure>
 
-<h1 class="slab text-center">Lorem ipsum dolor sit amet</h1>
+<h1 class="slab text-center text-normal">Lorem ipsum dolor sit amet</h1>
 <address>BY JOHN DOE <a href="#">jdoe@nowhere.com</a></address>
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec tempus nisi, id dapibus arcu. Etiam laoreet ultricies nisl vitae fringilla. Morbi rutrum neque dui, quis suscipit lectus sollicitudin vel. Vestibulum et eleifend ante, nec laoreet nunc. Fusce massa turpis, cursus nec augue pretium, efficitur suscipit tellus. In euismod sem id augue fermentum, et sollicitudin ex ultrices. Fusce mollis vehicula diam, non pellentesque eros blandit sed.
@@ -17,7 +17,7 @@ Donec dictum nibh feugiat urna egestas molestie. Nulla dictum mauris non mi curs
 <div class="ng_mm_link">
   <div>
     <aside class="right">
-    <blockquote>Curabitur dui libero, posuere eget ultricies vel, convallis eget dui. <small>Anon</small></blockquote>
+      <blockquote>Curabitur dui libero, posuere eget ultricies vel, convallis eget dui. <small>Anon</small></blockquote>
     </aside>
   </div>
 </div>
@@ -35,6 +35,16 @@ Pellentesque ut ex sit amet mi vulputate congue nec pretium turpis. Vestibulum p
 Nunc augue eros, gravida tempus sodales eu, suscipit a turpis. Mauris et arcu diam. Nullam ut lacinia ipsum. Phasellus tristique risus sed vehicula dictum. Ut eu neque vel odio luctus aliquam. Morbi in pharetra leo. Suspendisse sollicitudin ante in turpis accumsan dapibus. Mauris convallis, leo in malesuada rhoncus, tortor libero pulvinar lorem, ut elementum nisi arcu nec leo. Fusce mi metus, feugiat laoreet mi et, dignissim vulputate mauris. Aliquam lectus odio, imperdiet quis pharetra nec, volutpat vitae nisl. Pellentesque molestie pretium arcu, ac tincidunt enim consequat vitae. Pellentesque varius libero rutrum eros cursus efficitur. Nulla eu massa sed mi placerat tincidunt sed ac nisl.
 
 Nam ornare iaculis urna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras tincidunt luctus pharetra. Ut varius vulputate sollicitudin. Ut non neque nisi. Fusce egestas neque et lobortis efficitur. Duis quis arcu vel elit efficitur auctor et vel nulla. Donec vestibulum, metus maximus dictum vulputate, ex libero semper odio, quis imperdiet mi libero convallis mauris. Vivamus interdum diam vel congue iaculis. Curabitur orci ex, suscipit eu urna nec, placerat suscipit dolor. Pellentesque sed nibh suscipit, hendrerit diam ut, ullamcorper libero. Nulla tristique posuere neque, ut vulputate nulla eleifend et. Sed tempus vestibulum dapibus. Nam rhoncus diam id nisi venenatis, nec dictum tellus pharetra. Vivamus suscipit id neque eget consectetur. Donec ut quam lectus.
+
+<figure class="sans horizontal layout">
+  <style>
+    .box { padding: 10px; flex: 1; text-align: center; background-color: #ddd; } 
+    .box:nth-of-type(odd) { background-color: #333; color: white; }
+  </style>
+  <span class="box">One</span>
+  <span class="box">Two</span>
+  <span class="box">Three</span>
+</figure>
 
 Etiam id faucibus ex. Integer suscipit velit nec urna ultricies, ac sodales ipsum fermentum. Fusce aliquam interdum luctus. Pellentesque ac gravida nulla. Nulla imperdiet volutpat nunc, et pulvinar neque pharetra vel. Duis at tincidunt ante. Ut varius, lorem ac venenatis commodo, turpis metus facilisis risus, non bibendum purus turpis at orci. Donec sem magna, efficitur eu ex et, tincidunt porttitor mi. Proin pellentesque condimentum magna vitae pulvinar. Morbi eu magna ut ligula pharetra consectetur. Curabitur felis nisi, rutrum vitae elementum in, viverra a augue.
 
