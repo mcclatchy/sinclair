@@ -159,8 +159,8 @@
 
 /** Figure **/
 
-[id^=content-body] figure {
-  line-height: 0;
+[id^=content-body] figure *:not(img) {
+  margin: 5px 0;
 }
 
 [id^=content-body] figure img {
@@ -169,7 +169,6 @@
 }
 
 [id^=content-body] figure figcaption {
-  margin: 5px 0;
   font-size: 14px;
   line-height: 18px;
   max-width: 900px;
