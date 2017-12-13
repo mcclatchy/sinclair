@@ -1,0 +1,6 @@
+baseURL = "http://mcclatchy.github.io/sinclair/"
+languageCode = "en-us"
+title = "Sinclair"
+
+disableKinds = ["RSS", "taxonomy"]
+canonifyURLs = true
