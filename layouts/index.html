@@ -10,13 +10,72 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
 
-    <link rel="stylesheet" href="/css/sinclair.css">
+    <link rel="stylesheet" href="/css/fonts.css">
+    <link rel="stylesheet" href="/css/flex-layout.css">
+    <link rel="stylesheet" href="/css/typography.css">
     <link rel="stylesheet" href="/css/site.css">
   </head>
 
-  <body>
-    <header class="hero vertical center-center layout">
-      <h1 class="slab logo">Sinclair</h1>
-    </header>
+  <body class="sans">
+    <nav class="container sans horizontal layout">
+      <a href="/" class="flex slab logo">Sinclair</a>
+      <a href="/template">template</a>
+    </nav>
+    <div class="vertical center layout">
+      <div class="typewriter">
+        <h1>Sinclair</h1>
+      </div>
+    </div>
+
+    <section class="gray-background">
+      <h2 class="sans text-lighter text-center">GETTING STARTED</h2>
+      <p>Before you start your project, please take a moment to contact the <a href="mailto:jpilgreen@mcclatchy.com">design group</a>. We can help you configure your story properly in Content Studio, discuss any necessary changes to workflow, recommend solutions to common problems and develop solutions for new problems.</p>
+    </section>
+
+    <section>
+      <h2 class="sans text-lighter text-center">v2</h2>
+      <p>Sinclair v2 takes a different approach to special projects. Instead of building external pages largely reliant on JavaScript, this version provides a thin style layer to enhance our current publishing system. This approach provides the following benefits:</p>
+      <ul>
+        <li>A smaller impact to the regular workflow.</li>
+        <li>A better search engine ranking.</li>
+        <li>Better social media integration.</li>
+        <li>It does not affect Omniture data.</li>
+        <li>It does not affect reporter data.</li>
+        <li>Standard revenue elements can be included.</li>
+        <li>It reduces development costs.</li>
+        <li>Stories can be shared between markets.</li>
+      </ul>
+    </section>
+
+    <section class="gray-background text-center">
+      <h2 class="sans text-lighter">SERVICES</h2>
+      <div class="container horizontal wrap layout">
+        <div class="column">
+          <div class="icon horizontal center-center layout">
+            <img src="/img/amp-icon.svg">
+          </div>
+          <h3 class="sans text-lighter">AMP</h3>
+          <p>AMP traffic is growing fast. We are working hard to ensure that as many enhancements as possible are available to that audience.</p>
+        </div>
+        <div class="column">
+          <div class="icon horizontal center-center layout">
+            <img src="/img/video-icon.svg">
+          </div>
+          <h3 class="sans text-lighter">VIDEO</h3>
+          <p>We are working with the video team to ensure Brightcove videos can be displayed at larger resolution, have pre-roll advertising and are tracked in Omniture.</p>
+        </div>
+        <div class="column">
+          <div class="icon horizontal center-center layout">
+            <img src="/img/code-icon.svg">
+          </div>
+          <h3 class="sans text-lighter">SNIPPETS</h3>
+          <p>We will provide code that works in both Newsgate and Content Studio.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="sans text-lighter text-center">EXAMPLES</h2>
+    </section>
   </body>
 </html>
